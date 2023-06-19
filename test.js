@@ -174,12 +174,40 @@ class HashTable {
         }
         return total % this.size
     }
+
+    set(key, value) {
+        const idx = this.hash(key)
+        this.table[idx] = value
+    }
+
+    get(key) {
+        const idx = this.hash(key)
+        return this.table[idx]
+    }
+
+    remove(key) {
+        const idx = this.hash(key)
+        this.table[idx] = undefined
+    }
+
+    display() {
+        for (let i = 0; i < this.table.length; i++) {
+            if (this.table[i]) {
+                console.log(i, this.table[i])
+            }
+        }
+    }
 }
 
 const table = new HashTable(50)
+table.set('name', 'Bruce')
+table.set('age', 25)
+table.display()
 
+console.log(table.get('name'))
 
-
+table.remove('name')
+table.display()
 
 
 
