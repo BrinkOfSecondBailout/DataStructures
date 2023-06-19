@@ -177,17 +177,44 @@ class HashTable {
 
     set(key, value) {
         const idx = this.hash(key)
-        this.table[idx] = value
+        // this.table[idx] = value
+        const bucket = this.table[idx]
+        if (!bucket) {
+            this.table[idx] = [[key, value]]
+        } else {
+            const sameKeyItem = bucket.find(item => item[0] === key)
+            if (sameKeyItem) {
+                sameKeyItem[1] = value
+            } else {
+                bucket.push([key, value])
+            }
+        }
     }
 
     get(key) {
         const idx = this.hash(key)
-        return this.table[idx]
+        // return this.table[idx]
+        const bucket = this.table[idx]
+        if (bucket) {
+            const sameKeyItem = bucket.find(item => item[0] === key)
+            if(sameKeyItem) {
+                return sameKeyItem[1]
+            }
+        } else {
+            return undefined
+        }
     }
 
     remove(key) {
         const idx = this.hash(key)
-        this.table[idx] = undefined
+        // this.table[idx] = undefined
+        const bucket = this.table[idx]
+        if (bucket) {
+            const sameKeyItem = bucket.find(item => item[0] === key)
+            if(sameKeyItem) {
+                bucket.splice(bucket.indexOf(sameKeyItem), 1)
+            }
+        }
     }
 
     display() {
@@ -206,7 +233,9 @@ table.display()
 
 console.log(table.get('name'))
 
-table.remove('name')
+table.set('mane', 'Clark')
+table.display()
+table.remove('mane')
 table.display()
 
 
