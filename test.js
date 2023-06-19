@@ -161,30 +161,22 @@ console.log(bst.isPresent(4));
 
 
 
-function hashStringToInt(s) {
-    return 5;
-}
-
 class HashTable {
-    table = new Array(100)
-    
-
-    setItem = (key, value) => {
-        const idx = hashStringToInt(key)
-        this.table[idx] = value
+    constructor(size) {
+        this.table = new Array(size)
+        this.size = size
     }
 
-    getItem = (key) => {
-        const idx = hashStringToInt(key)
-        return this.table[idx]
+    hash(key) {
+        let total = 0
+        for (let i = 0; i < key.length; i++) {
+            total += key.charCodeAt(i)
+        }
+        return total % this.size
     }
 }
 
-const myTable = new HashTable()
-myTable.setItem('firstName', 'Bob')
-myTable.getItem('firstName')
-console.log(myTable.getItem('firstName'))
-
+const table = new HashTable(50)
 
 
 
