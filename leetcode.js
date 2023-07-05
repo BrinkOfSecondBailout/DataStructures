@@ -98,3 +98,47 @@ var nums = [3,2,4]
 var target = 6
 
 console.log(twoSum(nums, target));
+
+
+var isPalindrome = function(x) {
+    var str = x.toString()
+    var isTrue = false
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== str[str.length - (i + 1)]) {
+            return false
+        } else {
+            isTrue = true
+        }
+    }
+    return isTrue
+};
+
+let x = 1221;
+console.log(isPalindrome(x));
+
+
+
+var romanToInt = function(s) {
+    let romanPairs = {
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000
+    }
+    let output = 0
+    str = s.toString();
+    for (let i = 0; i < str.length; i++) {
+        if (romanPairs[str[i]] < romanPairs[str[i + 1]]) {
+            output -= romanPairs[str[i]]
+        } else {
+            output += romanPairs[str[i]];
+        }
+    }
+    return output;
+};
+
+let s = "XL";
+console.log(romanToInt(s));
