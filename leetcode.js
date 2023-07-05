@@ -76,3 +76,25 @@ var isValid = function(s) {
     }
     return stack.length === 0; 
 };
+
+
+
+var twoSum = function(nums, target) {
+    const memoryObj = {}
+    const output = []
+    for (let i = 0; i < nums.length; i++) {
+        let difference = target - nums[i]
+        if (difference in memoryObj) {
+            output.push(i)
+            output.push(memoryObj[difference])
+            return output;
+        } else {
+            memoryObj[nums[i]] = i;
+        }
+    }
+};
+
+var nums = [3,2,4]
+var target = 6
+
+console.log(twoSum(nums, target));
