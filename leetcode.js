@@ -142,3 +142,19 @@ var romanToInt = function(s) {
 
 let s = "XL";
 console.log(romanToInt(s));
+
+
+var longestCommonPrefix = function(strs) {
+    var answer = strs[0];
+    for (let i = 1; i < strs.length; i++) {
+        while (strs[i].indexOf(answer) !== 0) {
+            console.log(strs[i].indexOf(answer))
+            answer = answer.substring(0, answer.length - 1)
+        }
+    }
+    return answer;
+};
+
+strs = ["flower","flow","flight"]
+
+console.log(longestCommonPrefix(strs))
