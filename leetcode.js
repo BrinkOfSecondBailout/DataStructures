@@ -159,6 +159,10 @@ strs = ["flower","flow","flight"]
 
 console.log(longestCommonPrefix(strs))
 
+
+
+
+
 var isValid = function(s) {
     const pairs = {
         "(": ")",
@@ -180,9 +184,36 @@ var isValid = function(s) {
             return false
         }
     }
-    return stack.length === 0
+    if (stack.length === 0) {
+        return true
+    } else {
+        return false
+    }
 }
 
 s = "()[]{}"
 
-isValid(s);
+console.log(isValid(s));
+
+
+
+
+
+var twoSum = function(nums, target) {
+    const memoryObj = {}
+    const output = []
+    for (let i = 0; i < nums.length; i++) {
+        var difference = target - nums[i]
+        if (difference in memoryObj) {
+            output.push(i)
+            output.push(memoryObj[difference])
+        } else {
+            memoryObj[nums[i]] = i
+        }
+    }
+    return output
+};
+
+nums = [2,7,11,15]
+target = 9
+console.log(twoSum(nums))
