@@ -203,17 +203,35 @@ var twoSum = function(nums, target) {
     const memoryObj = {}
     const output = []
     for (let i = 0; i < nums.length; i++) {
-        var difference = target - nums[i]
+        const difference = target - nums[i]
         if (difference in memoryObj) {
-            output.push(i)
             output.push(memoryObj[difference])
+            output.push(i)
+            return output;
         } else {
             memoryObj[nums[i]] = i
         }
     }
-    return output
+    return false
 };
 
 nums = [2,7,11,15]
 target = 9
-console.log(twoSum(nums))
+console.log(twoSum(nums, target))
+
+
+
+var isPalindrome = function(x) {
+    const string = x.toString()
+    const isPal = true
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] != string[string.length - (i + 1)]) {
+            return false
+        }
+    }
+    return isPal
+};
+
+x = 112211
+
+console.log(isPalindrome(x))
