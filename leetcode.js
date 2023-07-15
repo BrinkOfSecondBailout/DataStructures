@@ -235,3 +235,32 @@ var isPalindrome = function(x) {
 x = 112211
 
 console.log(isPalindrome(x))
+
+
+
+
+var romanToInt = function(s) {
+    const romanPairs = {
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000
+    }
+    var total = 0
+
+    for (let i=0; i<s.length; i++) {
+        if (romanPairs[s[i]] < romanPairs[s[i + 1]]) {
+            total -= romanPairs[s[i]]
+        } else {
+            total += romanPairs[s[i]]
+        }
+    }
+    return total
+};
+
+s = "MCMXCIV"
+
+console.log(romanToInt(s))
