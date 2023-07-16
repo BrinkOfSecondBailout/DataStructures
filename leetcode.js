@@ -264,3 +264,38 @@ var romanToInt = function(s) {
 s = "MCMXCIV"
 
 console.log(romanToInt(s))
+
+
+
+
+var isValid = function(s) {
+    if(s.length % 2 != 0) {
+        return false
+    }
+    const pairs = {
+        ")": "(",
+        "]": "[",
+        "}": "{"
+    }
+    if (s[0] === ")" || s[0] === "}" || s[0] === "]") {
+        return false
+    }
+    var stack = []
+    for (let i=0; i<s.length; i++) {
+        if(s[i] in pairs) {
+            if (stack && stack[stack.length - 1] === pairs[s[i]]) {
+                stack.pop()
+            } else {
+                return false
+            }
+        } else {
+            stack.push(s[i])
+        }
+    }
+    return stack.length === 0;
+};
+
+s = "()[]{}"
+
+console.log(isValid(s))
+
