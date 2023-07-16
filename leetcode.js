@@ -335,7 +335,7 @@ var removeDuplicates = function(nums) {
             nums[i] = nums[j];
         }
     }
-    return nums;
+    return i + 1;
 };
 
 nums = [0,0,1,1,1,2,2,3,3,4]
@@ -343,3 +343,48 @@ nums = [0,0,1,1,1,2,2,3,3,4]
 
 
 console.log(removeDuplicates(nums))
+
+
+
+
+var maxProfit = function(prices) {
+    var buy = prices[0]
+    for (let j = 1; j < prices.length; j++) {
+        if (buy > prices[j]) {
+            buy = prices[j]
+        }
+    }
+    var buyIndex = prices.indexOf(buy)
+    if (buyIndex !== prices.length) {
+        var sell = buy
+        for (let i = buyIndex + 1; i < prices.length; i++) {
+            if (sell < prices[i]) {
+                sell = prices[i]
+            }
+        }
+        return sell - buy
+    } else {
+        return 0
+    }
+};
+
+const maxProfit = (prices) => {
+    let left = 0; // Buy
+    let right = 1; // sell
+    let max_profit = 0;
+    while (right < prices.length) {
+        if (prices[left] < prices[right]) {
+            let profit = prices[right] - prices[left]; // our current profit
+
+            max_profit = Math.max(max_profit, profit);
+        } else {
+            left = right;
+        }
+        right++;
+    }
+    return max_profit;
+};
+
+prices = [7,1,5,3,6,4]
+
+console.log(maxProfit(prices))
