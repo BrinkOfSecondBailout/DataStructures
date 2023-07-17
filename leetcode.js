@@ -387,3 +387,24 @@ var containsDuplicate = function(nums) {
 nums = [1,2,3,1]
 
 console.log(containsDuplicate(nums))
+
+
+
+
+var isAnagram = function(s, t) {
+    if (s.length !== t.length) {
+        return false
+    }
+    for (let i = 0; i < s.length; i++) {
+        if(t.indexOf(s[i]) === -1) {
+            return false
+        }
+    }
+    return true
+};
+
+s = "anagram"
+t = "nagaram"
+
+
+console.log(isAnagram(s, t))
