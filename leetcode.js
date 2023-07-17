@@ -395,8 +395,10 @@ var isAnagram = function(s, t) {
     if (s.length !== t.length) {
         return false
     }
+    s = s.split("").sort()
+    t = t.split("").sort()
     for (let i = 0; i < s.length; i++) {
-        if(t.indexOf(s[i]) === -1) {
+        if (s[i] !== t[i]) {
             return false
         }
     }
@@ -408,3 +410,21 @@ t = "nagaram"
 
 
 console.log(isAnagram(s, t))
+
+
+
+
+
+var merge = function(nums1, m, nums2, n) {
+    nums1 = nums1.splice(0, m)
+    nums2 = nums2.splice(0, n)
+    nums1 = nums1.concat(nums2)
+    return nums1
+};
+
+nums1 = [1,2,3,0,0,0]
+m = 3
+nums2 = [2,5,6]
+n = 3
+
+console.log(merge(nums1, m, nums2, n))
