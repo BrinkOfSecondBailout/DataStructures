@@ -347,26 +347,7 @@ console.log(removeDuplicates(nums))
 
 
 
-var maxProfit = function(prices) {
-    var buy = prices[0]
-    for (let j = 1; j < prices.length; j++) {
-        if (buy > prices[j]) {
-            buy = prices[j]
-        }
-    }
-    var buyIndex = prices.indexOf(buy)
-    if (buyIndex !== prices.length) {
-        var sell = buy
-        for (let i = buyIndex + 1; i < prices.length; i++) {
-            if (sell < prices[i]) {
-                sell = prices[i]
-            }
-        }
-        return sell - buy
-    } else {
-        return 0
-    }
-};
+
 
 const maxProfit = (prices) => {
     let left = 0; // Buy
@@ -388,3 +369,21 @@ const maxProfit = (prices) => {
 prices = [7,1,5,3,6,4]
 
 console.log(maxProfit(prices))
+
+
+
+var containsDuplicate = function(nums) {
+    var newArr = []
+    for (let i = 0; i < nums.length; i ++) {
+        if (newArr.indexOf(nums[i]) === -1) {
+            newArr.push(nums[i])
+        } else {
+            return true
+        }
+    }
+    return false
+};
+
+nums = [1,2,3,1]
+
+console.log(containsDuplicate(nums))
