@@ -417,17 +417,32 @@ console.log(isAnagram(s, t))
 
 var buddyStrings = function(s, goal) {
     if (s === goal) {
+        console.log("1")
         return false
     }
     if (s.length !== goal.length) {
+        console.log("2")
         return false
     }
+    if (s.length === 1 || goal.length === 1) {
+        return false
+    }
+
+    
     let i = 0
     let j = 1
     let temp = s[i]
     s[i] = s[j]
     s[j] = temp
-    
+    console.log(s[i])
+    console.log(s[j])
+    console.log(s)
+    if (s === goal) {
+        return true
+    } else {
+        console.log("3")
+        return false
+    }
 };
 
 s = "ab"
