@@ -415,16 +415,22 @@ console.log(isAnagram(s, t))
 
 
 
-var merge = function(nums1, m, nums2, n) {
-    nums1 = nums1.splice(0, m)
-    nums2 = nums2.splice(0, n)
-    nums1 = nums1.concat(nums2)
-    return nums1
+var buddyStrings = function(s, goal) {
+    if (s === goal) {
+        return false
+    }
+    if (s.length !== goal.length) {
+        return false
+    }
+    let i = 0
+    let j = 1
+    let temp = s[i]
+    s[i] = s[j]
+    s[j] = temp
+    
 };
 
-nums1 = [1,2,3,0,0,0]
-m = 3
-nums2 = [2,5,6]
-n = 3
+s = "ab"
+goal = "ba"
 
-console.log(merge(nums1, m, nums2, n))
+console.log(buddyStrings(s, goal))
