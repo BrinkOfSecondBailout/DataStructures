@@ -414,38 +414,52 @@ console.log(isAnagram(s, t))
 
 
 
-
-var buddyStrings = function(s, goal) {
-    if (s === goal) {
-        console.log("1")
-        return false
-    }
-    if (s.length !== goal.length) {
-        console.log("2")
-        return false
-    }
-    if (s.length === 1 || goal.length === 1) {
-        return false
-    }
-
-    
-    let i = 0
-    let j = 1
-    let temp = s[i]
-    s[i] = s[j]
-    s[j] = temp
-    console.log(s[i])
-    console.log(s[j])
-    console.log(s)
-    if (s === goal) {
-        return true
-    } else {
-        console.log("3")
-        return false
+var addTwoNumbers = function(l1, l2) {
+    while(l1 || l2) {
+        let val1 = 0;
+        let val2 = 0;
+        if(l1) {
+            val1 = l1.val;
+            l1 = l1.next;
+        }
+        if(l2) {
+            val2 = l2.val;
+            l2 = l2.next;
+        }
+        let sum = val1 + val2;
+        console.log(`${val1} + ${val2} = ${sum}`)
     }
 };
 
-s = "ab"
-goal = "ba"
+l1 = [2,4,3]
+l2 = [5,6,4]
 
-console.log(buddyStrings(s, goal))
+console.log(addTwoNumbers(l1, l2))
+
+
+
+
+function fizzBuzz(n) {
+    for (let i = 1; i <= n; i++) {
+        if(i % 3 == 0) {
+            console.log("Fizz");
+        }
+        else if(i % 5 == 0) {
+            console.log("Buzz");
+        }
+        else if(i % 15 == 0) {
+            console.log("FizzBuzz");
+        } else {
+            console.log(i);
+        }
+    }
+}
+
+fizzBuzz(65)
+
+
+let text = "How are you today"
+const myArray = text.split(" ")
+
+console.log(myArray)
+
