@@ -439,31 +439,6 @@ console.log(addTwoNumbers(l1, l2))
 
 
 
-function fizzBuzz(n) {
-    for (let i = 1; i <= n; i++) {
-        if(i % 3 == 0) {
-            console.log("Fizz");
-        }
-        else if(i % 5 == 0) {
-            console.log("Buzz");
-        }
-        else if(i % 15 == 0) {
-            console.log("FizzBuzz");
-        } else {
-            console.log(i);
-        }
-    }
-}
-
-fizzBuzz(65)
-
-
-let text = "How are you today"
-const myArray = text.split(" ")
-
-console.log(myArray)
-
-
 class ListNode {
     constructor(val, next = null) {
         this.val = val;
