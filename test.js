@@ -5,5 +5,3 @@ class Figurine {
         this.price = price;
     }
 }
-
-console.log(new Figurine("Goku", 20, 100));
