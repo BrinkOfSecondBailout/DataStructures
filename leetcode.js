@@ -519,19 +519,17 @@ class ListNode {
         this.next = next;
     }
 }
-
-
-
 var addTwoNumbers = function(l1, l2) {
     let carry = 0;
-    let l1Val = l1 ? l1.val : 0;
-    let l2Val = l2 ? l2.val : 0;
     let result = new ListNode(1);
     let resultPointer = result;
     while (l1 || l2 || carry) {
-        let nextDigit = Math.floor((l1Val + l2Val + carry) / 10);
-        carry = ((l1Val + l2Val + carry) % 10);
-        result = result.next(nextDigit)
+        let l1Val = l1 ? l1.val : 0;
+        let l2Val = l2 ? l2.val : 0;
+        let nextDigit = Math.floor((l1Val + l2Val + carry) % 10);
+        carry = ((l1Val + l2Val + carry) / 10);
+        result.next = new ListNode(nextDigit);
+        result = result.next;
 
         l1 = l1 ? l1.next : null;
         l2 = l2 ? l2.next : null;
