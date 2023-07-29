@@ -544,7 +544,16 @@ console.log(addTwoNumbers(l1, l2));
 
 
 function maxArraySum(nums, size) {
-
+    let currentSum = 0;
+    let maxSum = 0;
+    for (let i = 0; i < nums.length; i++) {
+        currentSum += nums[i];
+        if (i >= size - 1) {
+            maxSum = Math.max(maxSum, currentSum);
+            currentSum -= nums[i - (size - 1)]
+        }
+    }
+    return maxSum;
 }
 
 let nums = [1, 5, 6, 11, 3, 9, 23, 6, 83, 5, 12, 2]
