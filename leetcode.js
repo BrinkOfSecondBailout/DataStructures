@@ -543,13 +543,27 @@ var l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 console.log(addTwoNumbers(l1, l2));
 
 
+function maxArraySum(nums, size) {
+
+}
+
+let nums = [1, 5, 6, 11, 3, 9, 23, 6, 83, 5, 12, 2]
+
+console.log(maxArraySum(nums, 3));
 
 
+
+
+
+
+
+
+// Given a string s, find the length of the longest 
+// substring without repeating characters
 
 var lengthOfLongestSubstring = function(s) {
-    
 };
 
-s = "abcabcbb"
+s = "bbbbb"
 
 console.log(lengthOfLongestSubstring(s))
