@@ -571,8 +571,14 @@ console.log(maxArraySum(nums, 3));
 // substring without repeating characters
 
 var lengthOfLongestSubstring = function(s) {
+    let start = 0;
+    let end = 0;
+    let maxLength = 0;
+    for (let i = 0; i < s.length; i++) {
+        
+    }
 };
 
-s = "bbbbb"
+s = "abcabcbb"
 
 console.log(lengthOfLongestSubstring(s))
