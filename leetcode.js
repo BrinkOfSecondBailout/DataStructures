@@ -473,12 +473,6 @@ var l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
 console.log(addTwoNumbers(l1, l2))
 
-
-
-
-
-
-
 class ListNode {
     constructor(val, next = null) {
         this.val = val;
@@ -559,9 +553,6 @@ function maxArraySum(nums, size) {
 let nums = [1, 5, 6, 11, 3, 9, 23, 6, 83, 5, 12, 2]
 
 console.log(maxArraySum(nums, 3));
-
-
-
 
 
 
