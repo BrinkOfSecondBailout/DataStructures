@@ -414,31 +414,6 @@ console.log(isAnagram(s, t))
 
 
 
-var addTwoNumbers = function(l1, l2) {
-    while(l1 || l2) {
-        let val1 = 0;
-        let val2 = 0;
-        if(l1) {
-            val1 = l1.val;
-            l1 = l1.next;
-        }
-        if(l2) {
-            val2 = l2.val;
-            l2 = l2.next;
-        }
-        let sum = val1 + val2;
-        console.log(`${val1} + ${val2} = ${sum}`)
-    }
-};
-
-l1 = [2,4,3]
-l2 = [5,6,4]
-
-console.log(addTwoNumbers(l1, l2))
-
-
-
-
 class ListNode {
     constructor(val, next = null) {
         this.val = val;
