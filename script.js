@@ -30,17 +30,18 @@ class Suv extends Car {
         this._brand = brand;
     }
     myBrand() {
-        return console.log(`This SUV is a ${this.brand}`);
+        return console.log(`This SUV is a ${this._brand}`);
     }
 }
 
 
-const cx5 = new Suv(4, 'V6', 'Grey', 'Mazda');
-const civic = new Car(3, 'V4', 'Blue');
+const cx5 = new Suv(4, 'V6', 'Grey');
+// const civic = new Car(3, 'V4', 'Blue');
 
-console.log(cx5);
-console.log(cx5.carStats());
+console.log(cx5.getBrand);
+cx5.setBrand = 'Mazda';
 console.log(cx5.myBrand());
+
 // console.log(civic);
 // console.log(civic.carStats());
 // console.log(Car.totalDoors(cx5, civic));
