@@ -42,7 +42,4 @@ console.log(cx5.getBrand);
 cx5.setBrand = 'Mazda';
 console.log(cx5.myBrand());
 
-// console.log(civic);
-// console.log(civic.carStats());
-// console.log(Car.totalDoors(cx5, civic));
 
