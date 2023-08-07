@@ -36,7 +36,6 @@ class Suv extends Car {
 
 
 const cx5 = new Suv(4, 'V6', 'Grey');
-// const civic = new Car(3, 'V4', 'Blue');
 
 console.log(cx5.getBrand);
 cx5.setBrand = 'Mazda';
