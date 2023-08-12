@@ -569,3 +569,22 @@ var lengthOfLongestSubstring = function(s) {
 s = "abcabcbb"
 
 console.log(lengthOfLongestSubstring(s))
+
+
+
+const array1 = ['a', 'b', 'c', 'd'];
+const array2 = ['c', 'z', 'e'];
+
+function commonItems(arr1, arr2) {
+    let map = {};
+    for (let i=0; i<arr1.length; i++) {
+        if(!map[arr1[i]]) {
+            map[arr1[i]] = true;
+        } else {
+            return true;
+        }
+    }
+    return false
+}
+
+console.log(commonItems(array1, array2));
