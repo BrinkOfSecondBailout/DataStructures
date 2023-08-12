@@ -573,7 +573,7 @@ console.log(lengthOfLongestSubstring(s))
 
 
 const array1 = ['a', 'b', 'c', 'd'];
-const array2 = ['c', 'z', 'e'];
+const array2 = ['r', 'z', 'e'];
 
 function commonItems(arr1, arr2) {
     let map = {};
@@ -583,7 +583,7 @@ function commonItems(arr1, arr2) {
         }
     }
     for (let i=0; i<arr2.length; i++) {
-        if(arr2[i] in map) {
+        if(map[arr2[i]]) {
             return true;
         }
     }
@@ -591,3 +591,5 @@ function commonItems(arr1, arr2) {
 }
 
 console.log(commonItems(array1, array2));
+
+// O(a + b)
