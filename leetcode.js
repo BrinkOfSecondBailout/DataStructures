@@ -580,11 +580,14 @@ function commonItems(arr1, arr2) {
     for (let i=0; i<arr1.length; i++) {
         if(!map[arr1[i]]) {
             map[arr1[i]] = true;
-        } else {
+        }
+    }
+    for (let i=0; i<arr2.length; i++) {
+        if(arr2[i] in map) {
             return true;
         }
     }
-    return false
+    return false;
 }
 
 console.log(commonItems(array1, array2));
