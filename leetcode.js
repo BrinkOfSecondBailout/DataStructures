@@ -631,3 +631,26 @@ const reverse4 = str => [...str].reverse().join('');
 console.log(reverse3(str));
 
 console.log(reverse4(str));
+
+
+
+
+function mergeSortedArrays(arr1, arr2) {
+    function mergeArrays(arr1, arr2) {
+        var newArr = [];
+        for (let i = 0; i < arr1.length; i++) {
+            newArr.push(arr1[i]);
+        }
+        for (let i = 0; i < arr2.length; i++) {
+            newArr.push(arr2[i]);
+        }
+    }
+    function sortArray(arr) {
+        
+    }
+}
+
+var arr1 = [0, 3, 4, 2, 1];
+var arr2 = [5, 23, 8, 30];
+
+console.log(mergeSortedArrays(arr1, arr2));
