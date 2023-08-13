@@ -597,3 +597,18 @@ function commonItems(arr1, arr2) {
 console.log(commonItems(array1, array2));
 
 // O(a + b)
+
+
+function reverse(string) {
+    var newString = []
+    console.log(string)
+    for (let i = string.length - 1; i = 0; i--) {
+        newString.push(string[i]);
+        console.log(string[i])
+    }
+    return newString;
+}
+
+let str = 'Hi my name is Danny';
+
+console.log(reverse(str));
