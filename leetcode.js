@@ -615,3 +615,11 @@ function reverse(str) {
 let str = 'Hi my name is Danny';
 
 console.log(reverse(str));
+
+let str = 'Hi my name is Danny';
+function reverse2(str) {
+    return str.split('').reverse().join('');
+}
+
+console.log(reverse2(str));
+
