@@ -636,21 +636,35 @@ console.log(reverse4(str));
 
 
 function mergeSortedArrays(arr1, arr2) {
-    function mergeArrays(arr1, arr2) {
-        var newArr = [];
-        for (let i = 0; i < arr1.length; i++) {
-            newArr.push(arr1[i]);
-        }
-        for (let i = 0; i < arr2.length; i++) {
-            newArr.push(arr2[i]);
+    if((arr1.length === 0) && (arr2.length === 0)) {
+        return "Both arrays are empty";
+    }
+    if(arr1.length === 0) {
+        return arr2;
+    }
+    if(arr2.length === 0) {
+        return arr1;
+    }
+    const mergedArray = [];
+    var i = 0;
+    var j = 0;
+    while(i < arr1.length || j < arr2.length) {
+        var array1Item = arr1[i];
+        var array2Item = arr2[j];
+        if(!array2Item || array1Item < array2Item) {
+            mergedArray.push(array1Item);
+            array1Item = arr1[i];
+            i++;
+        } else {
+            mergedArray.push(array2Item);
+            array2Item = arr2[j];
+            j++;
         }
     }
-    function sortArray(arr) {
-        
-    }
+    return mergedArray;
 }
 
-var arr1 = [0, 3, 4, 2, 1];
-var arr2 = [5, 23, 8, 30];
+var arr1 = [0, 3, 4, 21];
+var arr2 = [4, 6, 30];
 
 console.log(mergeSortedArrays(arr1, arr2));
