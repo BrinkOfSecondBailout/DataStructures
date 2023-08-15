@@ -648,6 +648,7 @@ function mergeSortedArrays(arr1, arr2) {
     const mergedArray = [];
     var i = 0;
     var j = 0;
+
     while(i < arr1.length || j < arr2.length) {
         var array1Item = arr1[i];
         var array2Item = arr2[j];
@@ -668,3 +669,50 @@ var arr1 = [0, 3, 4, 21];
 var arr2 = [4, 6, 30];
 
 console.log(mergeSortedArrays(arr1, arr2));
+
+
+
+function twoSums(nums, target) {
+    var output = [];
+    var memoryObj = {};
+    for (let i = 0; i < nums.length; i++) {
+        var difference = target - nums[i];
+        if(difference in memoryObj) {
+            output.push(i);
+            output.push(memoryObj[difference]);
+            return output;
+        } else {
+            memoryObj[nums[i]] = i;
+        }
+    }
+}
+
+let nums = [2, 7, 11, 15];
+let target = 9;
+console.log(twoSums(nums, target));
+
+
+function moveZeroes(nums) {
+    var i = 0;
+    var j = 1;
+    while(i <= nums.length - 2 || j <= nums.length - 1) {
+        if(nums[i] == 0 && nums[j] == 0) {
+            nums[j] = nums[j + 1];
+            nums[j + 1] = 0;
+        }
+        if(nums[i] == 0) {
+            nums[i] = nums[j];
+            nums[j] = 0;
+            i++;
+            j++;
+        } else {
+            i++;
+            j++;
+        }
+    }
+    return nums;
+}
+
+var nums = [0, 1];
+console.log(moveZeroes(nums));
+
