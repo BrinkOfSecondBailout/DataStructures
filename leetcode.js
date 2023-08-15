@@ -795,3 +795,18 @@ myHashTable.set('grapes', 1000);
 myHashTable.set('oranges', 50);
 myHashTable.set('apples', 20);
 console.log(myHashTable.keys());
+
+
+function firstRecurringCharacter(array) {
+    var memoryObj = {};
+    for (let i = 0; i < array.length; i++) {
+        if(array[i] in memoryObj) {
+            return array[i];
+        }
+        memoryObj[array[i]] = i;
+    }
+    return undefined;
+}
+
+let array1 = [2, 5, 1, 2, 3, 5, 1, 2, 4];
+console.log(firstRecurringCharacter(array1));
