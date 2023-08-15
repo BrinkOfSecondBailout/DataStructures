@@ -691,14 +691,16 @@ let nums = [2, 7, 11, 15];
 let target = 9;
 console.log(twoSums(nums, target));
 
-
+// My code
 function moveZeroes(nums) {
     var i = 0;
     var j = 1;
     while(i <= nums.length - 2 || j <= nums.length - 1) {
         if(nums[i] == 0 && nums[j] == 0) {
-            nums[j] = nums[j + 1];
-            nums[j + 1] = 0;
+            if(j < nums.length - 1) {
+                nums[j] = nums[j + 1];
+                nums[j + 1] = 0;
+            }
         }
         if(nums[i] == 0) {
             nums[i] = nums[j];
@@ -713,6 +715,27 @@ function moveZeroes(nums) {
     return nums;
 }
 
-var nums = [0, 1];
+var nums = [7, 0, 3, 5, 2, 1];
 console.log(moveZeroes(nums));
 
+
+
+// Chat GPT revised
+function moveZeroes(nums) {
+    var i = 0;
+    var j = 1;
+    while (j < nums.length) {
+        if (nums[i] == 0 && nums[j] != 0) {
+            nums[i] = nums[j];
+            nums[j] = 0;
+            i++;
+        } else if (nums[i] != 0) {
+            i++;
+        }
+        j++;
+    }
+    return nums;
+}
+
+var nums = [7, 0, 3, 5, 2, 1];
+console.log(moveZeroes(nums));
