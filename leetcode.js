@@ -808,5 +808,32 @@ function firstRecurringCharacter(array) {
     return undefined;
 }
 
-let array1 = [2, 5, 1, 2, 3, 5, 1, 2, 4];
-console.log(firstRecurringCharacter(array1));
+let array = [2, 5, 1, 2, 3, 5, 1, 2, 4];
+console.log(firstRecurringCharacter(array));
+
+
+// let myLinkedList = {
+//     head: {
+//         value: 10,
+//         next: { value: 5,
+//             next: {
+//                 value: 16,
+//                 next: null
+//             }
+//         }
+//     }
+// }
+
+class LinkedList {
+    constructor (value) {
+        this.head = {
+            value: value,
+            next: null
+        }
+        this.tail = this.head;
+        this.length = 1;
+    }
+}
+
+const myLinkedList = new LinkedList(10);
+console.log(myLinkedList);
