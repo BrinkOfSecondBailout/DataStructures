@@ -875,6 +875,20 @@ class LinkedList {
         this.length++;
         return this;
     }
+    remove(index) {
+        if(index >= this.length) {
+            return undefined;
+        }
+        if(index === 0) {
+            this.head = this.head.next;
+        } else {
+            const leader = this.traverseToIndex(index - 1);
+            const targetNode = leader.next;
+            leader.next = targetNode.next;
+        }
+        this.length--;
+        return this;
+    }
     traverseToIndex(index) {
         let counter = 0;
         let currentNode = this.head;
@@ -893,4 +907,6 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
 myLinkedList.insert(2, 99);
+myLinkedList.insert(20, 88);
+myLinkedList.remove(2);
 console.log(myLinkedList.printList());
