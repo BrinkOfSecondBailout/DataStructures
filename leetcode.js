@@ -898,6 +898,42 @@ class LinkedList {
         }
         return currentNode;
     }
+    // reverse() {
+    //     if(!this.head.next) {
+    //         return this;
+    //     }
+    //     let first = this.head;
+    //     this.tail = this.head;
+    //     let second = first.next;
+    //     while(second) {
+    //         const temp = second.next;
+    //         second.next = first;
+    //         first = second;
+    //         second = temp;
+    //     }
+    //     this.head.next = null;
+    //     this.head = first;
+    //     return this.printList();
+    // }
+
+    reverse() {
+        if(this.length <= 1) {
+            return this;
+        }
+        let first = this.head;
+        let second = this.head.next;
+        this.tail = this.head;
+        while(second) {
+            const temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+        this.head.next = null;
+        this.head = first;
+        return this;
+    }
+
 }
 
 
@@ -909,7 +945,8 @@ myLinkedList.prepend(1);
 myLinkedList.insert(2, 99);
 myLinkedList.insert(20, 88);
 myLinkedList.remove(2);
-console.log(myLinkedList.printList());
+console.log(myLinkedList.reverse());
+// console.log(myLinkedList.printList());
 
 
 
@@ -992,13 +1029,17 @@ class DoublyLinkedList {
             this.head = this.head.next;
         } else {
             const leader = this.traverseToIndex(index - 1);
-            const targetNode = leader.next;
-            leader.next = targetNode.next;
+            const follower = this.traverseToIndex(index + 1);
+            leader.next = follower;
+            follower.previous = leader;
         }
         this.length--;
         return this;
     }
 }
+
+
+
 
 
 
