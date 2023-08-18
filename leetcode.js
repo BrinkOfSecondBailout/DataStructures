@@ -910,3 +910,100 @@ myLinkedList.insert(2, 99);
 myLinkedList.insert(20, 88);
 myLinkedList.remove(2);
 console.log(myLinkedList.printList());
+
+
+
+
+
+
+
+
+class DNode {
+    constructor (value) {
+        this.value = value,
+        this.next = null,
+        this.previous = null
+    };
+}
+
+class DoublyLinkedList {
+    constructor (value) {
+        const newNode = new DNode(value);
+        this.head = newNode;
+        this.tail = this.head;
+        this.length = 1;
+    }
+    append(value) {
+        const newNode = new DNode(value);
+        newNode.previous = this.tail;
+        this.tail.next = newNode;
+        this.tail = newNode;
+        this.length++;
+        return this;
+    }
+    prepend(value) {
+        const newNode = new DNode(value);
+        newNode.next = this.head;
+        this.head.previous = newNode;
+        this.head = newNode;
+        this.length++;
+        return this;
+    }
+    printList() {
+        const array = [];
+        let currentNode = this.head;
+        while (currentNode !== null) {
+            array.push(currentNode.value)
+            currentNode = currentNode.next
+        }
+        return array;
+    }
+    traverseToIndex(index) {
+        let counter = 0;
+        let currentNode = this.head;
+        while (counter !== index) {
+            currentNode = currentNode.next;
+            counter++;
+        }
+        return currentNode;
+    }
+    insert(index, value) {
+        if (index >= this.length) {
+            return this.append(value);
+        }
+        if (index === 0) {
+            return this.prepend(value);
+        }
+        const newNode = new Node(value);
+        const leader = this.traverseToIndex(index - 1);
+        const follower = this.traverseToIndex(index + 1);
+        newNode.next = follower;
+        newNode.previous = leader;
+        follower.previous = newNode;
+        leader.next = newNode;
+        this.length++;
+        return this;
+    }
+    remove(index) {
+        if(index >= this.length) {
+            return undefined;
+        }
+        if(index === 0) {
+            this.head = this.head.next;
+        } else {
+            const leader = this.traverseToIndex(index - 1);
+            const targetNode = leader.next;
+            leader.next = targetNode.next;
+        }
+        this.length--;
+        return this;
+    }
+}
+
+
+
+const myDoublyLinkedList = new DoublyLinkedList(10);
+myDoublyLinkedList.append(5);
+myDoublyLinkedList.append(16);
+console.log(myDoublyLinkedList);
+// console.log(myDoublyLinkedList.printList());
