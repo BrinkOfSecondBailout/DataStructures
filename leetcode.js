@@ -1048,3 +1048,30 @@ myDoublyLinkedList.append(5);
 myDoublyLinkedList.append(16);
 console.log(myDoublyLinkedList);
 // console.log(myDoublyLinkedList.printList());
+
+
+
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Stack {
+    constructor() {
+        this.top = null;
+        this.bottom = null;
+        this.length = 0;
+    }
+    peek() {
+        return this.top;
+    }
+    push(value) {
+
+    }
+    pop() {
+
+    }
+}
