@@ -1069,7 +1069,14 @@ class Stack {
         return this.top;
     }
     push(value) {
-
+        let newNode = new Node(value);
+        if(this.bottom === null) {
+            this.bottom = newNode;
+        } else {
+            
+        }
+        this.top = newNode;
+        this.length++;
     }
     pop() {
 
