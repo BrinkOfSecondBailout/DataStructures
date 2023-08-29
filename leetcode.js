@@ -1082,18 +1082,13 @@ class Stack {
         return this;
     }
     pop() {
-        if(this.length === 0) {
-            return this;
-        }
-        if(this.length === 1) {
-            this.top = null;
-            this.bottom = null;
-            this.length--;
-            return this;
+        if(!this.top) {
+            return null;
         } else {
-            this.top.next = this.top;
+            const holder = this.top;
+            this.top = this.top.next;
             this.length--;
-            return this;
+            return holder;
         }
     }
 }
