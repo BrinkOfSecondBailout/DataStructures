@@ -1069,16 +1069,31 @@ class Stack {
         return this.top;
     }
     push(value) {
-        let newNode = new Node(value);
-        if(this.bottom === null) {
+        const newNode = new Node(value);
+        if(this.length === 0) {
             this.bottom = newNode;
+            this.top = newNode;
         } else {
-            
+            const holder = this.top;
+            this.top = newNode;
+            this.top.next = holder;
         }
-        this.top = newNode;
         this.length++;
+        return this;
     }
     pop() {
-
+        if(this.length === 0) {
+            return this;
+        }
+        if(this.length === 1) {
+            this.top = null;
+            this.bottom = null;
+            this.length--;
+            return this;
+        } else {
+            this.top.next = this.top;
+            this.length--;
+            return this;
+        }
     }
 }
