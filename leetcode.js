@@ -1101,4 +1101,12 @@ class Stack {
     peek() {
         return this.array[this.array.length - 1];
     }
+    push(value) {
+        this.array.push(value);
+    }
+    pop() {
+        const holder = this.array[this.array.length - 1];
+        this.array[this.array.length - 1] = null;
+        return holder;
+    }
 }
