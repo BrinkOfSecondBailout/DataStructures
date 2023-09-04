@@ -612,11 +612,9 @@ function reverse(str) {
     return newArr.join('');
 }
 
-let str = 'Hi my name is Danny';
 
 console.log(reverse(str));
 
-let str = 'Hi my name is Danny';
 function reverse2(str) {
     return str.split('').reverse().join('');
 }
@@ -1092,5 +1090,15 @@ class Stack {
         this.top = this.top.next;
         this.length--;
         return holder;
+    }
+}
+
+
+class Stack {
+    constructor() {
+        this.array = [];
+    }
+    peek() {
+        return this.array[this.array.length - 1];
     }
 }
