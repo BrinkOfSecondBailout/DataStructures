@@ -1142,8 +1142,24 @@ class Queue {
             return null;
         }
         this.first = this.first.next;
-        this.length --;
+        this.length--;
         return this;
     }
 }
 
+class Queue {
+    constructor() {
+        this.array = [];
+    }
+    peek() {
+        return this.array[this.array.length - 1];
+    }
+    enqueue(value) {
+        this.array.shift(value);
+        return this;
+    }
+    dequeue() {
+        this.array.pop();
+        return this;
+    }
+}
