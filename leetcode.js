@@ -1133,7 +1133,17 @@ class Queue {
         return this;
     }
     dequeue() {
-
+        if(this.length === 0) {
+            return null;
+        }
+        if(this.first === this.last) {
+            this.first = null;
+            this.last = null;
+            return null;
+        }
+        this.first = this.first.next;
+        this.length --;
+        return this;
     }
 }
 
