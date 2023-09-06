@@ -1218,6 +1218,62 @@ class BinarySearchTree {
         }
         return false;
     }
+    remove(value) {
+        if(this.root === null) {
+            return false;
+        }
+        let currentNode = this.root;
+        let parentNode = null;
+        while(currentNode) {
+            if(value > currentNode.value) {
+                parentNode = currentNode;
+                currentNode = currentNode.right;
+            } else if (value < currentNode.value) {
+                parentNode = currentNode;
+                currentNode = currentNode.left;
+            } else if (value === currentNode.value) {
+                parentNode = currentNode;
+                if(currentNode.right === null) {
+                    if(parentNode === null) {
+                        this.root = currentNode.left;
+                    } else {
+                        if(currentNode.value < parentNode.value) {
+                            parentNode.left = currentNode.left;
+                        } else if (currentNode.value > parentNode.value) {
+                            parentNode.right = currentNode.left;
+                        }
+                    }
+                } else if(currentNode.right.left === null) {
+                    if(parentNode === null) {
+                        this.root = currentNode.left;
+                    } else {
+                        parentNode.right = currentNode.right;
+                    }
+                } else {
+                    let leftmost = currentNode.right.left;
+                    let leftmostParent = currentNode.right;
+                    while(leftmost.left !== null) {
+                        leftmostParent = leftmost;
+                        leftmost = leftmost.left;
+                    }
+                    leftmostParent.left = leftmost.right;
+                    leftmost.left = currentNode.left;
+                    leftmost.right = currentNode.right;
+
+                    if(parentNode === null) {
+                        this.root = leftmost;
+                    } else {
+                        if(currentNode.value < parentNode.value) {
+                            parentNode.left = leftmost;
+                        } else if(currentNode.value > parentNode.value) {
+                            parentNode.right = leftmost;
+                        }
+                    }
+                }
+            return true;
+            }
+        }
+    }
 }
 
 // function traverse(node) {
