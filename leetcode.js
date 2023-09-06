@@ -1163,3 +1163,33 @@ class Queue {
         return this;
     }
 }
+
+
+
+class BinarySearchTree {
+    constructor() {
+        this.root = null;
+    }
+    insert(value) {
+        const newNode = new Node(value);
+        if(this.root === null) {
+            this.root = newNode;
+        }
+        if(value > this.root) {
+            this.root.right = newNode;
+        }
+        if(value < this.root) {
+            this.root.left = newNode;
+        }
+    }
+    lookup(value) {
+        if(this.root === null) {
+            return null;
+        }
+        if(value > this.root) {
+            this.root.right;
+        }
+    }
+}
+
+const tree = new BinarySearchTree();
