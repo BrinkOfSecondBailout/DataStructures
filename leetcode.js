@@ -1276,15 +1276,6 @@ class BinarySearchTree {
     }
 }
 
-// function traverse(node) {
-//     const tree = { value: node.value };
-//     tree.left = node.left === null ? null :
-//     traverse(node.left);
-//     tree.right = node.right === null ? null :
-//     traverse(node.right);
-//     return tree;
-// }
-
 const tree = new BinarySearchTree();
 tree.insert(9);
 tree.insert(4);
@@ -1298,3 +1289,10 @@ console.log(tree.lookup(1));
 
 
 
+// Edge List
+
+const graph = [[0, 2], [2, 3], [2, 1], [1, 3]];
+
+// Adjacent List
+
+const graph = [[2], [2, 3], [0, 1, 3], [1, 2]];
