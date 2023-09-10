@@ -1341,3 +1341,21 @@ class Graph {
         }
     }
 }
+
+
+function findFactorialRecursive(number) {
+    let answer = 1
+    if (number === 1) {
+        return answer;
+    }
+    answer = number * findFactorialRecursive(number - 1);
+}
+
+function findFactorialIterative(number) {
+    for (let i = number; i > 1; i--) {
+
+    }
+    return answer;
+}
+
+console.log(findFactorialIterative(5));
