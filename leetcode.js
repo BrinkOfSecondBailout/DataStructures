@@ -1385,11 +1385,12 @@ function fibonacciRecursive(n) {
 console.log(fibonacciRecursive(3));
 
 
-let numbers = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0, 12];
+
 
 function bubbleSort(array) {
     const length = array.length;
     for (let i = 0; i < length; i++) {
+        console.log(array);
         for (let j = 0; j < length; j++) {
             if(array[j] > array[j + 1]) {
                 let holder = array[j];
@@ -1402,3 +1403,23 @@ function bubbleSort(array) {
 }
 
 console.log(bubbleSort(numbers));
+
+let numbers = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0, 12];
+
+function selectionSort(array) {
+    const length = array.length;
+    for (let i = 0; i < length; i++) {
+        let min = i;
+        let temp = array[i];
+        for (let j = i+1; j < length; j++) {
+            if(array[j] < array[min]){
+                min = j;
+            }
+        }
+        array[i] = array[min];
+        array[min] = temp;
+    }
+    return array;
+}
+
+console.log(selectionSort(numbers));
