@@ -1389,11 +1389,13 @@ let numbers = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0, 12];
 
 function bubbleSort(array) {
     const length = array.length;
-    for (let i = 0; i < length - 1; i++) {
-        if(array[i] > array[i + 1]) {
-            const holder = array[i];
-            array[i] = array[i + 1];
-            array[i + 1] = holder;
+    for (let i = 0; i < length; i++) {
+        for (let j = 0; j < length; j++) {
+            if(array[j] > array[j + 1]) {
+                let holder = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = holder;
+            }
         }
     }
     return array;
