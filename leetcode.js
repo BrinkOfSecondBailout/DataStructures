@@ -1291,29 +1291,29 @@ console.log(tree.lookup(1));
 
 // Edge List
 
-const graph = [[0, 2], [2, 3], [2, 1], [1, 3]];
+// const graph = [[0, 2], [2, 3], [2, 1], [1, 3]];
 
 // Adjacent List
 
-const graph = [[2], [2, 3], [0, 1, 3], [1, 2]];
+// const graph = [[2], [2, 3], [0, 1, 3], [1, 2]];
 
 // Adjacent matrix
 
-const graph = [
-    [0, 0, 1, 0],
-    [0, 0, 1, 1],
-    [1, 1, 0, 1],
-    [0, 1, 1, 0]
-]
+// const graph = [
+//     [0, 0, 1, 0],
+//     [0, 0, 1, 1],
+//     [1, 1, 0, 1],
+//     [0, 1, 1, 0]
+// ]
 
 // Or
 
-const graph = {
-    0: [0, 0, 1, 0],
-    1: [0, 0, 1, 1],
-    2: [1, 1, 0, 1],
-    3: [0, 1, 1, 0]
-}
+// const graph = {
+//     0: [0, 0, 1, 0],
+//     1: [0, 0, 1, 1],
+//     2: [1, 1, 0, 1],
+//     3: [0, 1, 1, 0]
+// }
 
 class Graph {
     constructor() {
@@ -1383,3 +1383,10 @@ function fibonacciRecursive(n) {
 }
 
 console.log(fibonacciRecursive(3));
+
+
+let numbers = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0, 12];
+
+function bubbleSort(numbers) {
+    
+}
