@@ -1423,3 +1423,19 @@ function selectionSort(array) {
 }
 
 console.log(selectionSort(numbers));
+
+let numbers2 = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0, 12];
+
+function insertionSort(array) {
+    const length = array.length;
+    for (let i = 0; i < length; i++) {
+        if(array[i] < array[0]) {
+            array.unshift(array.splice(i, 1)[0]);
+        } else {
+            for (let j = 1; j < i; j++)
+        }
+    }
+
+}
+
+console.log(insertionSort(numbers2));
