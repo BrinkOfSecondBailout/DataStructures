@@ -1387,6 +1387,16 @@ console.log(fibonacciRecursive(3));
 
 let numbers = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0, 12];
 
-function bubbleSort(numbers) {
-    
+function bubbleSort(array) {
+    const length = array.length;
+    for (let i = 0; i < length - 1; i++) {
+        if(array[i] > array[i + 1]) {
+            const holder = array[i];
+            array[i] = array[i + 1];
+            array[i + 1] = holder;
+        }
+    }
+    return array;
 }
+
+console.log(bubbleSort(numbers));
