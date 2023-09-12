@@ -1432,10 +1432,44 @@ function insertionSort(array) {
         if(array[i] < array[0]) {
             array.unshift(array.splice(i, 1)[0]);
         } else {
-            for (let j = 1; j < i; j++)
+            for (let j = 1; j < i; j++) {
+                if(array[i] > array[j-1] && array[i] < array[j]) {
+                    array.splice(j,0,array.splice(i,1)[0]);
+                }
+            }
         }
     }
-
 }
 
 console.log(insertionSort(numbers2));
+
+let numbers3 = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0];
+
+function mergeSort(array) {
+    if (array.length === 1) {
+        return array;
+    }
+    // Split array into left and right
+    const length = array.length;
+    const midPoint = Math.floor(length / 2);
+    const left = array.slice(0, midPoint);
+    const right = array.slice(midpoint);
+
+    return merge(mergeSort(left), mergeSort(right))
+}
+
+function merge(left, right) {
+    const result = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+    while(leftIndex < left.length && rightIndex < right.length) {
+        if(left[leftIndex] < right[rightIndex]) {
+            result.push(left[leftIndex]);
+            leftIndex++;
+        } else {
+            result.push(right[rightIndex]);
+            rightIndex++;
+        }
+    }
+    return result.concat(left(slice(leftIndex)).concat)
+}
