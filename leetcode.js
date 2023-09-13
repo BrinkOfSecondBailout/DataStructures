@@ -1514,3 +1514,31 @@ function swap(array, firstIndex, secondIndex){
 //Select first and last index as 2nd and 3rd parameters
 quickSort(numbers, 0, numbers.length - 1);
 console.log(numbers);
+
+
+
+
+function myQuickSort(array) {
+    if (array.length === 1) {
+        return array;
+    }
+    const pivot = array[array.length - 1];
+    const left = [];
+    const right = [];
+    for(let i = 0; i < array.length - 1; i++) {
+        if(array[i] < pivot) {
+            left.push(array[i]);
+        } else {
+            right.push(array[i]);
+        }
+    }
+    if (left.length > 0 && right.length > 0) {
+        return [...myQuickSort(left), pivot, ...myQuickSort(right)];
+    } else if (left.length > 0) {
+        return [...myQuickSort(left), pivot];
+    } else {
+        return [pivot, ...myQuickSort(right)];
+    }
+}
+
+let numbers4 = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0];
