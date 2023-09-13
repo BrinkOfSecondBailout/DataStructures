@@ -1544,3 +1544,24 @@ function myMergeSort(array) {
 let numbers5 = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0];
 
 console.log(myMergeSort(numbers5));
+
+function myInsertionSort(array) {
+    //this is the pointer to the element we're comparing TO
+    for(let i = 1; i < array.length; i++) {
+        //this is the pointer to the element we're comparing
+        for(let j = i; j > 0; j--) {
+            if(array[j] < array[j-1]) {
+                // const temp = array[j];
+                // array[j] = array[j-1];
+                // array[j-1] = temp;
+                [array[j], array[j-1]] = [array[j-1], array[j]];
+            } else {
+                break;
+            }
+        }
+    }
+    return array;
+}
+
+let numbers6 = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0];
+console.log(myInsertionSort(numbers6));
