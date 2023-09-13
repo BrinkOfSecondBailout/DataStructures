@@ -1506,7 +1506,34 @@ let numbers4 = [1, 4, 2, 23, 44, 8, 599, 911, 33, 0];
 console.log(myQuickSort(numbers4));
 
 
+// left and right are sorted!
+function merge(left, right) {
+    const output = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+    while(leftIndex < left.length || rightIndex < right.length) {
+        const leftEl = left[leftIndex];
+        const rightEl = right[rightIndex];
+        if (leftEl < rightEl) {
+            output.push(leftEl);
+            leftIndex++;
+        } else {
+            output.push(rightEl);
+            rightIndex++;
+        }
+    }
+    return [...output, ...left.slice(leftIndex), ...right.slice(rightIndex)];
+}
 
 function myMergeSort(array) {
-    
+    if(array.length = 1) {
+        return array;
+    }
+    const middle = Math.floor(array.length / 2);
+    const left = array.slice(0, middle);
+    const right = array.slice(middle);
+    return merge(
+        myMergeSort(left),
+        myMergeSort(right)
+    );
 }
