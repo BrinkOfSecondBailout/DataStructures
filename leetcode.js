@@ -1744,6 +1744,18 @@ function traversePreOrder(node, list) {
     return list;
 }
 
+function traversePostOrder(node, list) {
+    console.log(node.value);
+    if(node.left) {
+        traversePostOrder(node.left, list);
+    }
+    if(node.right) {
+        traversePostOrder(node.right, list);
+    }
+    list.push(node.value);
+    return list;
+}
+
 const tree1 = new BinarySearchTree();
 tree1.insert(9);
 tree1.insert(4);
@@ -1754,4 +1766,4 @@ tree1.insert(15);
 tree1.insert(1);
 // console.log(tree1.breadthFirstSearch());
 // console.log(tree1.breadthFirstSearchR([tree1.root], []));
-console.log(tree1.DFSInOrder());
+console.log(tree1.DFSPreOrder());
