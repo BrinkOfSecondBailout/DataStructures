@@ -1726,7 +1726,9 @@ function traverseInOrder(node, list) {
         traverseInOrder(node.left, list);
     }
     list.push(node.value);
+    console.log(list);
     if (node.right) {
+        console.log(node.right.value)
         traverseInOrder(node.right, list);
     }
     return list;
@@ -1766,4 +1768,4 @@ tree1.insert(15);
 tree1.insert(1);
 // console.log(tree1.breadthFirstSearch());
 // console.log(tree1.breadthFirstSearchR([tree1.root], []));
-console.log(tree1.DFSPreOrder());
+console.log(tree1.DFSInOrder());
