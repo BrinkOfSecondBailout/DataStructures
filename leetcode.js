@@ -1728,7 +1728,6 @@ function traverseInOrder(node, list) {
     list.push(node.value);
     console.log(list);
     if (node.right) {
-        console.log(node.right.value)
         traverseInOrder(node.right, list);
     }
     return list;
@@ -1737,6 +1736,7 @@ function traverseInOrder(node, list) {
 function traversePreOrder(node, list) {
     console.log(node.value);
     list.push(node.value);
+    console.log(list);
     if(node.left) {
         traversePreOrder(node.left, list);
     }
@@ -1768,4 +1768,21 @@ tree1.insert(15);
 tree1.insert(1);
 // console.log(tree1.breadthFirstSearch());
 // console.log(tree1.breadthFirstSearchR([tree1.root], []));
-console.log(tree1.DFSInOrder());
+console.log(tree1.DFSPostOrder());
+
+
+
+function addTo80(n) {
+    return n + 80;
+}
+
+let cache = {};
+function memoizedAddTo80(n) {
+    if(n in cache) {
+        return cache[n];
+    } else {
+        cache[n] = n + 80
+    }
+}
+
+memoizedAddTo80(5);
