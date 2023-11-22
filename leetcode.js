@@ -13,8 +13,8 @@ var twoSum = function(nums, target) {
     }
 };
 
-nums = [3,8,6,4,5,3], target = 6
-console.log(twoSum(nums, target));
+// nums = [3,8,6,4,5,3], target = 6
+// console.log(twoSum(nums, target));
 
 
 
