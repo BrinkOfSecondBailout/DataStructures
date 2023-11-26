@@ -108,26 +108,97 @@
 // console.log(groupAnagrams(strs1));
 
 
-var groupAnagrams = function(strs) {
+// var groupAnagrams = function(strs) {
 
-    const hash = (word) => {
-        return word.split('').sort().join('');
-    }
+//     const hash = (word) => {
+//         return word.split('').sort().join('');
+//     }
     
-    const memoryMap = new Map();
+//     const memoryMap = new Map();
 
-    strs.forEach((str) => {
-        const key = hash(str);
-        if (memoryMap.has(key)) {
-            memoryMap.get(key).push(str);
+//     strs.forEach((str) => {
+//         const key = hash(str);
+//         if (memoryMap.has(key)) {
+//             memoryMap.get(key).push(str);
+//         } else {
+//             memoryMap.set(key, [str]);
+//         }
+//     })
+
+//     return [...memoryMap.values()];
+// };
+
+// const strs1 = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
+
+// console.log(groupAnagrams(strs1));
+
+// my attempt below, came very close
+
+var longestConsecutive = function(nums) {
+
+    if (nums.length < 1) {
+        return 0;
+    }
+
+    const sortedNums = new Set(nums.sort((a, b) => a - b));
+    console.log(sortedNums);
+    let count = 0;
+    let max = 0;
+
+    const memoryMap = new Map();
+    
+    sortedNums.forEach(num => {
+        const previousNum = num - 1;
+        if(memoryMap.has(previousNum)) {
+            count += 1;
+            memoryMap.set(num);
         } else {
-            memoryMap.set(key, [str]);
+            if (count > 0) {
+                max = count;
+            }
+            count = 0;
+            memoryMap.set(num);
         }
     })
 
-    return [...memoryMap.values()];
+    return Math.max(count + 1, max + 1);
 };
 
-const strs1 = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
+const nums1 = [100, 4, 200, 1, 3, 2];
+const nums2 = [0,3,7,2,5,8,4,6,0,1];
+const nums3 = [0,0,-1];
+const nums4 = [9,1,4,7,3,-1,0,5,8,-1,6];
+const nums5 = [100,4,200,1,3,2];
+const nums6 =[-6,8,-5,7,-9,-1,-7,-6,-9,-7,5,7,-1,-8,-8,-2,0];
 
-console.log(groupAnagrams(strs1));
+
+console.log(longestConsecutive(nums6));
+
+// var longestConsecutive = function(nums) {
+//     const n = nums.length;
+    
+//     if (n === 0) {
+//         return 0;
+//     }
+
+//     nums.sort((a, b) => a - b);
+
+//     let count = 1;
+//     let max = 0;
+
+//     for (let i = 1; i < n; i++) {
+//         if (nums[i] !== nums[i - 1]) {
+//             if (nums[i] === nums[i - 1] + 1) {
+//                 count++;
+//             } else {
+//                 max = Math.max(max, count);
+//                 count = 1;
+//             }
+//         }
+//     }
+
+//     return Math.max(max, count);
+
+// };
+
+
