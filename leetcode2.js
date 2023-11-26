@@ -53,25 +53,35 @@
 // analyzeUserLogs(logs);
 
 
-var twoSum = function(nums, target) {
-    const memoryObj = {};
-    const answer = [];
+// var twoSum = function(nums, target) {
+//     const memoryObj = {};
+//     const answer = [];
 
-    for (let i = 0; i < nums.length; i++) {
-        const difference = target - nums[i];
-        if (memoryObj.hasOwnProperty(difference)) {
-            answer.push(memoryObj[difference]);
-            answer.push(i);
-            return answer;
-        } else {
-            memoryObj[nums[i]] = i;
-        }
-    }
+//     for (let i = 0; i < nums.length; i++) {
+//         const difference = target - nums[i];
+//         if (memoryObj.hasOwnProperty(difference)) {
+//             answer.push(memoryObj[difference]);
+//             answer.push(i);
+//             return answer;
+//         } else {
+//             memoryObj[nums[i]] = i;
+//         }
+//     }
 
-    return false;
+//     return false;
+// };
+
+// const nums1 = [2, 7, 11, 15];
+// const target1 = 9;
+
+// console.log(twoSum(nums1, target1));
+
+
+
+var groupAnagrams = function(strs) {
+    
 };
 
-const nums1 = [2, 7, 11, 15];
-const target1 = 9;
+const strs1 = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
 
-console.log(twoSum(nums1, target1));
+console.log(groupAnagrams(strs1));
