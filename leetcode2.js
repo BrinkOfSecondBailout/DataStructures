@@ -132,48 +132,51 @@
 
 // console.log(groupAnagrams(strs1));
 
-// my attempt below, came very close
 
-var longestConsecutive = function(nums) {
 
-    if (nums.length < 1) {
-        return 0;
-    }
+// my attempt below
+// var longestConsecutive = function(nums) {
 
-    const sortedNums = new Set(nums.sort((a, b) => a - b));
-    console.log(sortedNums);
-    let count = 0;
-    let max = 0;
+//     if (nums.length < 1) {
+//         return 0;
+//     }
 
-    const memoryMap = new Map();
+//     const sortedNums = new Set(nums.sort((a, b) => a - b));
+//     console.log(sortedNums);
+//     let count = 0;
+//     let max = 0;
+
+//     const memoryMap = new Map();
     
-    sortedNums.forEach(num => {
-        const previousNum = num - 1;
-        if(memoryMap.has(previousNum)) {
-            count += 1;
-            memoryMap.set(num);
-        } else {
-            if (count > 0) {
-                max = count;
-            }
-            count = 0;
-            memoryMap.set(num);
-        }
-    })
+//     sortedNums.forEach(num => {
+//         const previousNum = num - 1;
+//         if(memoryMap.has(previousNum)) {
+//             count += 1;
+//             memoryMap.set(num);
+//         } else {
+//             if (count > 0 && count > max) {
+//                 max = count;
+//             }
+//             count = 0;
+//             memoryMap.set(num);
+//         }
+//     })
 
-    return Math.max(count + 1, max + 1);
-};
+//     return Math.max(count + 1, max + 1);
+// };
 
-const nums1 = [100, 4, 200, 1, 3, 2];
-const nums2 = [0,3,7,2,5,8,4,6,0,1];
-const nums3 = [0,0,-1];
-const nums4 = [9,1,4,7,3,-1,0,5,8,-1,6];
-const nums5 = [100,4,200,1,3,2];
-const nums6 =[-6,8,-5,7,-9,-1,-7,-6,-9,-7,5,7,-1,-8,-8,-2,0];
+// const nums1 = [100, 4, 200, 1, 3, 2];
+// const nums2 = [0,3,7,2,5,8,4,6,0,1];
+// const nums3 = [0,0,-1];
+// const nums4 = [9,1,4,7,3,-1,0,5,8,-1,6];
+// const nums5 = [100,4,200,1,3,2];
+// const nums6 =[-6,8,-5,7,-9,-1,-7,-6,-9,-7,5,7,-1,-8,-8,-2,0];
 
 
-console.log(longestConsecutive(nums6));
+// console.log(longestConsecutive(nums6));
 
+
+// other ppl's answer
 // var longestConsecutive = function(nums) {
 //     const n = nums.length;
     
@@ -202,3 +205,25 @@ console.log(longestConsecutive(nums6));
 // };
 
 
+
+var containsNearbyDuplicate = function(nums, k) {
+    const memoryObj = {};
+
+    for (let i = 0; i < nums.length; i++) {
+        if(memoryObj.hasOwnProperty(nums[i]) && i - memoryObj[nums[i]] <= k) {
+            return true;
+        }
+        memoryObj[nums[i]] = i;
+    }
+    console.log(memoryObj);
+    return false
+};
+
+nums1 = [1,2,3,1];
+nums2 = [1,0,1,1];
+nums3 = [1,2,3,1,2,3];
+k1 = 3;
+k2 = 1;
+k3 = 2;
+
+console.log(containsNearbyDuplicate(nums2, k2));
