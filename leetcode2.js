@@ -17,37 +17,47 @@
 
 
 
-function analyzeUserLogs(logs) {
+// function analyzeUserLogs(logs) {
 
-    const userCounts = {};
+//     const userCounts = {};
 
-    logs.forEach(log => {
-        const [date, user] = log.split(', ');
+//     logs.forEach(log => {
+//         const [date, user] = log.split(', ');
 
-        if(userCounts.hasOwnProperty(date)) {
-            userCounts[date].add(user);
-        } else {
-            userCounts[date] = new Set([user]);
-        }
-    })
+//         if(userCounts.hasOwnProperty(date)) {
+//             userCounts[date].add(user);
+//         } else {
+//             userCounts[date] = new Set([user]);
+//         }
+//     })
     
 
-    for (const date in userCounts) {
-        if(userCounts.hasOwnProperty(date)){
-            const uniqueUserCount = userCounts[date].size;
-            console.log(`${date}: ${uniqueUserCount}`);
-        }
-    }
+//     for (const date in userCounts) {
+//         if(userCounts.hasOwnProperty(date)){
+//             const uniqueUserCount = userCounts[date].size;
+//             console.log(`${date}: ${uniqueUserCount}`);
+//         }
+//     }
 
-}
+// }
 
 
-const logs = [
-    "2023-11-01, User1",
-    "2023-11-01, User2",
-    "2023-11-01, User1",
-    "2023-11-02, User2",
-    "2023-11-02, User3"
-];
+// const logs = [
+//     "2023-11-01, User1",
+//     "2023-11-01, User2",
+//     "2023-11-01, User1",
+//     "2023-11-02, User2",
+//     "2023-11-02, User3"
+// ];
 
-analyzeUserLogs(logs);
+// analyzeUserLogs(logs);
+
+
+var twoSum = function(nums, target) {
+
+};
+
+const nums1 = [2, 7, 11, 15];
+const target1 = 9;
+
+console.log(twoSum(nums1, target1));
