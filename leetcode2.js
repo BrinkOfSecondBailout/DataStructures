@@ -80,6 +80,25 @@
 
 var groupAnagrams = function(strs) {
     
+    const anagramGroups = {};
+
+    for (const str of strs) {
+        const sortedStr = str.split('').sort().join('');
+        
+        if (anagramGroups.hasOwnProperty(sortedStr)) {
+            anagramGroups[sortedStr].push(str);
+        } else {
+            anagramGroups[sortedStr] = [str];
+        }
+    };
+
+    const answer = [];
+
+    for (const anagram in anagramGroups) {
+        answer.push(anagramGroups[anagram]);
+    }
+
+    return answer;
 };
 
 const strs1 = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
