@@ -113,10 +113,19 @@ var groupAnagrams = function(strs) {
     const hash = (word) => {
         return word.split('').sort().join('');
     }
+    
+    const memoryMap = new Map();
 
     strs.forEach((str) => {
-        
+        const key = hash(str);
+        if (memoryMap.has(key)) {
+            memoryMap.get(key).push(str);
+        } else {
+            memoryMap.set(key, [str]);
+        }
     })
+
+    return [...memoryMap.values()];
 };
 
 const strs1 = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
