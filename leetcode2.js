@@ -54,7 +54,21 @@
 
 
 var twoSum = function(nums, target) {
+    const memoryObj = {};
+    const answer = [];
 
+    for (let i = 0; i < nums.length; i++) {
+        const difference = target - nums[i];
+        if (memoryObj.hasOwnProperty(difference)) {
+            answer.push(memoryObj[difference]);
+            answer.push(i);
+            return answer;
+        } else {
+            memoryObj[nums[i]] = i;
+        }
+    }
+
+    return false;
 };
 
 const nums1 = [2, 7, 11, 15];
