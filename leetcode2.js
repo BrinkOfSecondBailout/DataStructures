@@ -78,29 +78,45 @@
 
 
 
-var groupAnagrams = function(strs) {
+// var groupAnagrams = function(strs) {
     
-    const anagramGroups = {};
+//     const anagramGroups = {};
 
-    for (const str of strs) {
-        const sortedStr = str.split('').sort().join('');
+//     for (const str of strs) {
+//         const sortedStr = str.split('').sort().join('');
         
-        if (anagramGroups.hasOwnProperty(sortedStr)) {
-            anagramGroups[sortedStr].push(str);
-        } else {
-            anagramGroups[sortedStr] = [str];
-        }
-    };
+//         if (anagramGroups.hasOwnProperty(sortedStr)) {
+//             anagramGroups[sortedStr].push(str);
+//         } else {
+//             anagramGroups[sortedStr] = [str];
+//         }
+//     };
 
-    // const answer = [];
+//     // const answer = [];
 
-    // for (const anagram in anagramGroups) {
-    //     answer.push(anagramGroups[anagram]);
-    // }
+//     // for (const anagram in anagramGroups) {
+//     //     answer.push(anagramGroups[anagram]);
+//     // }
 
-    // return answer;
+//     // return answer;
 
-    return Object.values(anagramGroups);
+//     return Object.values(anagramGroups);
+// };
+
+// const strs1 = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
+
+// console.log(groupAnagrams(strs1));
+
+
+var groupAnagrams = function(strs) {
+
+    const hash = (word) => {
+        return word.split('').sort().join('');
+    }
+
+    strs.forEach((str) => {
+        
+    })
 };
 
 const strs1 = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'];
