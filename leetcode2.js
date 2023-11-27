@@ -205,19 +205,34 @@
 // };
 
 
+// my code
+// var containsNearbyDuplicate = function(nums, k) {
+//     const memoryObj = {};
 
+//     for (let i = 0; i < nums.length; i++) {
+//         if(memoryObj.hasOwnProperty(nums[i]) && i - memoryObj[nums[i]] <= k) {
+//             return true;
+//         }
+//         memoryObj[nums[i]] = i;
+//     }
+//     console.log(memoryObj);
+//     return false
+// };
+
+// leetcode solution
 var containsNearbyDuplicate = function(nums, k) {
-    const memoryObj = {};
-
-    for (let i = 0; i < nums.length; i++) {
-        if(memoryObj.hasOwnProperty(nums[i]) && i - memoryObj[nums[i]] <= k) {
+    const hashmap = new Map();
+    for (let idx = 0; idx < nums.length; idx++) {
+        // Check if the difference betweend duplicates is less than k
+        if (idx - hashmap.get(nums[idx]) <= k) {
             return true;
         }
-        memoryObj[nums[i]] = i;
+        hashmap.set(nums[idx], idx);
     }
-    console.log(memoryObj);
-    return false
+    return false;
 };
+
+
 
 nums1 = [1,2,3,1];
 nums2 = [1,0,1,1];
