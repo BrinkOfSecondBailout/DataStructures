@@ -243,18 +243,60 @@
 // console.log(containsNearbyDuplicate(nums2, k2));
 
 
-var merge = function(nums1, m, nums2, n) {
-    for (let i = m, j = 0; j < n; i++, j++) {\
-        nums1[i] = nums2[j];
+// var merge = function(nums1, m, nums2, n) {
+//     for (let i = m, j = 0; j < n; i++, j++) {\
+//         nums1[i] = nums2[j];
+//     }
+//     nums1.sort((a, b) => a - b);
+//     return nums1;
+// };
+
+
+// var merge = function(nums1, m, nums2, n) {
+//     let i = m - 1;
+//     let j = n - 1;
+//     let k = m + n - 1;
+
+//     while( j >= 0) {
+//         if ( i >= 0 && nums1[i] > nums2[j]) {
+//             nums1[k--] = nums1[i--];
+//         } else {
+//             nums1[k--] = nums2[j--];
+//         }
+//     }
+
+//     return nums1;
+// };
+
+// nums1 = [1,2,3,0,0,0];
+// m = 3;
+// nums2 = [2,5,6];
+// n = 3;
+
+// console.log(merge(nums1, m, nums2, n));
+
+
+var majorityElement = function(nums) {
+    const halfSize = nums.length / 2;
+
+    const memoryObj = {};
+
+    nums.forEach(num => {
+        if (memoryObj.hasOwnProperty(num)) {
+            memoryObj[num] = memoryObj[num] + 1;
+        } else {
+            memoryObj[num] = 1;
+        }
+    })
+
+    for (const num in memoryObj) {
+        if (memoryObj[num] > halfSize) {
+            return num;
+        }
     }
-    nums1.sort((a, b) => a - b);
-    return nums1;
 };
 
+nums1 = [3, 2, 3];
+nums2 = [2,2,1,1,1,2,2];
 
-nums1 = [1,2,3,0,0,0];
-m = 3;
-nums2 = [2,5,6];
-n = 3;
-
-console.log(merge(nums1, m, nums2, n));
+console.log(majorityElement(nums2));
