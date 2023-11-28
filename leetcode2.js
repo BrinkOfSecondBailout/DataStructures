@@ -277,23 +277,26 @@
 
 
 var majorityElement = function(nums) {
+    if (nums.length === 1) {
+        return nums[0];
+    }
+
     const halfSize = nums.length / 2;
 
     const memoryObj = {};
 
-    nums.forEach(num => {
+    for (const num of nums) {
         if (memoryObj.hasOwnProperty(num)) {
             memoryObj[num] = memoryObj[num] + 1;
+            if (memoryObj[num] > halfSize) {
+                return num;
+            }
         } else {
             memoryObj[num] = 1;
         }
-    })
-
-    for (const num in memoryObj) {
-        if (memoryObj[num] > halfSize) {
-            return num;
-        }
     }
+
+    return false;
 };
 
 nums1 = [3, 2, 3];
