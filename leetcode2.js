@@ -276,30 +276,71 @@
 // console.log(merge(nums1, m, nums2, n));
 
 
-var majorityElement = function(nums) {
-    if (nums.length === 1) {
-        return nums[0];
-    }
+// my code, beats 95%
+// var majorityElement = function(nums) {
+//     if (nums.length === 1) {
+//         return nums[0];
+//     }
 
-    const halfSize = nums.length / 2;
+//     const halfSize = nums.length / 2;
 
+//     const memoryObj = {};
+
+//     for (const num of nums) {
+//         if (memoryObj.hasOwnProperty(num)) {
+//             memoryObj[num] = memoryObj[num] + 1;
+//             if (memoryObj[num] > halfSize) {
+//                 return num;
+//             }
+//         } else {
+//             memoryObj[num] = 1;
+//         }
+//     }
+
+//     return false;
+// };
+
+// nums1 = [3, 2, 3];
+// nums2 = [2,2,1,1,1,2,2];
+
+// console.log(majorityElement(nums2));
+
+
+// var removeDuplicates = function(nums) {
+//     let i = 0;
+//     for (let j = 1; j < nums.length; j++) {
+//         if (nums[i] !== nums[j]) {
+//             i++;
+//             nums[i] = nums[j];
+//         }
+//     }
+//     return i + 1;
+// };
+
+// // nums1 = [1,1,2];
+// nums2 = [0,0,1,1,1,2,2,3,3,4];
+// nums3 = [0,1,2,3,4,5];
+// console.log(removeDuplicates(nums2));
+
+
+var removeDuplicates2 = function(nums) {
     const memoryObj = {};
+    
+    let i = 0;
+    
+    for (let j = 1; j < nums.length; j++) {
+        if(memoryObj.hasOwnProperty(nums[j])) {
+            if(memoryObj[nums[j]] == 2) {
 
-    for (const num of nums) {
-        if (memoryObj.hasOwnProperty(num)) {
-            memoryObj[num] = memoryObj[num] + 1;
-            if (memoryObj[num] > halfSize) {
-                return num;
             }
+            
         } else {
-            memoryObj[num] = 1;
+            memoryObj[nums[j]] = 1;
         }
     }
 
-    return false;
-};
+}
 
-nums1 = [3, 2, 3];
-nums2 = [2,2,1,1,1,2,2];
+nums1 = [1,1,1,2,2,3];
 
-console.log(majorityElement(nums2));
+console.log(removeDuplicates2(nums1));
