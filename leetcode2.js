@@ -220,25 +220,38 @@
 // };
 
 // leetcode solution
-var containsNearbyDuplicate = function(nums, k) {
-    const hashmap = new Map();
-    for (let idx = 0; idx < nums.length; idx++) {
-        // Check if the difference betweend duplicates is less than k
-        if (idx - hashmap.get(nums[idx]) <= k) {
-            return true;
-        }
-        hashmap.set(nums[idx], idx);
-    }
-    return false;
+// var containsNearbyDuplicate = function(nums, k) {
+//     const hashmap = new Map();
+//     for (let idx = 0; idx < nums.length; idx++) {
+//         // Check if the difference betweend duplicates is less than k
+//         if (idx - hashmap.get(nums[idx]) <= k) {
+//             return true;
+//         }
+//         hashmap.set(nums[idx], idx);
+//     }
+//     return false;
+// };
+
+
+// nums1 = [1,2,3,1];
+// nums2 = [1,0,1,1];
+// nums3 = [1,2,3,1,2,3];
+// k1 = 3;
+// k2 = 1;
+// k3 = 2;
+
+// console.log(containsNearbyDuplicate(nums2, k2));
+
+
+var merge = function(nums1, m, nums2, n) {
+    const output = [];
+    
 };
 
 
+nums1 = [1,2,3,0,0,0];
+m = 3;
+nums2 = [2,5,6];
+n = 3;
 
-nums1 = [1,2,3,1];
-nums2 = [1,0,1,1];
-nums3 = [1,2,3,1,2,3];
-k1 = 3;
-k2 = 1;
-k3 = 2;
-
-console.log(containsNearbyDuplicate(nums2, k2));
+console.log(merge(nums1, m, nums2, n));
