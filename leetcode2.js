@@ -320,27 +320,49 @@
 // // nums1 = [1,1,2];
 // nums2 = [0,0,1,1,1,2,2,3,3,4];
 // nums3 = [0,1,2,3,4,5];
-// console.log(removeDuplicates(nums2));
+// console.log(removeDuplicates(nums3));
 
 
-var removeDuplicates2 = function(nums) {
-    const memoryObj = {};
-    
-    let i = 0;
-    
-    for (let j = 1; j < nums.length; j++) {
-        if(memoryObj.hasOwnProperty(nums[j])) {
-            if(memoryObj[nums[j]] == 2) {
+// my attempt
+// var removeDuplicates2 = function(nums) {
+//     const memoryObj = {};
+//     let i = 0;
+//     let j = 1;
+//     memoryObj[nums[i]] = 1;
 
-            }
-            
-        } else {
-            memoryObj[nums[j]] = 1;
+//     while (j < nums.length) {
+//         if(memoryObj.hasOwnProperty(nums[j])) {
+//             if(memoryObj[nums[j]] == 2) {
+//                 i++;
+//                 j++;
+//                 nums[i] = nums[j];
+//             }
+//             memoryObj[nums[j]] = 2;
+//             i++;
+//             j++;
+//         } else {
+//             memoryObj[nums[j]] = 1;
+//             j++;
+//         }
+//     }
+//     return nums;
+
+// }
+
+
+const removeDuplicates2 = (nums) => {
+    let j = 2;
+
+    for (let i = 2; i < nums.length; i++) {
+        if (nums[i] !== nums[j - 2]) {
+        nums[j++] = nums[i];
         }
     }
 
-}
+    return nums;
+};
 
-nums1 = [1,1,1,2,2,3];
+
+nums1 = [1,1,1,2,2,1,3,4];
 
 console.log(removeDuplicates2(nums1));
