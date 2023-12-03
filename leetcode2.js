@@ -380,3 +380,12 @@
 // nums1 = [0,0,1,1,1,1,2,3,3]
 
 // console.log(removeDuplicates2(nums1));
+
+
+var rotate = function(nums, k) {
+    
+};
+
+nums1 = [1,2,3,4,5,6,7];
+k = 3;
+console.log(rotate(nums1, k));
