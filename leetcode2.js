@@ -382,10 +382,23 @@
 // console.log(removeDuplicates2(nums1));
 
 
-var rotate = function(nums, k) {
-    
-};
+nums1 = [1,2,3,3,100,200,400];
 
-nums1 = [1,2,3,4,5,6,7];
-k = 3;
-console.log(rotate(nums1, k));
+const newArr = nums1.map(num => num * 2);
+
+const newArr2 = nums1.filter(num => num > 10);
+
+const newArr3 = nums1.reduce();
+
+console.log(newArr2);
+
+
+
+
+// var rotate = function(nums, k) {
+
+// };
+
+// nums1 = [1,2,3,4,5,6,7];
+// k = 3;
+// console.log(rotate(nums1, k));
