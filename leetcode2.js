@@ -407,13 +407,19 @@ const users = [
     { id: 5, name: "michael", age: 18},
 ];
 
-const removeUser = (name) => {
-    const newUserArray = users.filter(user => user.name != name);
+const changeAge = (id, newAge) => {
+    const newUserArray = users.map(user => {
+        if (user.id === id) {
+            return {id: user.id, name: user.name, age: newAge}
+        } else {
+            return user;
+        }
+    });
 
     return newUserArray;
 }
 
-console.log(removeUser("pedro"));
+console.log(changeAge(4, 19));
 
 
 // var rotate = function(nums, k) {
