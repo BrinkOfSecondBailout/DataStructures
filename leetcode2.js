@@ -382,17 +382,38 @@
 // console.log(removeDuplicates2(nums1));
 
 
-nums1 = [1,2,3,3,100,200,400];
+// nums1 = [1,2,3,3,100,200,400];
 
-const newArr = nums1.map(num => num * 2);
+// const newArr = nums1.map(num => num * 2);
 
-const newArr2 = nums1.filter(num => num > 10);
+// const newArr2 = nums1.filter(num => num > 10);
 
-const newArr3 = nums1.reduce();
+// const newArr3 = nums1.reduce((total, number) => {
+//     return total.concat(`Number: ${number}`)
+// }, []);
 
-console.log(newArr2);
+// const sum = nums1.reduce((sum, number) => {
+//     return sum + number;
+// }, 0);
+
+// console.log(newArr3);
 
 
+const users = [
+    { id: 1, name: "pedro", age: 26},
+    { id: 2, name: "john", age: 22},
+    { id: 3, name: "jess", age: 56},
+    { id: 4, name: "rio", age: 14},
+    { id: 5, name: "michael", age: 18},
+];
+
+const removeUser = (name) => {
+    const newUserArray = users.filter(user => user.name != name);
+
+    return newUserArray;
+}
+
+console.log(removeUser("pedro"));
 
 
 // var rotate = function(nums, k) {
