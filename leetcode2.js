@@ -419,7 +419,23 @@ const changeAge = (id, newAge) => {
     return newUserArray;
 }
 
-console.log(changeAge(4, 19));
+const filterAge = (age) => {
+    const newArray = users.filter(user => user.age >= age)
+
+    return newArray;
+}
+
+const showNames = () => users.reduce((newArr, user) => {
+        newArr.push(user.name)
+        return(newArr);
+    }, []);
+
+console.log(showNames());
+
+
+// console.log(changeAge(4, 19));
+
+// console.log(filterAge(18));
 
 
 // var rotate = function(nums, k) {
