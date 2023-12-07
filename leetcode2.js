@@ -399,38 +399,38 @@
 // console.log(newArr3);
 
 
-const users = [
-    { id: 1, name: "pedro", age: 26},
-    { id: 2, name: "john", age: 22},
-    { id: 3, name: "jess", age: 56},
-    { id: 4, name: "rio", age: 14},
-    { id: 5, name: "michael", age: 18},
-];
+// const users = [
+//     { id: 1, name: "pedro", age: 26},
+//     { id: 2, name: "john", age: 22},
+//     { id: 3, name: "jess", age: 56},
+//     { id: 4, name: "rio", age: 14},
+//     { id: 5, name: "michael", age: 18},
+// ];
 
-const changeAge = (id, newAge) => {
-    const newUserArray = users.map(user => {
-        if (user.id === id) {
-            return {id: user.id, name: user.name, age: newAge}
-        } else {
-            return user;
-        }
-    });
+// const changeAge = (id, newAge) => {
+//     const newUserArray = users.map(user => {
+//         if (user.id === id) {
+//             return {id: user.id, name: user.name, age: newAge}
+//         } else {
+//             return user;
+//         }
+//     });
 
-    return newUserArray;
-}
+//     return newUserArray;
+// }
 
-const filterAge = (age) => {
-    const newArray = users.filter(user => user.age >= age)
+// const filterAge = (age) => {
+//     const newArray = users.filter(user => user.age >= age)
 
-    return newArray;
-}
+//     return newArray;
+// }
 
-const showNames = () => users.reduce((newArr, user) => {
-        newArr.push(user.name)
-        return(newArr);
-    }, []);
+// const showNames = () => users.reduce((newArr, user) => {
+//         newArr.push(user.name)
+//         return(newArr);
+//     }, []);
 
-console.log(showNames());
+// console.log(showNames());
 
 
 // console.log(changeAge(4, 19));
@@ -438,7 +438,18 @@ console.log(showNames());
 // console.log(filterAge(18));
 
 
+// const testArr = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// testArr.splice(-1, 1, 12);
+
+// console.log(testArr);
+
+
+
 // var rotate = function(nums, k) {
+//     if (k === 0) {
+//         return nums;
+//     }
 
 // };
 
