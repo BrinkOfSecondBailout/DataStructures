@@ -469,7 +469,7 @@ const maxProfit = (prices) => {
             profit = prices[sell] - prices[buy];
             max = Math.max(profit, max);
         } else {
-            buy++;
+            buy = sell;
         }
     }
     return max;
@@ -496,3 +496,6 @@ console.log(maxProfit(prices2));
 //     }
 //     return max_profit;
 // };
+
+// prices2 = [1,2,4,2,5,7,2,4,9,0,9];
+// console.log(maxProfit(prices2));
