@@ -446,17 +446,53 @@
 
 
 
-var rotate = function(nums, k) {
-    if (k === 0) {
-        return nums;
-    }
-    k = k % nums.length;
-    nums.splice(nums.length - k,k).reverse().forEach(
-        value => nums.unshift(value)
-    );
-    return nums;
-};
+// var rotate = function(nums, k) {
+//     if (k === 0) {
+//         return nums;
+//     }
+//     k = k % nums.length;
+//     nums.splice(nums.length - k, k).reverse().forEach(num => nums.unshift(num));
+//     return nums;
+// };
 
-nums1 = [1,2,3,4,5,6,7];
-k = 3;
-console.log(rotate(nums1, k));
+// nums1 = [1,2,3,4,5,6,7];
+// k = 11;
+// console.log(rotate(nums1, k));
+
+const maxProfit = (prices) => {
+    let max = 0;
+    let profit = 0;
+    let buy = 0;
+    let sell = 1;
+    for (sell; sell < prices.length; sell++) {
+        if (prices[sell] > prices[buy]) {
+            profit = prices[sell] - prices[buy];
+            max = Math.max(profit, max);
+        } else {
+            buy++;
+        }
+    }
+    return max;
+}
+
+prices1 = [2,1,5,3,6,4];
+prices2 = [1,2,4,2,5,7,2,4,9,0,9];
+console.log(maxProfit(prices2));
+
+
+// const maxProfit = (prices) => {
+//     let left = 0; // Buy
+//     let right = 1; // sell
+//     let max_profit = 0;
+//     while (right < prices.length) {
+//         if (prices[left] < prices[right]) {
+//             let profit = prices[right] - prices[left]; // our current profit
+
+//             max_profit = Math.max(max_profit, profit);
+//         } else {
+//             left = right;
+//         }
+//         right++;
+//     }
+//     return max_profit;
+// };
