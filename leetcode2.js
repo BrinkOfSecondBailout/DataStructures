@@ -446,13 +446,17 @@
 
 
 
-// var rotate = function(nums, k) {
-//     if (k === 0) {
-//         return nums;
-//     }
+var rotate = function(nums, k) {
+    if (k === 0) {
+        return nums;
+    }
+    k = k % nums.length;
+    nums.splice(nums.length - k,k).reverse().forEach(
+        value => nums.unshift(value)
+    );
+    return nums;
+};
 
-// };
-
-// nums1 = [1,2,3,4,5,6,7];
-// k = 3;
-// console.log(rotate(nums1, k));
+nums1 = [1,2,3,4,5,6,7];
+k = 3;
+console.log(rotate(nums1, k));
