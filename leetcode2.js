@@ -459,25 +459,25 @@
 // k = 11;
 // console.log(rotate(nums1, k));
 
-const maxProfit = (prices) => {
-    let max = 0;
-    let profit = 0;
-    let buy = 0;
-    let sell = 1;
-    for (sell; sell < prices.length; sell++) {
-        if (prices[sell] > prices[buy]) {
-            profit = prices[sell] - prices[buy];
-            max = Math.max(profit, max);
-        } else {
-            buy = sell;
-        }
-    }
-    return max;
-}
+// const maxProfit = (prices) => {
+//     let max = 0;
+//     let profit = 0;
+//     let buy = 0;
+//     let sell = 1;
+//     for (sell; sell < prices.length; sell++) {
+//         if (prices[sell] > prices[buy]) {
+//             profit = prices[sell] - prices[buy];
+//             max = Math.max(profit, max);
+//         } else {
+//             buy = sell;
+//         }
+//     }
+//     return max;
+// }
 
-prices1 = [2,1,5,3,6,4];
-prices2 = [1,2,4,2,5,7,2,4,9,0,9];
-console.log(maxProfit(prices2));
+// prices1 = [2,1,5,3,6,4];
+// prices2 = [1,2,4,2,5,7,2,4,9,0,9];
+// console.log(maxProfit(prices2));
 
 
 // const maxProfit = (prices) => {
@@ -499,3 +499,53 @@ console.log(maxProfit(prices2));
 
 // prices2 = [1,2,4,2,5,7,2,4,9,0,9];
 // console.log(maxProfit(prices2));
+
+// my attempt
+// var canJump = function(nums) {
+//     let lastIndex = nums.length - 1;
+//     for (let i = 0; i < nums.length; i++) {
+//         let currentValue = nums[i];
+//         if (currentValue === 0) {
+//             if (i = 0) {
+//                 return false;
+//             } else {
+
+//             }
+//         } else if (currentValue >= lastIndex - i) {
+//             return true;
+//         } else {
+
+//         }
+//     }
+// };
+
+
+// leetcode solution
+// var canJump = function(nums) {
+//     // Base condition...
+//     if(nums.length <= 1)
+//         return true;
+//     // To keep the maximum index that can be reached...
+//     let maximum = nums[0];
+//     // Traverse all the elements through loop...
+//     for(let i = 0; i < nums.length; i++){
+//         //if there is no way to jump to next...
+//         // so we should return false...
+//         if(maximum <= i && nums[i] == 0) 
+//             return false;
+//         //update the maximum jump...    
+//         if(i + nums[i] > maximum){
+//             maximum = i + nums[i];
+//         }
+//         //maximum is enough to reach the end...
+//         if(maximum >= nums.length-1) 
+//             return true;
+//     }
+//     return false;   
+// };
+
+
+
+// const nums1 = [2, 3, 1, 1, 4];
+
+// console.log(canJump(nums1));
