@@ -41,7 +41,7 @@
 
 // }
 
-
+// function analyzeUserLogs(logs) {
 // const logs = [
 //     "2023-11-01, User1",
 //     "2023-11-01, User2",
@@ -549,3 +549,34 @@
 // const nums1 = [2, 3, 1, 1, 4];
 
 // console.log(canJump(nums1));
+
+
+function analyzeUserLogs(logs) {
+    const memoryObj = {};
+
+    logs.forEach(row => {
+        let oneEntry = row.split(', ');
+        let date = oneEntry[0];
+        let user = oneEntry[1];
+        if (memoryObj.hasOwnProperty(date)) {
+            memoryObj[date].add(user);
+        } else {
+            memoryObj[date] = new Set([user]);
+        }
+    })
+
+    for (const row in memoryObj) {
+        let length = memoryObj[row].size;
+        console.log(`${row}: ${length}`);
+    }
+}
+
+const logs = [
+    "2023-11-01, User1",
+    "2023-11-01, User2",
+    "2023-11-01, User1",
+    "2023-11-02, User2",
+    "2023-11-02, User3"
+];
+
+analyzeUserLogs(logs);
