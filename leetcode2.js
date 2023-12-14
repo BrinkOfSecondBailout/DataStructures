@@ -551,32 +551,52 @@
 // console.log(canJump(nums1));
 
 
-function analyzeUserLogs(logs) {
-    const memoryObj = {};
+// function analyzeUserLogs(logs) {
+//     const memoryObj = {};
 
-    logs.forEach(row => {
-        let oneEntry = row.split(', ');
-        let date = oneEntry[0];
-        let user = oneEntry[1];
-        if (memoryObj.hasOwnProperty(date)) {
-            memoryObj[date].add(user);
-        } else {
-            memoryObj[date] = new Set([user]);
-        }
-    })
+//     logs.forEach(row => {
+//         let oneEntry = row.split(', ');
+//         let date = oneEntry[0];
+//         let user = oneEntry[1];
+//         if (memoryObj.hasOwnProperty(date)) {
+//             memoryObj[date].add(user);
+//         } else {
+//             memoryObj[date] = new Set([user]);
+//         }
+//     })
 
-    for (const row in memoryObj) {
-        let length = memoryObj[row].size;
-        console.log(`${row}: ${length}`);
+//     for (const row in memoryObj) {
+//         let length = memoryObj[row].size;
+//         console.log(`${row}: ${length}`);
+//     }
+// }
+
+// const logs = [
+//     "2023-11-01, User1",
+//     "2023-11-01, User2",
+//     "2023-11-01, User1",
+//     "2023-11-02, User2",
+//     "2023-11-02, User3"
+// ];
+
+// analyzeUserLogs(logs);
+
+
+
+var isAnagram = function(s, t) {
+    if (s.length !== t.length) {
+        return false;
     }
+    s = s.split('').sort();
+    t = t.split('').sort();
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] !== t[i]) {
+            return false;
+        }
+    }
+    return true;
 }
+const s1 = 'anagram';
+const t1 = 'nagaram';
 
-const logs = [
-    "2023-11-01, User1",
-    "2023-11-01, User2",
-    "2023-11-01, User1",
-    "2023-11-02, User2",
-    "2023-11-02, User3"
-];
-
-analyzeUserLogs(logs);
+console.log(isAnagram(s1, t1));
