@@ -583,20 +583,40 @@
 
 
 
-var isAnagram = function(s, t) {
-    if (s.length !== t.length) {
-        return false;
-    }
-    s = s.split('').sort();
-    t = t.split('').sort();
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] !== t[i]) {
-            return false;
+// var isAnagram = function(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     s = s.split('').sort();
+//     t = t.split('').sort();
+//     for (let i = 0; i < s.length; i++) {
+//         if (s[i] !== t[i]) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+// const s1 = 'anagram';
+// const t1 = 'nagaram';
+
+// console.log(isAnagram(s1, t1));
+
+
+var twoSum = function(nums, target) {
+    const memoryObj = {};
+    const answer = [];
+    for (let i = 0; i < nums.length; i++) {
+        let difference = target - nums[i];
+        if(memoryObj.hasOwnProperty(difference)) {
+            answer.push(i, memoryObj[difference]);
+        } else {
+            memoryObj[nums[i]] = i;
         }
     }
-    return true;
+    return answer
 }
-const s1 = 'anagram';
-const t1 = 'nagaram';
 
-console.log(isAnagram(s1, t1));
+const nums1 = [3,2,4];
+const target1 = 6;
+
+console.log(twoSum(nums1, target1));
