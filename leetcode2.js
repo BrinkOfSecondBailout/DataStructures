@@ -602,21 +602,31 @@
 // console.log(isAnagram(s1, t1));
 
 
-var twoSum = function(nums, target) {
-    const memoryObj = {};
-    const answer = [];
-    for (let i = 0; i < nums.length; i++) {
-        let difference = target - nums[i];
-        if(memoryObj.hasOwnProperty(difference)) {
-            answer.push(i, memoryObj[difference]);
-        } else {
-            memoryObj[nums[i]] = i;
-        }
-    }
-    return answer
+// var twoSum = function(nums, target) {
+//     const memoryObj = {};
+//     const answer = [];
+//     for (let i = 0; i < nums.length; i++) {
+//         let difference = target - nums[i];
+//         if(memoryObj.hasOwnProperty(difference)) {
+//             answer.push(i, memoryObj[difference]);
+//         } else {
+//             memoryObj[nums[i]] = i;
+//         }
+//     }
+//     return answer
+// }
+
+// const nums1 = [3,2,4];
+// const target1 = 6;
+
+// console.log(twoSum(nums1, target1));
+
+
+var longestConsecutive = function(nums) {
+    const sortedArr = nums.sort();
+    
 }
 
-const nums1 = [3,2,4];
-const target1 = 6;
+const nums1 = [100,4,200,1,3,2];
 
-console.log(twoSum(nums1, target1));
+console.log(longestConsecutive(nums1));
