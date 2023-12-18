@@ -623,10 +623,32 @@
 
 
 var longestConsecutive = function(nums) {
-    const sortedArr = nums.sort();
+
+    if (nums.length < 1) {
+        return 0;
+    }
     
+    var sortedArr = nums.sort((a, b) => a - b);
+
+    console.log(sortedArr);
+
+    var count = 1;
+    var max = 1;
+
+    for (let i = 1; i < sortedArr.length; i++) {
+        if(sortedArr[i] == sortedArr[i - 1]) {
+            max = Math.max(max, count);
+        }
+        else if(sortedArr[i] == sortedArr[i - 1] + 1) {
+            count ++;
+        } else {
+            max = Math.max(max, count);
+            count = 1;
+        }
+    }
+    return Math.max(max, count);
 }
 
-const nums1 = [100,4,200,1,3,2];
+const nums1 = [1,2,0,1];
 
 console.log(longestConsecutive(nums1));
