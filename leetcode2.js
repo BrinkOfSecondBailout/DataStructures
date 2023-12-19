@@ -654,24 +654,3 @@
 // console.log(longestConsecutive(nums1));
 
 
-
-var canConstruct = function(ransomNote, magazine) {
-
-    if (magazine.length < ransomNote.length) {
-        return false;
-    }
-
-    const sortedRansom = ransomNote.split('').sort();
-    const sortedMag = magazine.split('').sort();
-
-    const memoryObj = {};
-
-
-
-};
-
-const note1 = "aa";
-
-const mag1 = "ab";
-
-console.log(canConstruct(note1, mag1));
