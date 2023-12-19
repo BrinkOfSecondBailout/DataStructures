@@ -622,33 +622,56 @@
 // console.log(twoSum(nums1, target1));
 
 
-var longestConsecutive = function(nums) {
+// var longestConsecutive = function(nums) {
 
-    if (nums.length < 1) {
-        return 0;
-    }
+//     if (nums.length < 1) {
+//         return 0;
+//     }
     
-    var sortedArr = nums.sort((a, b) => a - b);
+//     var sortedArr = nums.sort((a, b) => a - b);
 
-    console.log(sortedArr);
+//     console.log(sortedArr);
 
-    var count = 1;
-    var max = 1;
+//     var count = 1;
+//     var max = 1;
 
-    for (let i = 1; i < sortedArr.length; i++) {
-        if(sortedArr[i] == sortedArr[i - 1]) {
-            max = Math.max(max, count);
-        }
-        else if(sortedArr[i] == sortedArr[i - 1] + 1) {
-            count ++;
-        } else {
-            max = Math.max(max, count);
-            count = 1;
-        }
+//     for (let i = 1; i < sortedArr.length; i++) {
+//         if(sortedArr[i] == sortedArr[i - 1]) {
+//             max = Math.max(max, count);
+//         }
+//         else if(sortedArr[i] == sortedArr[i - 1] + 1) {
+//             count ++;
+//         } else {
+//             max = Math.max(max, count);
+//             count = 1;
+//         }
+//     }
+//     return Math.max(max, count);
+// }
+
+// const nums1 = [1,2,0,1];
+
+// console.log(longestConsecutive(nums1));
+
+
+
+var canConstruct = function(ransomNote, magazine) {
+
+    if (magazine.length < ransomNote.length) {
+        return false;
     }
-    return Math.max(max, count);
-}
 
-const nums1 = [1,2,0,1];
+    const sortedRansom = ransomNote.split('').sort();
+    const sortedMag = magazine.split('').sort();
 
-console.log(longestConsecutive(nums1));
+    const memoryObj = {};
+
+
+
+};
+
+const note1 = "aa";
+
+const mag1 = "ab";
+
+console.log(canConstruct(note1, mag1));
