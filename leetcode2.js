@@ -694,3 +694,59 @@
 // console.log(isPalindrome(string1));
 
 
+// // my solution
+// var isSubsequence = function(s, t) {
+
+//     if (s.length < 1) {
+//         return true;
+//     }
+
+//     if (t.length < 1) {
+//         return false;
+//     }
+
+//     let p1 = 0;
+//     let p1End = s.length - 1;
+//     let p2 = 0;
+//     let p2End = t.length - 1;
+
+//     while(p1 < s.length) {
+//         if(s[p1] === t[p2]) {
+//             if(p2 === p2End) {
+//                 if(p1 !== p1End) {
+//                     return false;
+//                 }
+//                 return true;
+//             }
+//             if(p1 === p1End) {
+//                 return true;
+//             }
+//             p1++;
+//             p2++;
+//         } else {
+//             if(p2 === p2End) {
+//                 return false;
+//             }
+//             p2++;
+//         }
+//     }
+// };
+
+var isSubsequence = function(s, t) {
+    let i = 0, j = 0;
+    while (i < s.length && j < t.length) {
+        if (s[i] === t[j]) {
+            i++;
+        }
+        j++;
+    }
+    return i === s.length;
+}
+
+
+
+const string1 = "b"
+
+const string2 = "abc"
+
+console.log(isSubsequence(string1, string2));
