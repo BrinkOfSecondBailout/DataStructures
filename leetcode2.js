@@ -654,3 +654,29 @@
 // console.log(longestConsecutive(nums1));
 
 
+var isPalindrome = function(s) {
+    const newString = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+
+    if (newString.length <= 1) {
+        return true;
+    }
+
+    const half = Math.floor(newString.length / 2);
+
+    let pointer1 = 0;
+    let pointer2 = newString.length - 1;
+
+    while (pointer1 <= half || pointer2 >= half) {
+        if (newString[pointer1] !== newString[pointer2]) {
+            return false
+        }
+        pointer1++
+        pointer2--
+    }
+
+    return true;
+};
+
+const string1 = "race a car"
+
+console.log(isPalindrome(string1));
