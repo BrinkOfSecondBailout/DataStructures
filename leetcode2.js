@@ -732,21 +732,60 @@
 //     }
 // };
 
-var isSubsequence = function(s, t) {
-    let i = 0, j = 0;
-    while (i < s.length && j < t.length) {
-        if (s[i] === t[j]) {
-            i++;
+// leetcode solution
+
+// var isSubsequence = function(s, t) {
+//     let i = 0, j = 0;
+//     while (i < s.length && j < t.length) {
+//         if (s[i] === t[j]) {
+//             i++;
+//         }
+//         j++;
+//     }
+//     return i === s.length;
+// }
+
+
+
+// const string1 = "b"
+
+// const string2 = "abc"
+
+// console.log(isSubsequence(string1, string2));
+
+
+// find a number equal to target in Array, if exists, then answer is 1
+
+// if not , find biggest num in array that's less than target, then whatever the difference is between that num and target, if that number is in array, then answer is 2
+
+
+
+
+
+var minSubArrayLen = function(target, nums) {
+    const memoryObj = {};
+    for (let i = 0; i < nums.length; i++) {
+        let currentNum = nums[i];
+        if (currentNum === target) {
+            return 1;
         }
-        j++;
+        if (currentNum < target) {
+            let difference = target - currentNum;
+            if (memoryObj.hasOwnProperty(difference)) {
+                if(memoryObj[difference] === currentNum) {
+
+                } else {
+                    return 2;
+                }
+            } else {
+                memoryObj[difference] = currentNum;
+            }
+        }
     }
-    return i === s.length;
-}
+};
 
+const target1 = 11
 
+const nums1 = [1,1,1,1,1,1,1,1]
 
-const string1 = "b"
-
-const string2 = "abc"
-
-console.log(isSubsequence(string1, string2));
+console.log(minSubArrayLen(target1, nums1))
