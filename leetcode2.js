@@ -761,31 +761,81 @@
 
 
 
+// // my attempt incomplete
+// var minSubArrayLen = function(target, nums) {
+//     const memoryObj = {};
+//     for (let i = 0; i < nums.length; i++) {
+//         let currentNum = nums[i];
+//         if (currentNum === target) {
+//             return 1;
+//         }
+//         if (currentNum < target) {
+//             let difference = target - currentNum;
+//             if (memoryObj.hasOwnProperty(difference)) {
+//                 return 2;
+//             } else {
+//                 memoryObj[difference] = currentNum;
+//             }
+//         }
+//         return 0;
+//     }
+// };
+
+// var minSubArrayLen = function(target, nums) {
+//     let start = 0;
+//     let subarraySum = 0;
+//     let minValue = Infinity;
+//     for(let end=0; end < nums.length; end++){
+//         subarraySum += nums[end];
+//         while(subarraySum >= target){
+//             minValue = Math.min(minValue, end-start+1);
+//             subarraySum -= nums[start];
+//             start++;
+//         }
+//     }
+//     return minValue === Infinity ? 0 : minValue;
+// }
+
+
+// var minSubArrayLen = function(target, nums) {
+//     let start = 0;
+//     let end = 0;
+//     let minValue = Infinity;
+
+//     let subarraySum = nums[0];
+
+//     while(start <= end && end < nums.length){
+//         if(subarraySum >= target){
+//             minValue = Math.min(minValue, end-start+1);
+//             subarraySum -= nums[start];
+//             start++;
+//         } else {
+//             end++;
+//             subarraySum += nums[end];
+//         }
+//     }
+
+//     return minValue === Infinity ? 0 : minValue;
+// }
 
 var minSubArrayLen = function(target, nums) {
-    const memoryObj = {};
-    for (let i = 0; i < nums.length; i++) {
-        let currentNum = nums[i];
-        if (currentNum === target) {
-            return 1;
-        }
-        if (currentNum < target) {
-            let difference = target - currentNum;
-            if (memoryObj.hasOwnProperty(difference)) {
-                if(memoryObj[difference] === currentNum) {
+    let result = Infinity;
+    let left = 0;
+    let sum = 0;
 
-                } else {
-                    return 2;
-                }
-            } else {
-                memoryObj[difference] = currentNum;
-            }
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i]
+        while (sum >= target) {
+            result = Math.min(result, i - left + 1)
+            sum -= nums[left++]
         }
     }
-};
+    return result === Infinity ? 0 : result
+}
 
-const target1 = 11
 
-const nums1 = [1,1,1,1,1,1,1,1]
+const target1 = 7
+
+const nums1 = [2,3,1,2,4,3]
 
 console.log(minSubArrayLen(target1, nums1))
