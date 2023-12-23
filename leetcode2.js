@@ -818,24 +818,46 @@
 //     return minValue === Infinity ? 0 : minValue;
 // }
 
-var minSubArrayLen = function(target, nums) {
-    let result = Infinity;
-    let left = 0;
-    let sum = 0;
+// var minSubArrayLen = function(target, nums) {
+//     let result = Infinity;
+//     let left = 0;
+//     let sum = 0;
 
-    for (let i = 0; i < nums.length; i++) {
-        sum += nums[i]
-        while (sum >= target) {
-            result = Math.min(result, i - left + 1)
-            sum -= nums[left++]
+//     for (let i = 0; i < nums.length; i++) {
+//         sum += nums[i]
+//         while (sum >= target) {
+//             result = Math.min(result, i - left + 1)
+//             sum -= nums[left++]
+//         }
+//     }
+//     return result === Infinity ? 0 : result
+// }
+
+
+// const target1 = 7
+
+// const nums1 = [2,3,1,2,4,3]
+
+// console.log(minSubArrayLen(target1, nums1))
+
+
+var lengthOfLongestSubstring = function(s) {
+    let result = 1;
+    let j = 0;
+    let substring = '';
+
+    for (let i = 0; i < s.length; i++) {
+        substring += s[i];
+        const stringSet = new Set(substring);
+        while (stringSet.size > result) {
+            substring -= s[j++];
+            result = stringSet.size;
         }
     }
-    return result === Infinity ? 0 : result
-}
 
+    return result === 1 ? 1 : result;
+};
 
-const target1 = 7
+const s1 = 'abcabcbb'
 
-const nums1 = [2,3,1,2,4,3]
-
-console.log(minSubArrayLen(target1, nums1))
+console.log(lengthOfLongestSubstring(s1));
