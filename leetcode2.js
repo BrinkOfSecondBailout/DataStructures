@@ -842,32 +842,30 @@
 
 
 var lengthOfLongestSubstring = function(s) {
-
     if(s.length < 1) {
         return 0;
     }
-
     let result = 1;
     let j = 0;
     let substring = '';
-
     for (let i = 0; i < s.length; i++) {
         substring += s[i];
         const stringSet = new Set(substring);
+
+        console.log(stringSet)
         substring = [...stringSet].join('');
 
         while (substring.length > result) {
             result = substring.length;
+            
             substring = substring.replace(s[j], '');
-            console.log(s[j])
             j++;
         }
     }
-    
+    // console.log(substring)
     return result === 1 ? 1 : result;
-
 };
 
-const s1 = 'pwwkew'
-
+const s1 = "bwf"
+const s2 = "pwwkew"
 console.log(lengthOfLongestSubstring(s1));
