@@ -868,4 +868,4 @@ var lengthOfLongestSubstring = function(s) {
 
 const s1 = "bwf"
 const s2 = "pwwkew"
-console.log(lengthOfLongestSubstring(s1));
+console.log(lengthOfLongestSubstring(s2));
