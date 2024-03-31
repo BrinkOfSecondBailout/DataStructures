@@ -5,8 +5,8 @@ public class Runner {
         Animal dog = new Dog();
         Animal cat = new Cat();
 
-        dog.makeSound();
-        cat.makeSound();
+        dog.makeSound(cat);
+        cat.makeSound(dog);
 
     }
 }
