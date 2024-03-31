@@ -1,6 +1,6 @@
-package java;
+package myjava;
 
-public class Cat implements Animal{
+public class Cat implements Animal {
     public void makeSound() {
         System.out.println("Meow");
     }
