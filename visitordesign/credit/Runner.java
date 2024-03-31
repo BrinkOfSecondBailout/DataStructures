@@ -2,6 +2,7 @@ package credit;
 
 import offer.GasOfferVisitor;
 import offer.HotelOfferVisitor;
+import offer.RestaurantOfferVisitor;
 
 public class Runner {
     public static void main(String[] args) {
@@ -11,9 +12,9 @@ public class Runner {
 
         HotelOfferVisitor hotel = new HotelOfferVisitor();
         GasOfferVisitor gas = new GasOfferVisitor();
+        RestaurantOfferVisitor restaurant = new RestaurantOfferVisitor();
 
-        bronze.accept(gas);
-        silver.accept(hotel);
+        gold.accept(restaurant);
 
     }
 }
