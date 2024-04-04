@@ -8,9 +8,6 @@ public class Runner {
         Client shawn = new Gold();
         Client danny = new Platinum();
 
-        // shawn.showClientTier();
-        // danny.showClientTier();
-
         TextVisitor text = new TextVisitor();
         EmailVisitor email = new EmailVisitor();
 
