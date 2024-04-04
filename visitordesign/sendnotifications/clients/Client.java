@@ -1,9 +1,9 @@
 package visitordesign.sendnotifications.clients;
 
-import visitordesign.sendnotifications.notifications.NotificationVisitor;
+import visitordesign.sendnotifications.notifications.ClientVisitor;
 
 public interface Client {
     public void showClientTier();
 
-    void accept(NotificationVisitor v);
+    void accept(ClientVisitor v);
 }
