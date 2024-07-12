@@ -175,25 +175,71 @@ substring without repeating characters
 // Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
 // You must write an algorithm that runs in O(n) time.
 
-var longestConsecutive = function(nums) {
-    if (nums.length === 0) return 0;
+// var longestConsecutive = function(nums) {
+//     if (nums.length === 0) return 0;
 
-    let numSet = new Set(nums);
-    let longestStreak = 0;
+//     let numSet = new Set(nums);
+//     let longestStreak = 0;
 
-    for (let num of nums) {
-        if (!numSet.has(num - 1)) {
-            let currentNum = num;
-            let currentStreak = 1;
+//     for (let num of nums) {
+//         if (!numSet.has(num - 1)) {
+//             let currentNum = num;
+//             let currentStreak = 1;
 
-            while (numSet.has(currentNum + 1)) {
-                currentNum += 1;
-                currentStreak += 1;
+//             while (numSet.has(currentNum + 1)) {
+//                 currentNum += 1;
+//                 currentStreak += 1;
+//             }
+
+//             longestStreak = Math.max(longestStreak, currentStreak);
+//         }
+//     }
+
+//     return longestStreak;
+// };
+
+
+
+
+
+
+// Given an absolute path for a Unix-style file system, which begins with a slash '/', transform this path into its simplified canonical path.
+
+// In Unix-style file system context, a single period '.' signifies the current directory, a double period ".." denotes moving up one directory level, and multiple slashes such as "//" are interpreted as a single slash. In this problem, treat sequences of periods not covered by the previous rules (like "...") as valid names for files or directories.
+
+// The simplified canonical path should adhere to the following rules:
+
+// It must start with a single slash '/'.
+// Directories within the path should be separated by only one slash '/'.
+// It should not end with a slash '/', unless it's the root directory.
+// It should exclude any single or double periods used to denote current or parent directories.
+// Return the new path.
+
+var simplifyPath = function(path) {
+    let parts = path.split('/');
+    let stack = [];
+    console.log(parts);
+
+    for (let part of parts) {
+        if (part === '' || part === '.') {
+            continue;
+        } else if (part === '..') {
+            if (stack.length > 0) {
+                stack.pop();
             }
-
-            longestStreak = Math.max(longestStreak, currentStreak);
+        } else {
+            stack.push(part);
         }
     }
 
-    return longestStreak;
-};
+    let result = '/' + stack.join('/');
+    return result;
+}
+
+console.log(simplifyPath("/home/"));
+console.log(simplifyPath("/home//foo/"));
+console.log(simplifyPath("/home/user/Documents/../Pictures"));
+console.log(simplifyPath("/../"));
+console.log(simplifyPath("/.../a/../b/c/../d/./"));
+
+
