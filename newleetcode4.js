@@ -146,24 +146,54 @@ substring without repeating characters
 
 // Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
 
-var twoSum2 = function(nums, target) {
-    let left = 0, right = nums.length - 1;
+// var twoSum2 = function(nums, target) {
+//     let left = 0, right = nums.length - 1;
 
-    while (left < right) {
-        let sum = nums[left] + nums[right];
+//     while (left < right) {
+//         let sum = nums[left] + nums[right];
 
-        if (sum === target) {
-            return [left + 1, right + 1];
-        } else if (sum < target) {
-            left++;
-        } else {
-            right--;
+//         if (sum === target) {
+//             return [left + 1, right + 1];
+//         } else if (sum < target) {
+//             left++;
+//         } else {
+//             right--;
+//         }
+//     }
+
+//     return [];
+// }
+
+// let numbers = [2, 7, 11, 15];
+// let target = 9;
+// console.log(twoSum2(numbers, target));
+
+
+
+
+
+// Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+// You must write an algorithm that runs in O(n) time.
+
+var longestConsecutive = function(nums) {
+    if (nums.length === 0) return 0;
+
+    let numSet = new Set(nums);
+    let longestStreak = 0;
+
+    for (let num of nums) {
+        if (!numSet.has(num - 1)) {
+            let currentNum = num;
+            let currentStreak = 1;
+
+            while (numSet.has(currentNum + 1)) {
+                currentNum += 1;
+                currentStreak += 1;
+            }
+
+            longestStreak = Math.max(longestStreak, currentStreak);
         }
     }
 
-    return [];
-}
-
-let numbers = [2, 7, 11, 15];
-let target = 9;
-console.log(twoSum2(numbers, target));
+    return longestStreak;
+};
