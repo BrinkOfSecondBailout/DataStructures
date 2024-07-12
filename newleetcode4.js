@@ -117,27 +117,53 @@ substring without repeating characters
 
 // Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
 
-var rotate = function(nums, k) {
-    k = k % nums.length;
+// var rotate = function(nums, k) {
+//     k = k % nums.length;
 
-    reverse(nums, 0, nums.length - 1);
-    reverse(nums, 0, k - 1);
-    reverse(nums, k, nums.length - 1);
-};
+//     reverse(nums, 0, nums.length - 1);
+//     reverse(nums, 0, k - 1);
+//     reverse(nums, k, nums.length - 1);
+// };
 
-function reverse(arr, start, end) {
-    while (start < end) {
-        let temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
-        start++;
-        end--;
+// function reverse(arr, start, end) {
+//     while (start < end) {
+//         let temp = arr[start];
+//         arr[start] = arr[end];
+//         arr[end] = temp;
+//         start++;
+//         end--;
+//     }
+// }
+
+
+// nums = [1,2,3,4,5,6,7]
+// k = 3
+
+// rotate(nums, k);
+// console.log(nums);
+
+
+
+// Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= index1 < index2 <= numbers.length.
+
+var twoSum2 = function(nums, target) {
+    let left = 0, right = nums.length - 1;
+
+    while (left < right) {
+        let sum = nums[left] + nums[right];
+
+        if (sum === target) {
+            return [left + 1, right + 1];
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
+        }
     }
+
+    return [];
 }
 
-
-nums = [1,2,3,4,5,6,7]
-k = 3
-
-rotate(nums, k);
-console.log(nums);
+let numbers = [2, 7, 11, 15];
+let target = 9;
+console.log(twoSum2(numbers, target));
