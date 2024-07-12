@@ -83,65 +83,61 @@ substring without repeating characters
 
 
 
-var longestPalindrome = function(s) {
-    let start = 0, end = 0;
+
+// var longestPalindrome = function(s) {
+//     let start = 0, end = 0;
     
-    if (s.length < 1) return "";
+//     if (s.length < 1) return "";
 
-    for (let i = 0; i < s.length; i++) {
-        let len1 = expandAroundCenter(s, i, i); // Odd length palindromes
-        let len2 = expandAroundCenter(s, i, i + 1); // Even length palindromes
-        let len = Math.max(len1, len2);
+//     for (let i = 0; i < s.length; i++) {
+//         let len1 = expandAroundCenter(s, i, i); 
+//         let len2 = expandAroundCenter(s, i, i + 1);
+//         let len = Math.max(len1, len2);
 
-        if (len > end - start) {
-            start = i - Math.floor((len - 1) / 2);
-            end = i + Math.floor(len / 2);
-        }
-    }
-    return s.substring(start, end + 1);
+//         if (len > end - start) {
+//             start = i - Math.floor((len - 1) / 2);
+//             end = i + Math.floor(len / 2);
+//         }
+//     }
+//     return s.substring(start, end + 1);
+// };
+
+// function expandAroundCenter(s, left, right) {
+//     while (left >= 0 && right < s.length && s[left] == s[right]) {
+//         left--;
+//         right++;
+//     }
+//     return right - left - 1;
+// }
+
+
+// s = "babad";
+// console.log(longestPalindrome(s));
+
+
+// Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+
+var rotate = function(nums, k) {
+    k = k % nums.length;
+
+    reverse(nums, 0, nums.length - 1);
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, nums.length - 1);
 };
 
-function expandAroundCenter(s, left, right) {
-    while (left >= 0 && right < s.length && s[left] == s[right]) {
-        left--;
-        right++;
+function reverse(arr, start, end) {
+    while (start < end) {
+        let temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
     }
-    return right - left - 1;
 }
 
 
-s = "babad";
-console.log(longestPalindrome(s));
+nums = [1,2,3,4,5,6,7]
+k = 3
 
-
-
-
-
-function expandAroundCenter(s, left, right) {
-    while (left <= 0 && right < s.length && s[left] == s[right]) {
-        left--;
-        right++;
-    }
-    return right - left - 1;
-}
-
-var longestPalindrome = function(s) {
-    if (s.length < 1) {
-        return "";
-    }
-
-    let start = 0, end = 0;
-
-    for (let i = 0; i < s.length; i++) {
-        let len1 = expandAroundCenter(s, i, i) // for odd palindromes
-        let len2 = expandAroundCenter(s, i, i + 1) // for even palindromes
-        let len = Math.max(len1, len2);
-
-        if (len > end - start) {
-            start = i - Math.floor((len - 1) / 2);
-            end = i + Math.floor(len / 2);
-        }
-    }
-
-    return s.substring(start, end + 1);
-}
+rotate(nums, k);
+console.log(nums);
