@@ -14,9 +14,17 @@
 //     return results;
 // };
 
+
 // nums = [2,7,11,15];
 // target = 9;
-// console.log(twoSum(nums, target));
+
+// nums2 = [3,2,4]; 
+// target2 = 6
+// console.log(twoSum(nums2, target2));
+
+
+
+
 
 
 
@@ -30,7 +38,7 @@
 //     let dummyHead = new ListNode(0);
 //     let p = l1, q = l2, current = dummyHead;
 //     let carry = 0;
-    
+
 //     while (p !== null || q !== null) {
 //         let x = (p !== null) ? p.val : 0;
 //         let y = (q !== null) ? q.val : 0;
@@ -84,6 +92,9 @@ substring without repeating characters
 
 
 
+
+
+
 // var longestPalindrome = function(s) {
 //     let start = 0, end = 0;
     
@@ -112,7 +123,8 @@ substring without repeating characters
 
 
 // s = "babad";
-// console.log(longestPalindrome(s));
+// s2 = "cbbd";
+// console.log(longestPalindrome(s2));
 
 
 // Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
@@ -135,12 +147,13 @@ substring without repeating characters
 //     }
 // }
 
-
 // nums = [1,2,3,4,5,6,7]
 // k = 3
 
 // rotate(nums, k);
 // console.log(nums);
+
+
 
 
 
@@ -203,6 +216,7 @@ substring without repeating characters
 
 
 
+
 // Given an absolute path for a Unix-style file system, which begins with a slash '/', transform this path into its simplified canonical path.
 
 // In Unix-style file system context, a single period '.' signifies the current directory, a double period ".." denotes moving up one directory level, and multiple slashes such as "//" are interpreted as a single slash. In this problem, treat sequences of periods not covered by the previous rules (like "...") as valid names for files or directories.
@@ -234,7 +248,9 @@ substring without repeating characters
 
 //     let result = '/' + stack.join('/');
 //     return result;
+
 // }
+
 
 // console.log(simplifyPath("/home/"));
 // console.log(simplifyPath("/home//foo/"));
@@ -304,6 +320,39 @@ substring without repeating characters
 
 //     return true;
 // }
+
+
+
+function isValidSudoku(board) {
+
+}
+
+
+
+
+
+board = 
+[["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+
+console.log(isValidSudoku(board));
+
+
+
+
+
+
+
+
+
+
 
 // function createSetOfArrays(length) {
 //     let array = []
