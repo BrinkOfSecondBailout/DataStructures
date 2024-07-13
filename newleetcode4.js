@@ -402,5 +402,40 @@ substring without repeating characters
 //     root.right = buildTree(rightPreorder, rightInorder);
 
 //     return root;
-
 // };
+
+
+
+
+
+// Given two integer arrays inorder and postorder where inorder is the inorder traversal of a binary tree and postorder is the postorder traversal of the same tree, construct and return the binary tree.
+
+// function TreeNode(val, left, right) {
+//     this.val = (val===undefined ? 0 : val);
+//     this.left = (left===undefined ? null : left);
+//     this.right = (right===undefined ? null : right);
+// }
+
+
+// var buildTree = function(inorder, postorder) {
+//     if (!inorder.length || !postorder.length) return null;
+
+//     let rootVal = postorder.pop();
+//     let inorderRootIndex = inorder.indexOf(rootVal);
+//     let root = new TreeNode(rootVal);
+
+//     let left_inorder = inorder.slice(0, inorderRootIndex);
+//     let right_inorder = inorder.slice(inorderRootIndex + 1);
+
+//     let left_postorder = postorder.slice(0, left_inorder.length);
+//     let right_postorder = postorder.slice(left_inorder.length);
+
+//     root.left = buildTree(left_inorder, left_postorder);
+//     root.right = buildTree(right_inorder, right_postorder);
+
+//     return root;
+// };
+
+
+
+
