@@ -325,3 +325,41 @@ substring without repeating characters
 //     [".",".",".",".","8",".",".","7","9"]
 // ];
 // console.log(isValidSudoku(board));
+
+
+
+
+
+
+
+// Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
+
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val);
+    this.left = (left===undefined ? 0 : left);
+    this.right = (right===undefined ? 0 : right);
+}
+
+
+var kthSmallest = function(root, k) {
+    let count = 0;
+    let result = null;
+
+    const inorder = (node) => {
+        if (!node || result !== null) return;
+
+        inorder(node.left);
+
+        count++;
+
+        if (count === k) {
+            result = node.val;
+            return;
+        }
+
+        inorder(node.right);
+    };
+
+    inorder(root);
+    return result;
+};
