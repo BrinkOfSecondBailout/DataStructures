@@ -334,32 +334,73 @@ substring without repeating characters
 
 // Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
 
-function TreeNode(val, left, right) {
-    this.val = (val===undefined ? 0 : val);
-    this.left = (left===undefined ? 0 : left);
-    this.right = (right===undefined ? 0 : right);
-}
+// function TreeNode(val, left, right) {
+//     this.val = (val===undefined ? 0 : val);
+//     this.left = (left===undefined ? 0 : left);
+//     this.right = (right===undefined ? 0 : right);
+// }
 
 
-var kthSmallest = function(root, k) {
-    let count = 0;
-    let result = null;
+// var kthSmallest = function(root, k) {
+//     let count = 0;
+//     let result = null;
 
-    const inorder = (node) => {
-        if (!node || result !== null) return;
+//     const inorder = (node) => {
+//         if (!node || result !== null) return;
 
-        inorder(node.left);
+//         inorder(node.left);
 
-        count++;
+//         count++;
 
-        if (count === k) {
-            result = node.val;
-            return;
-        }
+//         if (count === k) {
+//             result = node.val;
+//             return;
+//         }
 
-        inorder(node.right);
-    };
+//         inorder(node.right);
+//     };
 
-    inorder(root);
-    return result;
-};
+//     inorder(root);
+//     return result;
+// };
+
+
+
+
+
+// Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
+
+// function TreeNode(val, left, right) {
+//     this.val = (val === undefined ? 0 : val);
+//     this.left = (left === undefined ? null : left);
+//     this.right = (right === undefined ? null : right);
+// }
+
+
+// var buildTree = function(preorder, inorder) {
+//     if (!preorder.length || !inorder.length) return null;
+
+//     // The first element of preorder is always the root
+//     const rootVal = preorder[0];
+//     const root = new TreeNode(rootVal);
+
+//     // Find the index of the root in inorder array
+//     const rootIndex = inorder.indexOf(rootVal);
+
+//     // Elements to the left of rootIndex in inorder are in the left subtree
+//     const leftInorder = inorder.slice(0, rootIndex);
+//     // Elements to the right of rootIndex in inorder are in the right subtree
+//     const rightInorder = inorder.slice(rootIndex + 1);
+
+//     // Elements in preorder corresponding to the leftInorder
+//     const leftPreorder = preorder.slice(1, 1 + leftInorder.length);
+//     // Elements in preorder corresponding to the rightInorder
+//     const rightPreorder = preorder.slice(1 + leftInorder.length);
+
+//     // Recursively build the left and right subtrees
+//     root.left = buildTree(leftPreorder, leftInorder);
+//     root.right = buildTree(rightPreorder, rightInorder);
+
+//     return root;
+
+// };
