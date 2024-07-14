@@ -515,21 +515,59 @@ substring without repeating characters
 
 // An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
-var groupAnagrams = function(strs) {
-    let map = new Map();
+// var groupAnagrams = function(strs) {
+//     let map = new Map();
 
-    for (let str of strs) {
-        let sortedStr = str.split('').sort().join('');
-        // console.log(sortedStr);
-        if (!map.has(sortedStr)) {
-            map.set(sortedStr, []);
-        }
+//     for (let str of strs) {
+//         let sortedStr = str.split('').sort().join('');
+//         if (!map.has(sortedStr)) {
+//             map.set(sortedStr, []);
+//         }
 
-        map.get(sortedStr).push(str);
-    }
+//         map.get(sortedStr).push(str);
+//     }
 
-    return Array.from(map.values());
+//     return Array.from(map.values());
+// };
+
+// strs = ["eat","tea","tan","ate","nat","bat"];
+// console.log(groupAnagrams(strs));
+
+
+
+
+
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+}
+
+var reverseBetween = function(head, left, right) {
+    
 };
 
-strs = ["eat","tea","tan","ate","nat","bat"];
-console.log(groupAnagrams(strs));
+function arrayToList(arr) {
+    let dummy = new ListNode(0);
+    let current = dummy;
+    for (let val of arr) {
+        current.next = new ListNode(val);
+        current = current.next;
+    }
+    return dummy.next;
+}
+
+function listToArray(head) {
+    let array = [];
+    let current = head;
+    while (current) {
+        array.push(current.val);
+        current = current.next;
+    }
+    return array;
+}
+
+let head1 = arrayToList([1, 2, 3, 4, 5]);
+let left1 = 2;
+let right1 = 4;
+let result1 = reverseBetween(head1, left1, right1);
+console.log(listToArray(result1));
