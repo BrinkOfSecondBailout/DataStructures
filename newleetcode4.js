@@ -323,37 +323,6 @@ substring without repeating characters
 
 
 
-function isValidSudoku(board) {
-
-}
-
-
-
-
-
-board = 
-[["5","3",".",".","7",".",".",".","."]
-,["6",".",".","1","9","5",".",".","."]
-,[".","9","8",".",".",".",".","6","."]
-,["8",".",".",".","6",".",".",".","3"]
-,["4",".",".","8",".","3",".",".","1"]
-,["7",".",".",".","2",".",".",".","6"]
-,[".","6",".",".",".",".","2","8","."]
-,[".",".",".","4","1","9",".",".","5"]
-,[".",".",".",".","8",".",".","7","9"]]
-
-console.log(isValidSudoku(board));
-
-
-
-
-
-
-
-
-
-
-
 // function createSetOfArrays(length) {
 //     let array = []
 //     for (let i = 0; i < length; i++) {
@@ -374,6 +343,10 @@ console.log(isValidSudoku(board));
 //     [".",".",".",".","8",".",".","7","9"]
 // ];
 // console.log(isValidSudoku(board));
+
+
+
+
 
 
 
@@ -412,7 +385,6 @@ console.log(isValidSudoku(board));
 //     inorder(root);
 //     return result;
 // };
-
 
 
 
@@ -488,3 +460,58 @@ console.log(isValidSudoku(board));
 
 
 
+
+// You are given an integer array prices where prices[i] is the price of a given stock on the ith day.
+
+// On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of the stock at any time. However, you can buy it then immediately sell it on the same day.
+
+// Find and return the maximum profit you can achieve.
+
+// var maxProfit = function(prices) {
+//     let totalProfit = 0;
+
+//     for (let i = 0; i < prices.length - 1; i++) {
+//         if (prices[i + 1] > prices[i]) {
+//             totalProfit += prices[i + 1] - prices[i];
+//         }
+//     }
+//     return totalProfit;
+// };
+
+
+
+
+
+
+
+
+
+// You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+// You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+// Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+// const maxProfit = (prices) => {
+//     let minPrice = Infinity;
+//     let maxProfit = 0;
+
+//     for (let i = 0; i < prices.length; i++) {
+//         if (prices[i] < minPrice) {
+//             minPrice = prices[i];
+//         } else if (prices[i] - minPrice > maxProfit) {
+//             maxProfit = prices[i] - minPrice;
+//         }
+//     }
+
+//     return maxProfit;
+// };
+
+
+
+
+
+
+
+var groupAnagrams = function(strs) {
+};
