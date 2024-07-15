@@ -795,3 +795,87 @@ substring without repeating characters
 
 // Return the minimum number of jumps to reach nums[n - 1]. The test cases are generated such that you can reach nums[n - 1].
 
+// var jump = function(nums) {
+//     let n = nums.length;
+//     if (n <= 1) return 0;
+
+//     let jumps = 0;
+//     let currentEnd = 0;
+//     let farthest = 0;
+
+//     for (let i = 0; i < n - 1; i++) {
+//         farthest = Math.max(farthest, i + nums[i]);
+
+//         if (i === currentEnd) {
+//             jumps++;
+//             currentEnd = farthest;
+//             if (currentEnd >= n - 1) break;
+//         }
+//     }
+
+//     return jumps;
+// };
+
+
+
+
+
+
+
+
+
+// Given an m x n matrix, return all elements of the matrix in spiral order.
+
+var spiralOrder = function(matrix) {
+    if (matrix.length === 0) return [];
+
+    let result = [];
+
+    let top = 0;
+    let right = matrix[0].length - 1;
+    let bottom = matrix.length - 1;
+    let left = 0;
+
+    while (top <= bottom && left <= right) {
+        for (let i = left; i <= right; i++) {
+            result.push(matrix[top][i]);
+        }
+        top++;
+        
+        for (let i = top; i <= bottom; i++) {
+            result.push(matrix[i][right]);
+        }
+        right--;
+
+        if (top <= bottom) {
+            for (let i = right; i >= left; i--) {
+                result.push(matrix[bottom][i]);
+            }
+            bottom--;
+        }
+        if (left <= right) {
+            for (let i = bottom; i >= top; i--) {
+                result.push(matrix[i][left]);
+            }
+            left++;
+        }
+    }
+
+    return result;
+};
+
+
+// Test cases
+let matrix1 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+console.log(spiralOrder(matrix1)); // Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
+
+let matrix2 = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12]
+];
+console.log(spiralOrder(matrix2)); // Output: [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
