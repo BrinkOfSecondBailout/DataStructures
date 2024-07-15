@@ -537,37 +537,147 @@ substring without repeating characters
 
 
 
-function ListNode(val, next) {
-    this.val = (val===undefined ? 0 : val)
-    this.next = (next===undefined ? null : next)
-}
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
 
-var reverseBetween = function(head, left, right) {
+// var reverseBetween = function(head, left, right) {
+//     if (!head || left === right) return head;
+
+//     let dummy = new ListNode(0, head);
+//     let leftPrev = dummy;
+//     let current = head;
+//     let position = 1;
+
+//     while (position < left) {
+//         leftPrev = current;
+//         current = current.next;
+//         position++;
+//     }
+
+//     let leftNode = current;
+//     let prev = null;
+
+//     while (position <= right) {
+//         let nextNode = current.next;
+//         current.next = prev;
+//         prev = current;
+//         current = nextNode;
+//         position++;
+//     }
+
+//     leftPrev.next = prev;
+//     leftNode.next = current;
+
+//     return dummy.next;
+// };
+
+// function arrayToList(arr) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     for (let val of arr) {
+//         current.next = new ListNode(val);
+//         current = current.next;
+//     }
+//     return dummy.next;
+// }
+
+// function listToArray(head) {
+//     let array = [];
+//     let current = head;
+//     while (current) {
+//         array.push(current.val);
+//         current = current.next;
+//     }
+//     return array;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// My version :)
+
+// function ListNode(val, next) {
+//     this.val = (val !== undefined) ? val : 0;
+//     this.next = (next !== undefined) ? next : 0;
+// }
+
+// var reverseBetween = function(head, left, right) {
+//     if (!head || !left || !right) return null;
+
+//     let dummy = new ListNode(0, head);
+//     let leftPrev = dummy;
+//     let current = head;
+//     let position = 1;
+
+//     while (position < left) {
+//         leftPrev = current;
+//         current = current.next;
+//         position++;
+//     }
+
+//     let prev = null;
+//     let leftNode = current;
     
-};
+//     while (position <= right) {
+//         let nextNode = current.next;
+//         current.next = prev;
+//         prev = current;
+//         current = nextNode;
+//         position++;
+//     }
 
-function arrayToList(arr) {
-    let dummy = new ListNode(0);
-    let current = dummy;
-    for (let val of arr) {
-        current.next = new ListNode(val);
-        current = current.next;
-    }
-    return dummy.next;
-}
+//     leftPrev.next = prev;
+//     leftNode.next = current;
 
-function listToArray(head) {
-    let array = [];
-    let current = head;
-    while (current) {
-        array.push(current.val);
-        current = current.next;
-    }
-    return array;
-}
+//     return dummy.next;
 
-let head1 = arrayToList([1, 2, 3, 4, 5]);
-let left1 = 2;
-let right1 = 4;
-let result1 = reverseBetween(head1, left1, right1);
-console.log(listToArray(result1));
+
+// };
+
+
+// function listToArray(head) {
+//     let array = [];
+//     let current = head;
+//     while (current) {
+//         array.push(current.val);
+//         current = current.next;
+//     }
+//     return array;
+// }
+
+// function arrayToList(array) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+
+//     for (let value of array) {
+//         current.next = new ListNode(value);
+//         current = current.next;
+//     }
+
+//     return dummy.next;
+// }
+
+
+
+
+
+
+
+// let head1 = arrayToList([1, 2, 3, 4, 5]);
+// let left1 = 2;
+// let right1 = 4;
+// let result1 = reverseBetween(head1, left1, right1);
+// console.log(listToArray(result1));
+
