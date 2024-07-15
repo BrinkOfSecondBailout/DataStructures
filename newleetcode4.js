@@ -681,3 +681,87 @@ substring without repeating characters
 // let result1 = reverseBetween(head1, left1, right1);
 // console.log(listToArray(result1));
 
+
+
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
+
+// var rotateRight = function(head, k) {
+//     if (!head || k == 0) return head;
+
+//     let length = 1;
+//     let tail = head;
+//     while (tail.next) {
+//         tail = tail.next;
+//         length++;
+//     }
+
+//     tail.next = head;
+
+//     k = k % length;
+//     let stepsToNewTail = length - k - 1;
+//     let newTail = head;
+//     for (let i = 0; i < stepsToNewTail; i++) {
+//         newTail = newTail.next;
+//     }
+
+//     let newHead = newTail.next;
+
+//     newTail.next = null;
+
+//     return newHead;
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function arrayToList(arr) {
+    let dummy = new ListNode(0);
+    let current = dummy;
+    for (let val of arr) {
+        current.next = new ListNode(val);
+        current = current.next;
+    }
+    return dummy.next;
+}
+
+// Helper function to convert linked list to array
+function listToArray(head) {
+    let array = [];
+    let current = head;
+    while (current) {
+        array.push(current.val);
+        current = current.next;
+    }
+    return array;
+}
+
+// Test cases
+let head1 = arrayToList([1, 2, 3, 4, 5]);
+let k1 = 2;
+let result1 = rotateRight(head1, k1);
+console.log(listToArray(result1)); // Output: [4, 5, 1, 2, 3]
+
+let head2 = arrayToList([0, 1, 2]);
+let k2 = 4;
+let result2 = rotateRight(head2, k2);
+console.log(listToArray(result2)); // Output: [2, 0, 1]
