@@ -716,6 +716,66 @@ substring without repeating characters
 
 
 
+// function arrayToList(arr) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     for (let val of arr) {
+//         current.next = new ListNode(val);
+//         current = current.next;
+//     }
+//     return dummy.next;
+// }
+
+// // Helper function to convert linked list to array
+// function listToArray(head) {
+//     let array = [];
+//     let current = head;
+//     while (current) {
+//         array.push(current.val);
+//         current = current.next;
+//     }
+//     return array;
+// }
+
+// // Test cases
+// let head1 = arrayToList([1, 2, 3, 4, 5]);
+// let k1 = 2;
+// let result1 = rotateRight(head1, k1);
+// console.log(listToArray(result1)); // Output: [4, 5, 1, 2, 3]
+
+// let head2 = arrayToList([0, 1, 2]);
+// let k2 = 4;
+// let result2 = rotateRight(head2, k2);
+// console.log(listToArray(result2)); // Output: [2, 0, 1]
+
+
+
+
+
+// You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
+
+// Return true if you can reach the last index, or false otherwise.
+
+
+// function canJump(nums) {
+//     let maxReach = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (i > maxReach) {
+//             return false;
+//         }
+//         maxReach = Math.max(maxReach, i + nums[i]);
+//     }
+
+//     return maxReach >= nums.length - 1;
+// }
+
+// // Test cases
+// let nums1 = [2, 3, 1, 1, 4];
+// console.log(canJump(nums1)); // Output: true
+
+// let nums2 = [3, 2, 1, 0, 4];
+// console.log(canJump(nums2)); // Output: false
 
 
 
@@ -726,42 +786,12 @@ substring without repeating characters
 
 
 
+// You are given a 0-indexed array of integers nums of length n. You are initially positioned at nums[0].
 
+// Each element nums[i] represents the maximum length of a forward jump from index i. In other words, if you are at nums[i], you can jump to any nums[i + j] where:
 
+// 0 <= j <= nums[i] and
+// i + j < n
 
+// Return the minimum number of jumps to reach nums[n - 1]. The test cases are generated such that you can reach nums[n - 1].
 
-
-
-
-
-function arrayToList(arr) {
-    let dummy = new ListNode(0);
-    let current = dummy;
-    for (let val of arr) {
-        current.next = new ListNode(val);
-        current = current.next;
-    }
-    return dummy.next;
-}
-
-// Helper function to convert linked list to array
-function listToArray(head) {
-    let array = [];
-    let current = head;
-    while (current) {
-        array.push(current.val);
-        current = current.next;
-    }
-    return array;
-}
-
-// Test cases
-let head1 = arrayToList([1, 2, 3, 4, 5]);
-let k1 = 2;
-let result1 = rotateRight(head1, k1);
-console.log(listToArray(result1)); // Output: [4, 5, 1, 2, 3]
-
-let head2 = arrayToList([0, 1, 2]);
-let k2 = 4;
-let result2 = rotateRight(head2, k2);
-console.log(listToArray(result2)); // Output: [2, 0, 1]
