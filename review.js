@@ -296,63 +296,197 @@
 
 
 
-function TreeNode(val, left = null, right = null) {
-    this.val = val;
-    this.left = left;
-    this.right = right;
-}
+// function TreeNode(val, left = null, right = null) {
+//     this.val = val;
+//     this.left = left;
+//     this.right = right;
+// }
 
-function arrayToTreeNode(arr) {
-    if (arr.length === 0) return null;
+// function arrayToTreeNode(arr) {
+//     if (arr.length === 0) return null;
 
-    let root = new TreeNode(arr[0]);
-    let queue = [root];
-    let i = 1;
+//     let root = new TreeNode(arr[0]);
+//     let queue = [root];
+//     let i = 1;
 
-    while (i < arr.length) {
-        let currentNode = queue.shift();
+//     while (i < arr.length) {
+//         let currentNode = queue.shift();
 
-        if (arr[i] !== null) {
-            currentNode.left = new TreeNode(arr[i]);
-            queue.push(currentNode.left);
-        }
-        i++;
+//         if (arr[i] !== null) {
+//             currentNode.left = new TreeNode(arr[i]);
+//             queue.push(currentNode.left);
+//         }
+//         i++;
 
-        if (i < arr.length && arr[i] !== null) {
-            currentNode.right = new TreeNode(arr[i]);
-            queue.push(currentNode.right);
-        }
-        i++;
-    }
-    return root;
-}
+//         if (i < arr.length && arr[i] !== null) {
+//             currentNode.right = new TreeNode(arr[i]);
+//             queue.push(currentNode.right);
+//         }
+//         i++;
+//     }
+//     return root;
+// }
 
-var kthSmallest = function(root, k) {
-    let count = 0;
-    let result = null;
+// var kthSmallest = function(root, k) {
+//     let count = 0;
+//     let result = null;
 
-    const inorderTraverse = (node) => {
-        if (!node || result !== null) return;
+//     const inorderTraverse = (node) => {
+//         if (!node || result !== null) return;
 
-        inorderTraverse(node.left);
-        count++;
+//         inorderTraverse(node.left);
+//         count++;
 
-        if (count === k) {
-            result = node.val;
-            return;
-        }
-        inorderTraverse(node.right);
-    }
+//         if (count === k) {
+//             result = node.val;
+//             return;
+//         }
+//         inorderTraverse(node.right);
+//     }
 
-    inorderTraverse(root);
-    return result;
-};
+//     inorderTraverse(root);
+//     return result;
+// };
 
-// Test Case
-arr = [3,1,4,null,2];
-k = 1;
-let root = arrayToTreeNode(arr);
+// ChatGPT's alternative way to find it with a stack
 
-console.log(kthSmallest(root, k));
+// var kthSmallest = function(root, k) {
+//     let stack = [];
+//     let current = root;
+//     let count = 0;
+
+//     while (current !== null || stack.length > 0) {
+//         while (current !== null) {
+//             stack.push(current);
+//             current = current.left;
+//         }
+        
+//         current = stack.pop();
+//         count++;
+        
+//         if (count === k) {
+//             return current.val;
+//         }
+        
+//         current = current.right;
+//     }
+
+//     return null; // In case k is out of range
+// };
+
+// // Test Case
+// arr = [3,1,4,null,2];
+// k = 1;
+// let root = arrayToTreeNode(arr);
+
+// console.log(kthSmallest(root, k));
+
+
+
+
+
+// function TreeNode(val, left, right) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.left = (left===undefined ? null : left)
+//     this.right = (right===undefined ? null : right)
+// }
+
+// var buildTree = function(preorder, inorder) {
+//     if (!preorder.length || !inorder.length) return null;
+
+//     let rootVal = preorder[0];
+//     let rootIndex = inorder.indexOf(rootVal);
+
+//     let root = new TreeNode(rootVal);
+
+//     let leftInorder = inorder.slice(0, rootIndex);
+//     let rightInorder = inorder.slice(rootIndex + 1);
+
+//     let leftPreorder = preorder.slice(1, 1 + leftInorder.length);
+//     let rightPreorder = preorder.slice(1 + leftPreorder.length);
+
+//     root.left = buildTree(leftInorder, leftPreorder);
+//     root.right = buildTree(rightInorder, rightPreorder);
+
+//     return root;
+// };
+
+// preorder = [3,9,20,15,7]; 
+// inorder = [9,3,15,20,7];
+
+// console.log(buildTree(preorder, inorder));
+
+
+
+
+// function TreeNode(val, left, right) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.left = (left===undefined ? null : left)
+//     this.right = (right===undefined ? null : right)
+// }
+
+
+// var buildTree = function(inorder, postorder) {
+//     if (!postorder.length || !inorder.length) return null;
+
+//     let rootVal = postorder.pop();
+//     let rootIndex = inorder.indexOf(rootVal);
+
+//     let root = new TreeNode(rootVal);
+
+//     let leftInorder = inorder.slice(0, rootIndex);
+//     let rightInorder = inorder.slice(rootIndex + 1);
+
+//     let leftPostorder = postorder.slice(0, leftInorder.length);
+//     let rightPostorder = postorder.slice(leftInorder.length);
+
+//     root.left = buildTree(leftInorder, leftPostorder);
+//     root.right = buildTree(rightInorder, rightPostorder);
+
+//     return root;
+// };
+
+// inorder = [9,3,15,20,7]; 
+// postorder = [9,15,7,20,3];
+
+// console.log(buildTree(inorder, postorder));
+
+
+
+
+
+// var maxProfit = function(prices) {
+//     let maxProfit = 0;
+//     for (let i = 0; i < prices.length; i++) {
+//         if (prices[i + 1] > prices[i]) {
+//             maxProfit += prices[i + 1] - prices[i];
+//         }
+//     }
+//     return maxProfit;
+// };
+
+// prices = [7,1,5,3,6,4];
+// console.log(maxProfit(prices));
+
+
+
+// const maxProfit = (prices) => {
+//     let maxProfit = 0;
+//     let minPrice = Infinity;
+
+//     for (let num of prices) {
+//         if (num < minPrice) {
+//             minPrice = num;
+//         } else if (num - minPrice > maxProfit) {
+//             maxProfit = num - minPrice;
+//         }
+//     }
+
+//     return maxProfit;
+// };
+
+// prices = [7,1,5,3,6,4];
+// console.log(maxProfit(prices));
+
 
 
