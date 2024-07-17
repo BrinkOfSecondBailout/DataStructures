@@ -152,3 +152,207 @@
 
 
 
+// var twoSum2 = function(numbers, target) {
+//     let left = 0, right = numbers.length - 1;
+    
+//     while (left < right) {
+//         let sum = numbers[left] + numbers[right];
+//         if (sum === target) {
+//             return [left + 1, right + 1];
+//         } else if (sum > target) {
+//             right--;
+//         } else {
+//             left++;
+//         }
+//     }
+
+//     return [];
+// };
+
+// // Test Case
+// let numbers = [2, 7, 11, 15];
+// let target = 9;
+// console.log(twoSum2(numbers, target));
+
+
+
+
+
+// var longestConsecutive = function(nums) {
+
+//     if (nums.length === 0) return 0;
+    
+//     let numSet = new Set(nums);
+//     let longestStreak = 0;
+//     for (let num of nums) {
+//         if (!numSet.has(num - 1)) {
+//             let currentNum = num;
+//             let currentStreak = 1;
+
+//             while (numSet.has(num + 1)) {
+//                 currentNum++;
+//                 currentStreak++;
+//             }
+//         }
+//         longestStreak = Math.max(longestStreak, currentStreak);
+//     }
+
+//     return longestStreak;
+// };
+
+// // Test Case
+// nums = [100,4,200,1,3,2];
+// nums2 = [0,3,7,2,5,8,4,6,0,1];
+// console.log(longestConsecutive(nums2));
+
+
+
+
+
+
+// var simplifyPath = function(path) {
+//     let parts = path.split('/');
+//     let stack = [];
+//     for (let part of parts) {
+//         if (part === '.' || part === '') {
+//             continue;
+//         } else if (part === '..') {
+//             if (stack.length > 0) {
+//                 stack.pop();
+//             }
+//         } else {
+//             stack.push(part);
+//         }
+//     }
+//     return '/' + stack.join('/');
+// }
+
+
+// path = "/home//foo/";
+// path2 = "/.../a/../b/c/../d/./"
+// console.log(simplifyPath(path));
+
+
+
+
+// var isValidSudoku = function(board) {
+//     let rows = arrayOfSets(9);
+//     let columns = arrayOfSets(9);
+//     let boxes = arrayOfSets(9);
+
+//     for (let r = 0; r < 9; r++) {
+//         for (let c = 0; c < 9; c++) {
+//             let val = board[r][c];
+//             if (val === '.') continue;
+            
+//             let boxIndex = Math.floor(r / 3) * 3 + Math.floor(c / 3);
+//             if ( rows[r].has(val) || columns[c].has(val) || boxes[boxIndex].has(val)) {
+//                 return false;
+//             } else {
+//                 rows[r].add(val);
+//                 columns[c].add(val);
+//                 boxes[boxIndex].add(val);
+//             }
+//         }
+//     }
+//     return true;
+
+// };
+
+
+// function arrayOfSets(length) {
+//     let arr = [];
+//     for (let i = 0; i < length; i++) {
+//         arr.push(new Set());
+//     }
+//     return arr;
+// }
+
+
+
+// board = 
+// [["5","3",".",".","7",".",".",".","."]
+// ,["6",".",".","1","9","5",".",".","."]
+// ,[".","9","8",".",".",".",".","6","."]
+// ,["8",".",".",".","6",".",".",".","3"]
+// ,["4",".",".","8",".","3",".",".","1"]
+// ,["7",".",".",".","2",".",".",".","6"]
+// ,[".","6",".",".",".",".","2","8","."]
+// ,[".",".",".","4","1","9",".",".","5"]
+// ,[".",".",".",".","8",".",".","7","9"]];
+
+// board2 = 
+// [["8","3",".",".","7",".",".",".","."]
+// ,["6",".",".","1","9","5",".",".","."]
+// ,[".","9","8",".",".",".",".","6","."]
+// ,["8",".",".",".","6",".",".",".","3"]
+// ,["4",".",".","8",".","3",".",".","1"]
+// ,["7",".",".",".","2",".",".",".","6"]
+// ,[".","6",".",".",".",".","2","8","."]
+// ,[".",".",".","4","1","9",".",".","5"]
+// ,[".",".",".",".","8",".",".","7","9"]]
+
+// console.log(isValidSudoku(board));
+
+
+
+function TreeNode(val, left = null, right = null) {
+    this.val = val;
+    this.left = left;
+    this.right = right;
+}
+
+function arrayToTreeNode(arr) {
+    if (arr.length === 0) return null;
+
+    let root = new TreeNode(arr[0]);
+    let queue = [root];
+    let i = 1;
+
+    while (i < arr.length) {
+        let currentNode = queue.shift();
+
+        if (arr[i] !== null) {
+            currentNode.left = new TreeNode(arr[i]);
+            queue.push(currentNode.left);
+        }
+        i++;
+
+        if (i < arr.length && arr[i] !== null) {
+            currentNode.right = new TreeNode(arr[i]);
+            queue.push(currentNode.right);
+        }
+        i++;
+    }
+    return root;
+}
+
+var kthSmallest = function(root, k) {
+    let count = 0;
+    let result = null;
+
+    const inorderTraverse = (node) => {
+        if (!node || result !== null) return;
+
+        inorderTraverse(node.left);
+        count++;
+
+        if (count === k) {
+            result = node.val;
+            return;
+        }
+        inorderTraverse(node.right);
+    }
+
+    inorderTraverse(root);
+    return result;
+};
+
+// Test Case
+arr = [3,1,4,null,2];
+k = 1;
+let root = arrayToTreeNode(arr);
+
+console.log(kthSmallest(root, k));
+
+
