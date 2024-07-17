@@ -826,56 +826,135 @@ substring without repeating characters
 
 // Given an m x n matrix, return all elements of the matrix in spiral order.
 
-var spiralOrder = function(matrix) {
-    if (matrix.length === 0) return [];
+// var spiralOrder = function(matrix) {
+//     if (matrix.length === 0) return [];
 
-    let result = [];
+//     let result = [];
 
-    let top = 0;
-    let right = matrix[0].length - 1;
-    let bottom = matrix.length - 1;
-    let left = 0;
+//     let top = 0;
+//     let right = matrix[0].length - 1;
+//     let bottom = matrix.length - 1;
+//     let left = 0;
 
-    while (top <= bottom && left <= right) {
-        for (let i = left; i <= right; i++) {
-            result.push(matrix[top][i]);
-        }
-        top++;
+//     while (top <= bottom && left <= right) {
+//         for (let i = left; i <= right; i++) {
+//             result.push(matrix[top][i]);
+//         }
+//         top++;
         
-        for (let i = top; i <= bottom; i++) {
-            result.push(matrix[i][right]);
-        }
-        right--;
+//         for (let i = top; i <= bottom; i++) {
+//             result.push(matrix[i][right]);
+//         }
+//         right--;
 
-        if (top <= bottom) {
-            for (let i = right; i >= left; i--) {
-                result.push(matrix[bottom][i]);
-            }
-            bottom--;
+//         if (top <= bottom) {
+//             for (let i = right; i >= left; i--) {
+//                 result.push(matrix[bottom][i]);
+//             }
+//             bottom--;
+//         }
+//         if (left <= right) {
+//             for (let i = bottom; i >= top; i--) {
+//                 result.push(matrix[i][left]);
+//             }
+//             left++;
+//         }
+//     }
+
+//     return result;
+// };
+
+
+// // Test cases
+// let matrix1 = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ];
+// console.log(spiralOrder(matrix1)); // Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
+
+// let matrix2 = [
+//     [1, 2, 3, 4],
+//     [5, 6, 7, 8],
+//     [9, 10, 11, 12]
+// ];
+// console.log(spiralOrder(matrix2)); // Output: [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
+
+
+
+
+
+
+
+
+// Given an array of integers citations where citations[i] is the number of citations a researcher received for their ith paper, return the researcher's h-index.
+
+// According to the definition of h-index on Wikipedia: The h-index is defined as the maximum value of h such that the given researcher has published at least h papers that have each been cited at least h times.
+
+// var hIndex = function(citations) {
+//     // Sort the array in non-decreasing order
+//     citations.sort((a, b) => a - b);
+    
+//     let n = citations.length;
+    
+//     // Iterate through the sorted array
+//     for (let i = 0; i < n; i++) {
+//         let h = n - i; // Number of papers with at least citations[i] citations
+//         if (citations[i] >= h) {
+//             return h;
+//         }
+//     }
+    
+//     return 0;
+// };
+
+// // Test cases
+// console.log(hIndex([3, 0, 6, 1, 5])); // Output: 3
+// console.log(hIndex([1, 3, 1])); // Output: 1
+
+
+
+
+
+
+
+// Write an algorithm to determine if a number n is happy.
+
+// A happy number is a number defined by the following process:
+
+// Starting with any positive integer, replace the number by the sum of the squares of its digits.
+// Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+// Those numbers for which this process ends in 1 are happy.
+// Return true if n is a happy number, and false if not.
+
+
+var isHappy = function(n) {
+
+    const sumOfSquares = (num) => {
+        let sum = 0;
+        while (num > 0) {
+            let digit = num % 10;
+            sum += digit * digit;
+            num = Math.floor(num / 10);
         }
-        if (left <= right) {
-            for (let i = bottom; i >= top; i--) {
-                result.push(matrix[i][left]);
-            }
-            left++;
-        }
+        return sum;
     }
 
-    return result;
+    let seen = new Set();
+
+    while (n !== 1 && !seen.has(n)) {
+        seen.add(n);
+        n = sumOfSquares(n);
+    }
+
+    return n === 1;
+
 };
 
 
-// Test cases
-let matrix1 = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-];
-console.log(spiralOrder(matrix1)); // Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
 
-let matrix2 = [
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12]
-];
-console.log(spiralOrder(matrix2)); // Output: [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
+// Test cases
+console.log(isHappy(19)); // Output: true
+console.log(isHappy(2));  // Output: false
+
+
