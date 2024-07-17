@@ -61,6 +61,7 @@
 
 
 
+
 /* Given a string s, find the length of the longest 
 substring without repeating characters
 */
@@ -928,33 +929,37 @@ substring without repeating characters
 // Return true if n is a happy number, and false if not.
 
 
-var isHappy = function(n) {
+// var isHappy = function(n) {
 
-    const sumOfSquares = (num) => {
-        let sum = 0;
-        while (num > 0) {
-            let digit = num % 10;
-            sum += digit * digit;
-            num = Math.floor(num / 10);
-        }
-        return sum;
-    }
+//     const sumOfSquares = (num) => {
+//         let sum = 0;
+//         while (num > 0) {
+//             let digit = num % 10;
+//             sum += digit * digit;
+//             num = Math.floor(num / 10);
+//         }
+//         return sum;
+//     }
 
-    let seen = new Set();
+//     let seen = new Set();
 
-    while (n !== 1 && !seen.has(n)) {
-        seen.add(n);
-        n = sumOfSquares(n);
-    }
+//     while (n !== 1 && !seen.has(n)) {
+//         seen.add(n);
+//         n = sumOfSquares(n);
+//     }
 
-    return n === 1;
+//     return n === 1;
 
-};
+// };
 
 
 
-// Test cases
-console.log(isHappy(19)); // Output: true
-console.log(isHappy(2));  // Output: false
+// // Test cases
+// console.log(isHappy(19)); // Output: true
+// console.log(isHappy(2));  // Output: false
+
+
+
+
 
 
