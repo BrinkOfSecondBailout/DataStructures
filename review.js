@@ -654,3 +654,88 @@
 // console.log(resultList);
 
 
+// var canJump = function(nums) {
+//     let maxReach = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (i > maxReach) return false;
+//         maxReach = Math.max(maxReach, nums[i] + i);
+//     }
+
+//     return maxReach >= nums.length - 1;
+// };
+
+// nums = [2,3,1,1,4];
+// nums2 = [3,2,1,0,4]
+// console.log(canJump(nums2));
+
+
+
+
+
+
+
+// var jump = function(nums) {
+//     let n = nums.length;
+//     let maxReach = 0;
+//     let currentReach = 0;
+//     let jumps = 0;
+
+//     for (let i = 0; i < n; i++) {
+//         maxReach = Math.max(maxReach, nums[i] + i);
+
+//         if (i === currentReach) {
+//             jumps++;
+//             currentReach = maxReach;
+//             if (currentReach >= n - 1) break;
+//         }
+//     }
+//     return jumps;
+// };
+
+// nums = [2,3,1,1,4];
+// console.log(jump(nums));
+
+
+
+
+
+
+// var spiralOrder = function(matrix) {
+//     let result = [];
+//     let left = 0, top = 0, right = matrix[0].length - 1, bottom = matrix.length - 1;
+    
+//     while (top <= bottom && left <= right) {
+//         for (let i = left; i <= right; i++) {
+//             result.push(matrix[top][i]);
+//         }
+//         top++;
+
+//         for (let i = top; i <= bottom; i++) {
+//             result.push(matrix[i][right]);
+//         }
+//         right--;
+
+//         if (top <= bottom) {
+//             for (let i = right; i >= left; i--) {
+//                 result.push(matrix[bottom][i]);
+//             }
+//             bottom--;
+//         }
+
+//         if (left <= right) {
+//             for (let i = bottom; i >= top; i--) {
+//                 result.push(matrix[i][left]);
+//             }
+//             left++;
+//         }
+//     }
+//     return result;
+// };
+
+// matrix = [[1,2,3],[4,5,6],[7,8,9]];
+// console.log(spiralOrder(matrix));
+
+
+
+
