@@ -490,3 +490,167 @@
 
 
 
+// var groupAnagrams = function(strs) {
+//     let map = new Map();
+//     for (let str of strs) {
+//         let sortedStr = str.split('').sort().join('');
+//         if (map.has(sortedStr)) {
+//             map.get(sortedStr).push(str);
+//         } else {
+//             map.set(sortedStr, [str]);
+//         }
+//     }
+//     return Array.from(map.values());
+// };
+
+// strs = ["eat","tea","tan","ate","nat","bat"];
+// console.log(groupAnagrams(strs));
+
+
+
+
+
+
+
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
+
+// function arrayToLinkedList(arr) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     for (let val of arr) {
+//         current.next = new ListNode(val);
+//         current = current.next;
+//     }
+
+//     return dummy.next;
+// }
+
+// function linkedListToArr(node) {
+//     let arr = [];
+//     while(node) {
+//         arr.push(node.val);
+//         node = node.next;
+//     }
+//     return arr;
+// }
+
+// var reverseBetween = function(head, left, right) {
+//     if (!head || left === right) return head;
+
+//     let dummy = new ListNode(0);
+//     let leftPrev = dummy;
+//     dummy.next = head;
+//     let current = head;
+//     let position = 1;
+
+//     while (position < left) {
+//         leftPrev = current;
+//         current = current.next;
+//         position++;
+//     }
+
+//     let leftNode = current;
+//     let prev = null;
+
+//     while (position <= right) {
+//         let nextNode = current.next;
+//         current.next = prev;
+//         prev = current;
+//         current = nextNode;
+//         position++;
+//     }
+
+//     leftPrev.next = prev;
+//     leftNode.next = current;
+
+//     return dummy.next;
+
+// };
+
+
+
+// // head = [1,2,3,4,5];
+// // let linkedList = arrayToLinkedList(head);
+// // let result = reverseBetween(linkedList, 2, 4);
+// // console.log(linkedListToArr(result));
+
+// head2 = [5];
+// let linkedList2 = arrayToLinkedList(head2);
+// let result2 = reverseBetween(linkedList2, 1, 1);
+// console.log(linkedListToArr(result2));
+
+
+
+
+
+
+
+
+
+
+
+
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
+
+// function arrayToLinkedList(arr) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     for (let val of arr) {
+//         current.next = new ListNode(val);
+//         current = current.next;
+//     }
+
+//     return dummy.next;
+// }
+
+// function linkedListToArr(node) {
+//     let arr = [];
+//     while(node) {
+//         arr.push(node.val);
+//         node = node.next;
+//     }
+//     return arr;
+// }
+
+
+// var rotateRight = function(head, k) {
+//     if (!head || k == 0) return head;
+
+//     let length = 1;
+//     let tail = head;
+//     while (tail.next) {
+//         tail = tail.next;
+//         length++;
+//     }
+
+//     tail.next = head;
+
+//     k = k % length;
+//     let stepsToNewTail = length - k - 1;
+//     let newTail = head;
+//     for (let i = 0; i < stepsToNewTail; i++) {
+//         newTail = newTail.next;
+//     }
+
+//     let newHead = newTail.next;
+
+//     newTail.next = null;
+
+//     return newHead;
+
+// };
+
+// list = [1,2,3,4,5];
+// let head = arrayToLinkedList(list);
+// k = 2;
+// let result = rotateRight(head, k);
+// let resultList = linkedListToArr(result);
+// console.log(resultList);
+
+
