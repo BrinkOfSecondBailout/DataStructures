@@ -1001,39 +1001,155 @@ substring without repeating characters
 
 
 
-var intToRoman = function(num) {
-    const symbols = [
-        { value: 1000, symbol: 'M' },
-        { value: 900, symbol: 'CM' },
-        { value: 500, symbol: 'D' },
-        { value: 400, symbol: 'CD' },
-        { value: 100, symbol: 'C' },
-        { value: 90, symbol: 'XC' },
-        { value: 50, symbol: 'L' },
-        { value: 40, symbol: 'XL' },
-        { value: 10, symbol: 'X' },
-        { value: 9, symbol: 'IX' },
-        { value: 5, symbol: 'V' },
-        { value: 4, symbol: 'IV' },
-        { value: 1, symbol: 'I' }
-    ]
+// var intToRoman = function(num) {
+//     const romanMap = [
+//         { value: 1000, symbol: 'M' },
+//         { value: 900, symbol: 'CM' },
+//         { value: 500, symbol: 'D' },
+//         { value: 400, symbol: 'CD' },
+//         { value: 100, symbol: 'C' },
+//         { value: 90, symbol: 'XC' },
+//         { value: 50, symbol: 'L' },
+//         { value: 40, symbol: 'XL' },
+//         { value: 10, symbol: 'X' },
+//         { value: 9, symbol: 'IX' },
+//         { value: 5, symbol: 'V' },
+//         { value: 4, symbol: 'IV' },
+//         { value: 1, symbol: 'I' }
+//     ]
 
-    let result = '';
+//     let result = '';
 
-    for (let i = 0; i < symbols.length; i++) {
-        const {value, symbol} = symbols[i];
-        while (num >= value) {
-            result += symbol;
-            num -= value;
-        }
-    }
+//     for (let i = 0; i < romanMap.length; i++) {
+//         const {value, symbol} = romanMap[i];
+//         while (num >= value) {
+//             result += symbol;
+//             num -= value;
+//         }
+//     }
 
-    return result;
-}
+//     return result;
+// }
 
-// Test cases
-console.log(intToRoman(3));    // Output: "III"
-console.log(intToRoman(4));    // Output: "IV"
-console.log(intToRoman(9));    // Output: "IX"
-console.log(intToRoman(58));   // Output: "LVIII"
-console.log(intToRoman(1994)); // Output: "MCMXCIV"
+// // Test cases
+// console.log(intToRoman(3));    // Output: "III"
+// console.log(intToRoman(4));    // Output: "IV"
+// console.log(intToRoman(9));    // Output: "IX"
+// console.log(intToRoman(58));   // Output: "LVIII"
+// console.log(intToRoman(1994)); // Output: "MCMXCIV"
+
+
+
+
+
+// Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
+
+// function arrayToLinkedList(arr) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+
+//     for (let value of arr) {
+//         current.next = new ListNode(value);
+//         current = current.next;
+//     }
+
+//     return dummy.next;
+// }
+
+// function linkedListToArr(node) {
+//     let arr = [];
+//     while (node) {
+//         arr.push(node.val);
+//         node = node.next;
+//     }
+//     return arr;
+// }
+
+// function findLength(node) {
+//     let count = 1;
+//     while (node.next) {
+//         node = node.next;
+//         count++;
+//     }
+//     return count;
+// }
+
+
+// var removeNthFromEnd = function(head, n) {
+//     let len = findLength(head);
+//     if (len <= 1 && n === 1) return null
+//     let stepsToN = len - n;
+//     let count = 0;
+
+//     let dummy = new ListNode(0);
+//     dummy.next = head;
+//     let prev = dummy;
+//     let current = head;
+
+//     while (count < stepsToN) {
+//         prev = prev.next;
+//         current = current.next;
+//         count++;
+//     }
+
+//     let nextNode = current.next;
+//     current.next = null;
+//     prev.next = nextNode;
+
+//     return dummy.next;
+// };
+
+// let arr = [1, 2, 3, 4, 5];
+// let n = 2;
+// let list = arrayToLinkedList(arr);
+// let result = removeNthFromEnd(list, n);
+// let showResult = linkedListToArr(result);
+// console.log(showResult);
+
+
+
+
+// Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+
+// Notice that the solution set must not contain duplicate triplets.
+
+// var threeSum = function(nums) {
+//     nums.sort((a, b) => a - b);
+//     let result = [];
+
+//     for (let i = 0; i < nums.length - 2; i++) {
+//         if (i > 0 && nums[i] === nums[i - 1]) continue;
+
+//         let left = i + 1;
+//         let right = nums.length - 1;
+
+//         while (left < right) {
+//             let sum = nums[i] + nums[left] + nums[right];
+//             if (sum === 0) {
+//                 result.push([nums[i], nums[left], nums[right]]);
+
+//                 while (left < right && nums[left] === nums[left + 1]) left++;
+
+//                 while (left < right && nums[right] === nums[right - 1]) right--;
+
+//                 left++;
+//                 right--;
+//             } else if (sum < 0) {
+//                 left++;
+//             } else {
+//                 right--;
+//             }
+//         }
+//     }
+
+//     return result;
+// };
+
+
+// nums = [-1,0,1,2,-1,-4];
+// console.log(threeSum(nums));
