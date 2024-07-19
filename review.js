@@ -739,3 +739,49 @@
 
 
 
+
+
+// var hIndex = function(citations) {
+//     let list = citations.sort((a, b) => a - b);
+//     let n = citations.length;
+//     for (let i = 0; i < n; i++) {
+//         let h = n - i;
+//         if (citations[i] >= h) return h;
+//     }
+//     return 0;
+// };
+
+// citations = [3,0,6,1,5];
+// console.log(hIndex(citations));
+
+
+
+
+
+// var isHappy = function(n) {
+//     const sumOfSquares = (n) => {
+//         let sum = 0;
+//         while (n > 0) {
+//             let digit = n % 10;
+//             sum += digit * digit;
+//             n = Math.floor(n / 10);
+//         }
+//         return sum;
+//     }
+
+//     let seen = new Set();
+
+//     while (n !== 1 && !seen.has(n)) {
+//         seen.add(n);
+//         n = sumOfSquares(n);
+//     }
+//     return n === 1;
+// };
+
+
+// number = 19;
+// console.log(isHappy(number));
+
+
+
+
