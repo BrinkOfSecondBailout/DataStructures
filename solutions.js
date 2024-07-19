@@ -965,33 +965,75 @@ substring without repeating characters
 
 
 
-var canCompleteCircuit = function(gas, cost) {
-    let totalGas = 0;
-    let totalCost = 0;
-    let tank = 0;
-    let start = 0;
+// var canCompleteCircuit = function(gas, cost) {
+//     let totalGas = 0;
+//     let totalCost = 0;
+//     let tank = 0;
+//     let start = 0;
 
-    for (let i = 0; i < gas.length; i++) {
-        totalGas += gas[i];
-        totalCost += cost[i];
-        tank += gas[i] - cost[i];
+//     for (let i = 0; i < gas.length; i++) {
+//         totalGas += gas[i];
+//         totalCost += cost[i];
+//         tank += gas[i] - cost[i];
 
-        if (tank < 0) {
-            start = i + 1;
-            tank = 0;
+//         if (tank < 0) {
+//             start = i + 1;
+//             tank = 0;
+//         }
+//     }
+
+//     if (totalGas < totalCost) {
+//         return -1;
+//     }
+
+//     return start;
+// };
+
+
+
+// gas = [1,2,3,4,5]; 
+// cost = [3,4,5,1,2];
+
+// console.log(canCompleteCircuit(gas, cost));
+
+
+
+
+
+
+var intToRoman = function(num) {
+    const symbols = [
+        { value: 1000, symbol: 'M' },
+        { value: 900, symbol: 'CM' },
+        { value: 500, symbol: 'D' },
+        { value: 400, symbol: 'CD' },
+        { value: 100, symbol: 'C' },
+        { value: 90, symbol: 'XC' },
+        { value: 50, symbol: 'L' },
+        { value: 40, symbol: 'XL' },
+        { value: 10, symbol: 'X' },
+        { value: 9, symbol: 'IX' },
+        { value: 5, symbol: 'V' },
+        { value: 4, symbol: 'IV' },
+        { value: 1, symbol: 'I' }
+    ]
+
+    let result = '';
+
+    for (let i = 0; i < symbols.length; i++) {
+        const {value, symbol} = symbols[i];
+        while (num >= value) {
+            result += symbol;
+            num -= value;
         }
     }
 
-    if (totalGas < totalCost) {
-        return -1;
-    }
+    return result;
+}
 
-    return start;
-};
-
-
-
-gas = [1,2,3,4,5]; 
-cost = [3,4,5,1,2];
-
-console.log(canCompleteCircuit(gas, cost));
+// Test cases
+console.log(intToRoman(3));    // Output: "III"
+console.log(intToRoman(4));    // Output: "IV"
+console.log(intToRoman(9));    // Output: "IX"
+console.log(intToRoman(58));   // Output: "LVIII"
+console.log(intToRoman(1994)); // Output: "MCMXCIV"
