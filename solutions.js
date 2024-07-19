@@ -1153,3 +1153,61 @@ substring without repeating characters
 
 // nums = [-1,0,1,2,-1,-4];
 // console.log(threeSum(nums));
+
+
+
+
+
+
+
+// var reverseWords = function(s) {
+//     let words = s.trim().split(' ');
+
+//     words = words.filter(word => word.length > 0);
+
+//     let left = 0, right = words.length - 1;
+//     while (left < right) {
+//         let temp = words[left];
+//         words[left] = words[right];
+//         words[right] = temp;
+//         left++;
+//         right--;
+//     }
+//     return words.join(' ');
+// };
+
+// let s = "the sky is blue";
+// let s2 = "  hello world  ";
+// let s3 = "a good   example";
+// console.log(reverseWords(s3));
+
+
+
+
+
+// var MinStack = function() {
+//     this.stack = [];
+//     this.minStack = [];
+// }
+
+// MinStack.prototype.push = function(val) {
+//     this.stack.push(val);
+//     if (this.minStack.length === 0 || val <= this.minStack[this.minStack.length - 1]) {
+//         this.minStack.push(val);
+//     } else {
+//         this.minStack.push(this.minStack[this.minStack.length - 1]);
+//     }
+// };
+
+// MinStack.prototype.pop = function() {
+//     this.stack.pop();
+//     this.minStack.pop();
+// }
+
+// MinStack.prototype.top = function() {
+//     return this.stack[this.stack.length - 1];
+// }
+
+// MinStack.prototype.getMin = function() {
+//     return this.minStack[this.minStack.length - 1];
+// }
