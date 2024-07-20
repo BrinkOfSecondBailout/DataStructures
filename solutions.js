@@ -1244,7 +1244,7 @@ substring without repeating characters
 
 
 
-function Node(val, next, random) {
+function Node(val, next = null, random = null) {
     this.val = val;
     this.next = next;
     this.random = random;
@@ -1256,6 +1256,7 @@ var copyRandomList = function(head) {
         return null;
     }
 
+    // Step 1: Create a copy of each node and interleave them
     let current = head;
     while (current !== null) {
         let copy = new Node(current.val, current.next, null);
@@ -1263,6 +1264,7 @@ var copyRandomList = function(head) {
         current = copy.next;
     }
 
+    // Step 2: Assign random pointers for the copied nodes
     current = head;
     while (current !== null) {
         if (current.random !== null) {
@@ -1271,6 +1273,7 @@ var copyRandomList = function(head) {
         current = current.next.next;
     }
 
+    // Step 3: Separate the interleaved lists
     current = head;
     let copyHead = head.next;
     let copyCurrent = copyHead;
@@ -1282,12 +1285,47 @@ var copyRandomList = function(head) {
         current = current.next;
         copyCurrent = copyCurrent.next;
     }
+
     return copyHead;
 };
 
 function createList(arr) {
+    const nodes = [];
+
+    // Create all nodes
+    for (let i = 0; i < arr.length; i++) {
+        const [val, randomIndex] = arr[i];
+        nodes.push(new Node(val));
+    }
+
+    // Set next and random pointers
+    for (let i = 0; i < arr.length; i++) {
+        if (i < arr.length - 1) {
+            nodes[i].next = nodes[i + 1];
+        }
+        if (arr[i][1] !== null) {
+            nodes[i].random = nodes[arr[i][1]];
+        }
+    }
+
+    return nodes[0];
 }
 
 function printList(head) {
+    let current = head;
+    let result = '';
+    while (current) {
+        const randomVal = current.random ? current.random.val : 'null';
+        result += `[${current.val}, ${randomVal}]`;
+        current = current.next;
+        if (current) {
+            result += ' -> ';
+        }
+    }
+    console.log(result);
 }
 
+const head = createList([[7, null], [13, 0], [11, 4], [10, 2], [1, 0]]);
+// printList(head); // Original list
+const copiedHead = copyRandomList(head);
+printList(copiedHead);
