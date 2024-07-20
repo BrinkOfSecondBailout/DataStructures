@@ -815,3 +815,190 @@
 // s = "babad";
 // console.log(longestPalindrome(s));
 
+
+
+
+
+
+// var canCompleteCircuit = function(gas, cost) {
+//     let totalGas = 0;
+//     let totalCost = 0;
+//     let tank = 0;
+//     let start = 0;
+
+//     for (let i = 0; i < gas.length; i++) {
+//         totalGas += gas[i];
+//         totalCost += cost[i];
+//         tank += gas[i] - cost[i];
+
+//         if (tank < 0) {
+//             start = i + 1;
+//             tank = 0;
+//         }
+//     }
+
+//     if (totalGas < totalCost) return -1;
+
+//     return start;
+// };
+
+// gas = [1,2,3,4,5]; 
+// cost = [3,4,5,1,2];
+
+// console.log(canCompleteCircuit(gas, cost));
+
+
+
+
+// var intToRoman = function(num) {
+//     let result = '';
+//     let romanMap = [
+//         {value: 1000, symbol: 'M'},
+//         {value: 900, symbol: 'CM'},
+//         {value: 500, symbol: 'D'},
+//         {value: 400, symbol: 'CD'},
+//         {value: 100, symbol: 'C'},
+//         {value: 90, symbol: 'XC'},
+//         {value: 50, symbol: 'L'},
+//         {value: 40, symbol: 'XL'},
+//         {value: 10, symbol: 'X'},
+//         {value: 9, symbol: 'IX'},
+//         {value: 5, symbol: 'V'},
+//         {value: 4, symbol: 'IV'},
+//         {value: 1, symbol:'I'}
+//     ];
+
+//     for (let i = 0; i < romanMap.length; i++) {
+//         const {value, symbol} = romanMap[i];
+//         while (num >= value) {
+//             result += symbol;
+//             num -= value;
+//         }
+//     }
+
+//     return result;
+
+// };
+
+// let num = 3749;
+// console.log(intToRoman(num));
+
+
+
+
+// var removeNthFromEnd = function(head, n) {
+//     let len = findLength(head);
+//     if (len <= 1 && n === 1) return null;
+
+//     let dummy = new ListNode(0, head);
+//     let prev = dummy;
+//     let current = head;
+//     let steps = 0;
+//     let stepsToN = len - n;
+
+//     while (steps < stepsToN) {
+//         prev = prev.next;
+//         current = current.next;
+//         steps++;
+//     }
+
+//     let nextNode = current.next;
+//     current.next = null;
+//     prev.next = nextNode;
+
+//     return dummy.next;
+// };
+
+// function findLength(node) {
+//     let count = 0;
+//     while (node.next) {
+//         count++;
+//         node = node.next;
+//     }
+//     return count;
+// }
+
+
+
+
+
+// var threeSum = function(nums) {
+//     nums = nums.sort((a, b) => a - b);
+//     let result = [];
+
+//     for (let i = 0; i < nums.length - 2; i++) {
+//         if (i > 0 && nums[i] === nums[i - 1]) continue;
+//         let left = i + 1, right = nums.length - 1;
+//         while (left < right) {
+//             let sum = nums[i] + nums[left] + nums[right];
+//             if (sum === 0) {
+//                 result.push([nums[i], nums[left], nums[right]]);
+//                 while (left < right && nums[left] === nums[left + 1]) left++;
+//                 while (left < right && nums[right] === nums[right - 1]) right--;
+//                 left++;
+//                 right--;
+//             } else if (sum < 0) {
+//                 left++;
+//             } else {
+//                 right--;
+//             }
+//         }
+//     }
+//     return result;
+// };
+
+// nums = [-1,0,1,2,-1,-4];
+// console.log(threeSum(nums));
+
+
+
+
+
+// var reverseWords = function(s) {
+//     let words = s.trim().split(' ');
+
+//     words = words.filter(word => word.length > 0);
+
+//     return words.reverse().join(' ');
+// };
+
+// // s2 = "the sky is blue";
+// s = "a good   example"
+// console.log(reverseWords(s));
+
+
+
+
+
+
+
+// var MinStack = function() {
+//     this.stack = [];
+//     this.minStack = [];
+// };
+
+// MinStack.prototype.push = function(val) {
+//     this.stack.push(val);
+//     if (this.minStack.length === 0 || val < this.minStack[this.minStack.length - 1]) {
+//         this.minStack.push(val);
+//     } else {
+//         this.minStack.push(this.minStack[this.minStack.length - 1]);
+//     }
+// };
+
+// MinStack.prototype.pop = function() {
+//     this.stack.pop();
+//     this.minStack.pop();
+// };
+
+// MinStack.prototype.top = function() {
+//     return this.stack[this.stack.length - 1];
+// };
+
+// MinStack.prototype.getMin = function() {
+//     return this.minStack[this.minStack.length - 1];
+// };
+
+
+
+
