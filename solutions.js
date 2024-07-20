@@ -1242,3 +1242,52 @@ substring without repeating characters
 
 
 
+
+
+function Node(val, next, random) {
+    this.val = val;
+    this.next = next;
+    this.random = random;
+};
+
+
+var copyRandomList = function(head) {
+    if (head === null) {
+        return null;
+    }
+
+    let current = head;
+    while (current !== null) {
+        let copy = new Node(current.val, current.next, null);
+        current.next = copy;
+        current = copy.next;
+    }
+
+    current = head;
+    while (current !== null) {
+        if (current.random !== null) {
+            current.next.random = current.random.next;
+        }
+        current = current.next.next;
+    }
+
+    current = head;
+    let copyHead = head.next;
+    let copyCurrent = copyHead;
+    while (current !== null) {
+        current.next = current.next.next;
+        if (copyCurrent.next !== null) {
+            copyCurrent.next = copyCurrent.next.next;
+        }
+        current = current.next;
+        copyCurrent = copyCurrent.next;
+    }
+    return copyHead;
+};
+
+function createList(arr) {
+}
+
+function printList(head) {
+}
+
