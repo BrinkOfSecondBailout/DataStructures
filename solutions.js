@@ -1244,88 +1244,260 @@ substring without repeating characters
 
 
 
-function Node(val, next = null, random = null) {
-    this.val = val;
-    this.next = next;
-    this.random = random;
+// function Node(val, next = null, random = null) {
+//     this.val = val;
+//     this.next = next;
+//     this.random = random;
+// };
+
+
+// var copyRandomList = function(head) {
+//     if (head === null) {
+//         return null;
+//     }
+
+//     // Step 1: Create a copy of each node and interleave them
+//     let current = head;
+//     while (current !== null) {
+//         let copy = new Node(current.val, current.next, null);
+//         current.next = copy;
+//         current = copy.next;
+//     }
+
+//     // Step 2: Assign random pointers for the copied nodes
+//     current = head;
+//     while (current !== null) {
+//         if (current.random !== null) {
+//             current.next.random = current.random.next;
+//         }
+//         current = current.next.next;
+//     }
+
+//     // Step 3: Separate the interleaved lists
+//     current = head;
+//     let copyHead = head.next;
+//     let copyCurrent = copyHead;
+//     while (current !== null) {
+//         current.next = current.next.next;
+//         if (copyCurrent.next !== null) {
+//             copyCurrent.next = copyCurrent.next.next;
+//         }
+//         current = current.next;
+//         copyCurrent = copyCurrent.next;
+//     }
+
+//     return copyHead;
+// };
+
+// function createList(arr) {
+//     const nodes = [];
+
+//     // Create all nodes
+//     for (let i = 0; i < arr.length; i++) {
+//         const [val, randomIndex] = arr[i];
+//         nodes.push(new Node(val));
+//     }
+
+//     // Set next and random pointers
+//     for (let i = 0; i < arr.length; i++) {
+//         if (i < arr.length - 1) {
+//             nodes[i].next = nodes[i + 1];
+//         }
+//         if (arr[i][1] !== null) {
+//             nodes[i].random = nodes[arr[i][1]];
+//         }
+//     }
+
+//     return nodes[0];
+// }
+
+// function printList(head) {
+//     let current = head;
+//     let result = '';
+//     while (current) {
+//         const randomVal = current.random ? current.random.val : 'null';
+//         result += `[${current.val}, ${randomVal}]`;
+//         current = current.next;
+//         if (current) {
+//             result += ' -> ';
+//         }
+//     }
+//     console.log(result);
+// }
+
+// const head = createList([[7, null], [13, 0], [11, 4], [10, 2], [1, 0]]);
+// // printList(head); // Original list
+// const copiedHead = copyRandomList(head);
+// printList(copiedHead);
+
+
+
+
+
+
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
+
+// var deleteDuplicates = function(head) {
+//     let dummy = new ListNode(0, head);
+//     let prev = dummy;
+//     let node = head;
+//     while (node !== null) {
+//         if (node.next !== null && node.val === node.next.val) {
+//             while (node.next !== null && node.val === node.next.val) {
+//                 node = node.next;
+//             }
+//             prev.next = node.next;
+//         } else {
+//             prev = prev.next;
+//         }
+//         node = node.next;
+//     }
+
+//     return dummy.next;
+// };
+
+// function arrayToList(arr) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     for (let val of arr) {
+//         current.next = new ListNode(val);
+//         current = current.next;
+//     }
+//     return dummy.next;
+// }
+
+// function listToArray(node) {
+//     let arr = [];
+//     while (node !== null) {
+//         arr.push(node.val);
+//         node = node.next;
+//     }
+//     console.log(arr);
+// }
+
+// let ex = [1,2,3,3,4,4,5];
+// let ex2 = [1,1,1,2,3];
+// let head = arrayToList(ex);
+// listToArray(deleteDuplicates(head));
+
+
+
+
+
+
+// Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+
+// You must do it in place.
+
+// var setZeroes = function(matrix) {
+//     let m = matrix.length; // rows
+//     let n = matrix[0].length; // columns
+    
+//     let firstRowHasZero = false;
+//     let firstColumnHasZero = false;
+
+//     // Step 1: Determine if first row or first column has any zeros
+//     for (let i = 0; i < m; i++) {
+//         if (matrix[i][0] === 0) {
+//             firstColumnHasZero = true;
+//             break;
+//         }
+//     }
+//     for (let j = 0; j < n; j++) {
+//         if (matrix[0][j] === 0) {
+//             firstRowHasZero = true;
+//             break;
+//         }
+//     }
+
+//     // Step 2: Use first row and column as markers
+//     for (let i = 1; i < m; i++) {
+//         for (let j = 1; j < n; j++) {
+//             if (matrix[i][j] === 0) {
+//                 matrix[i][0] = 0;
+//                 matrix[0][j] = 0;
+//             }
+//         }
+//     }
+
+//     // Step 3: Zero out cells based on markers
+//     for (let i = 1; i < m; i++) {
+//         for (let j = 1; j < n; j++) {
+//             if (matrix[i][0] === 0 || matrix[0][j] === 0) {
+//                 matrix[i][j] = 0;
+//             }
+//         }
+//     }
+
+//     // Step 4: Zero out the first row if needed
+//     if (firstRowHasZero) {
+//         for (let j = 0; j < n; j++) {
+//             matrix[0][j] = 0;
+//         }
+//     }
+
+//     // Step 5: Zero out the first column if needed
+//     if (firstColumnHasZero) {
+//         for (let i = 0; i < m; i++) {
+//             matrix[i][0] = 0;
+//         }
+//     }
+// };
+
+
+
+// matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+// setZeroes(matrix);
+// console.log(matrix);
+
+
+
+
+
+
+
+var RandomizedSet = function() {
+    this.map = new Map();
+    this.list = [];
 };
 
-
-var copyRandomList = function(head) {
-    if (head === null) {
-        return null;
+RandomizedSet.prototype.insert = function(val) {
+    if (this.map.has(val)) {
+        return false;
     }
-
-    // Step 1: Create a copy of each node and interleave them
-    let current = head;
-    while (current !== null) {
-        let copy = new Node(current.val, current.next, null);
-        current.next = copy;
-        current = copy.next;
-    }
-
-    // Step 2: Assign random pointers for the copied nodes
-    current = head;
-    while (current !== null) {
-        if (current.random !== null) {
-            current.next.random = current.random.next;
-        }
-        current = current.next.next;
-    }
-
-    // Step 3: Separate the interleaved lists
-    current = head;
-    let copyHead = head.next;
-    let copyCurrent = copyHead;
-    while (current !== null) {
-        current.next = current.next.next;
-        if (copyCurrent.next !== null) {
-            copyCurrent.next = copyCurrent.next.next;
-        }
-        current = current.next;
-        copyCurrent = copyCurrent.next;
-    }
-
-    return copyHead;
+    this.map.set(val, this.list.length);
+    this.list.push(val);
+    return true;
 };
 
-function createList(arr) {
-    const nodes = [];
-
-    // Create all nodes
-    for (let i = 0; i < arr.length; i++) {
-        const [val, randomIndex] = arr[i];
-        nodes.push(new Node(val));
+RandomizedSet.prototype.remove = function(val) {
+    if (!this.map.has(val)) {
+        return false;
     }
+    let index = this.map.get(val);
+    let lastElement = this.list[this.list.length - 1];
 
-    // Set next and random pointers
-    for (let i = 0; i < arr.length; i++) {
-        if (i < arr.length - 1) {
-            nodes[i].next = nodes[i + 1];
-        }
-        if (arr[i][1] !== null) {
-            nodes[i].random = nodes[arr[i][1]];
-        }
-    }
+    this.list[index] = lastElement; // Move the last element to the index of the element to remove
+    this.map.set(lastElement, index); // Update the index of the last element in the map
 
-    return nodes[0];
-}
+    this.list.pop(); // Remove the last element from the list
+    this.map.delete(val); // Remove the element from the map
 
-function printList(head) {
-    let current = head;
-    let result = '';
-    while (current) {
-        const randomVal = current.random ? current.random.val : 'null';
-        result += `[${current.val}, ${randomVal}]`;
-        current = current.next;
-        if (current) {
-            result += ' -> ';
-        }
-    }
-    console.log(result);
-}
+    return true;
+};
 
-const head = createList([[7, null], [13, 0], [11, 4], [10, 2], [1, 0]]);
-// printList(head); // Original list
-const copiedHead = copyRandomList(head);
-printList(copiedHead);
+RandomizedSet.prototype.getRandom = function() {
+    let random = Math.floor(Math.random() * this.list.length);
+    return this.list[random];
+};
+
+let set = new RandomizedSet();
+set.insert(0);
+set.insert(1);
+set.remove(0);
+set.insert(2);
+set.remove(1);
+console.log(set.getRandom());
