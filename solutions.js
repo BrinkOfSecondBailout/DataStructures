@@ -1459,45 +1459,49 @@ substring without repeating characters
 
 
 
-var RandomizedSet = function() {
-    this.map = new Map();
-    this.list = [];
-};
+// var RandomizedSet = function() {
+//     this.map = new Map();
+//     this.list = [];
+// };
 
-RandomizedSet.prototype.insert = function(val) {
-    if (this.map.has(val)) {
-        return false;
-    }
-    this.map.set(val, this.list.length);
-    this.list.push(val);
-    return true;
-};
+// RandomizedSet.prototype.insert = function(val) {
+//     if (this.map.has(val)) {
+//         return false;
+//     }
+//     this.map.set(val, this.list.length);
+//     this.list.push(val);
+//     return true;
+// };
 
-RandomizedSet.prototype.remove = function(val) {
-    if (!this.map.has(val)) {
-        return false;
-    }
-    let index = this.map.get(val);
-    let lastElement = this.list[this.list.length - 1];
+// RandomizedSet.prototype.remove = function(val) {
+//     if (!this.map.has(val)) {
+//         return false;
+//     }
+//     let index = this.map.get(val);
+//     let lastElement = this.list[this.list.length - 1];
 
-    this.list[index] = lastElement; // Move the last element to the index of the element to remove
-    this.map.set(lastElement, index); // Update the index of the last element in the map
+//     this.list[index] = lastElement; // Move the last element to the index of the element to remove
+//     this.map.set(lastElement, index); // Update the index of the last element in the map
 
-    this.list.pop(); // Remove the last element from the list
-    this.map.delete(val); // Remove the element from the map
+//     this.list.pop(); // Remove the last element from the list
+//     this.map.delete(val); // Remove the element from the map
 
-    return true;
-};
+//     return true;
+// };
 
-RandomizedSet.prototype.getRandom = function() {
-    let random = Math.floor(Math.random() * this.list.length);
-    return this.list[random];
-};
+// RandomizedSet.prototype.getRandom = function() {
+//     let random = Math.floor(Math.random() * this.list.length);
+//     return this.list[random];
+// };
 
-let set = new RandomizedSet();
-set.insert(0);
-set.insert(1);
-set.remove(0);
-set.insert(2);
-set.remove(1);
-console.log(set.getRandom());
+// let set = new RandomizedSet();
+// set.insert(0);
+// set.insert(1);
+// set.remove(0);
+// set.insert(2);
+// set.remove(1);
+// console.log(set.getRandom());
+
+
+
+
