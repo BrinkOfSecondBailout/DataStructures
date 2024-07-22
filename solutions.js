@@ -1560,3 +1560,64 @@ substring without repeating characters
 // let s = "PAYPALISHIRING";
 // let numRows = 3;
 // console.log(convert(s, numRows)); // Expected output: "PAHNAPLSIIGYIR"
+
+
+
+
+
+
+
+// var gameOfLife = function(board) {
+//     const m = board.length;
+//     const n = board[0].length;
+
+//     // Count live neightbors
+//     const countLiveNeighbors = (r, c) => {
+//         let count = 0;
+//         for (let i = -1; i <= 1; i++) {
+//             for (let j = -1; j <= 1; j++) {
+//                 if (i === 0 && j === 0) continue; // Skip the cell
+//                 const nr = r + i;
+//                 const nc = c + j;
+//                 if (nr >= 0 && nr < m && nc >= 0 && nc < n && (board[nr][nc] === 1 || board[nr][nc] === -1)) {
+//                     count++;
+//                 }
+//             }
+//         }
+//         return count;
+//     }
+
+//     // Apply rules to update the board
+//     for (let r = 0; r < m; r++) {
+//         for (let c = 0; c < n; c++) {
+//             const liveNeighbors = countLiveNeighbors(r, c);
+
+//             if (board[r][c] === 1) {
+//                 if (liveNeighbors < 2 || liveNeighbors > 3) {
+//                     board[r][c] = -1; // Live to dead
+//                 }
+//             } else {
+//                 if (liveNeighbors === 3) {
+//                     board[r][c] = 2; // Dead to live
+//                 }
+//             }
+//         }
+//     }
+
+//     // Finalize board by converting temporary states to final states
+//     for (let r = 0; r < m; r++) {
+//         for (let c = 0; c < n; c++) {
+//             if (board[r][c] === -1) {
+//                 board[r][c] = 0; // Dead
+//             } else if (board[r][c] === 2) {
+//                 board[r][c] = 1; // Live
+//             }
+//         }
+//     }
+// };
+
+
+// board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]];
+
+// gameOfLife(board);
+// console.log(board);
