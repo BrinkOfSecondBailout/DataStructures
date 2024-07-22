@@ -176,3 +176,191 @@
 // nums2 = [0,1,1]
 // nums3 = [0,0,0]
 // console.log(threeSum(nums3));
+
+
+// var reverseWords = function(s) {
+//     let words = s.trim().split(" ");
+    
+//     words = words.filter(word => word.length > 0);
+
+//     return words.reverse().join(" ");
+    
+// };
+
+// let s = "the sky is blue";
+// let s2 = "  hello world  ";
+// let s3 = "a good   example";
+// console.log(reverseWords(s3));
+
+
+
+// var MinStack = function() {
+//     this.stack = [];
+//     this.minStack = [];
+// };
+
+// /** 
+//  * @param {number} val
+//  * @return {void}
+//  */
+// MinStack.prototype.push = function(val) {
+//     this.stack.push(val);
+//     if (this.minStack.length === 0 || val <= this.minStack[this.minStack.length - 1]) {
+//         this.minStack.push(val);
+//     } else {
+//         this.minStack.push(this.minStack[this.minStack.length - 1]);
+//     }
+// };
+
+// /**
+//  * @return {void}
+//  */
+// MinStack.prototype.pop = function() {
+//     this.stack.pop();
+//     this.minStack.pop();
+// };
+
+// /**
+//  * @return {number}
+//  */
+// MinStack.prototype.top = function() {
+//     return this.stack[this.stack.length - 1];
+// };
+
+// /**
+//  * @return {number}
+//  */
+// MinStack.prototype.getMin = function() {
+//     return this.minStack[this.minStack.length - 1];
+// };
+
+
+
+
+// var rotate = function(matrix) {
+//     let m = matrix.length;
+//     let n = matrix[0].length;
+
+//     // Transpose
+//     for (let r = 0; r < m; r++) {
+//         for (let c = r + 1; c < n; c++) {
+//             [matrix[r][c], matrix[c][r]] = [matrix[c][r], matrix[r][c]];
+//         }
+//     }
+
+//     // Reverse
+//     for (let r = 0; r < m; r++) {
+//         matrix[r].reverse();
+//     }
+// };
+
+// let matrix = [[1,2,3],[4,5,6],[7,8,9]];
+// rotate(matrix);
+// console.log(matrix);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function Node(val, next = null, random = null) {
+//     this.val = val;
+//     this.next = next;
+//     this.random = random;
+// }
+
+
+// var copyRandomList = function(head) {
+//     if (head === null) {
+//         return null;
+//     }
+
+//     // Step 1: Create a copy of each node and interleave them
+//     let current = head;
+//     while (current !== null) {
+//         let copy = new Node(current.val, current.next, null);
+//         current.next = copy;
+//         current = copy.next;
+//     }
+
+//     // Step 2: Assign random pointers for the copied nodes
+//     current = head;
+//     while (current !== null) {
+//         if (current.random !== null) {
+//             current.next.random = current.random.next;
+//         }
+//         current = current.next.next;
+//     }
+
+//     // Step 3: Separate the interleaved lists
+//     current = head;
+//     let copyHead = head.next;
+//     let copyCurrent = copyHead;
+//     while (current !== null) {
+//         current.next = current.next.next;
+//         if (copyCurrent.next !== null) {
+//             copyCurrent.next = copyCurrent.next.next;
+//         }
+//         current = current.next;
+//         copyCurrent = copyCurrent.next;
+//     }
+
+//     return copyHead;
+// };
+
+// function createList(arr) {
+//     const nodes = [];
+
+//     // Create all nodes
+//     for (let i = 0; i < arr.length; i++) {
+//         const [val, randomIndex] = arr[i];
+//         nodes.push(new Node(val));
+//     }
+
+//     // Set next and random pointers
+//     for (let i = 0; i < arr.length; i++) {
+//         if (i < arr.length - 1) {
+//             nodes[i].next = nodes[i + 1];
+//         }
+//         if (arr[i][1] !== null) {
+//             nodes[i].random = nodes[arr[i][1]];
+//         }
+//     }
+
+//     return nodes[0];
+// }
+
+
+// function printList(head) {
+//     let current = head;
+//     let result = '';
+//     while (current) {
+//         const randomVal = current.random ? current.random.val : 'null';
+//         result += `[${current.val}, ${randomVal}]`;
+//         current = current.next;
+//         if (current) {
+//             result += ' -> ';
+//         }
+//     }
+//     console.log(result);
+// }
+
+
+// let head = createList([[7, null], [13, 0], [11, 4], [10, 2], [1, 0]]);
+// // printList(head); // Original list
+// const copiedHead = copyRandomList(head);
+// printList(copiedHead);
+
+
+
+
+
+
+

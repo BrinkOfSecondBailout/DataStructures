@@ -52,3 +52,36 @@
 
 
 
+// Reverse Words in String
+
+// let s = "the sky is blue";
+// let s2 = "  hello world  ";
+// let s3 = "a good   example";
+// console.log(reverseWords(s3));
+
+
+
+///////////////////////
+
+// Rotate Image
+
+// let matrix = [[1,2,3],[4,5,6],[7,8,9]];
+// rotate(matrix);
+// console.log(matrix);
+
+
+
+////////////////////////
+
+// Copy List with Random Pointer 
+
+// const head = createList([[7, null], [13, 0], [11, 4], [10, 2], [1, 0]]);
+// // printList(head); // Original list
+// const copiedHead = copyRandomList(head);
+// printList(copiedHead);
+
+
+
+
+
+////////////////////////
