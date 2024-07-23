@@ -1621,3 +1621,25 @@ substring without repeating characters
 
 // gameOfLife(board);
 // console.log(board);
+
+
+
+
+
+// var lengthOfLastWord = function(s) {
+//     let words = s.trim().split(" ");
+//     words = words.filter(word => word.length > 0);
+
+//     return words[words.length - 1].length;
+// };
+
+
+// s = "Hello World" // Expected: 5
+// s2 = "   fly me   to   the moon  " // Expected: 4
+// s3 = "luffy is still joyboy" // Expected: 6
+// console.log(lengthOfLastWord(s3)); 
+
+
+
+
+

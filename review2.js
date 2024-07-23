@@ -478,3 +478,175 @@
 // matrix2 = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
 // setZeroes(matrix2);
 // console.log(matrix2);
+
+
+
+
+
+// var RandomizedSet = function() {
+//     this.map = new Map();
+//     this.list = [];
+// };
+
+// RandomizedSet.prototype.insert = function(val) {
+//     if (!this.map.has(val)) {
+//         this.map.set(val, this.list.length);
+//         this.list.push(val);
+//         return true;
+//     } else {
+//         return false;
+//     }
+// };
+
+
+// RandomizedSet.prototype.remove = function(val) {
+//     if (this.map.has(val)) {
+//         let index = this.map.get(val);
+//         let lastElement = this.list[this.list.length - 1];
+//         this.list[index] = lastElement;
+//         this.map.set(lastElement, index);
+//         this.map.delete(val);
+//         this.list.pop();
+//         return true;
+//     } else {
+//         return false;
+//     }
+// };
+
+// RandomizedSet.prototype.getRandom = function() {
+//     return this.list[Math.floor(Math.random() * this.list.length)];
+// };
+
+
+
+
+// var productExceptSelf = function(nums) {
+//     let n = nums.length;
+//     let left = new Array(n).fill(1);
+//     let right = new Array(n).fill(1);
+//     let result = new Array(n);
+
+//     for (let i = 1; i < n; i++) {
+//         left[i] = left[i - 1] * nums[i - 1];
+//     }
+
+//     for (let j = nums.length - 2; j >= 0; j--) {
+//         right[j] = right[j + 1] * nums[j + 1];
+//     }
+
+//     for (let i = 0; i < n; i++) {
+//         result[i] = left[i] * right[i];
+//     }
+
+//     return result;
+// };
+
+// nums = [1,2,3,4];
+// console.log(productExceptSelf(nums));
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var convert = function(s, numRows) {
+//     if (numRows === 1 || numRows >= s.length) {
+//         return s;
+//     }
+
+//     let rows = new Array(Math.min(numRows, s.length)).fill('');
+//     let goingDown = false;
+//     let currentRow = 0;
+
+//     for (let c of s) {
+//         if (currentRow === 0 || currentRow === numRows - 1) {
+//             goingDown = !goingDown
+//         }
+//         rows[currentRow] += c;
+//         currentRow += (goingDown) ? 1 : -1;
+//     }
+
+//     return rows.join("");
+// };
+
+
+// let s = "PAYPALISHIRING";
+// let numRows = 3;
+// console.log(convert(s, numRows)); // Expected output: "PAHNAPLSIIGYIR"
+
+
+
+
+
+
+
+
+
+
+
+
+// var gameOfLife = function(board) {
+//     let m = board.length;
+//     let n = board[0].length;
+
+//     const countLiveNeighbors = (r, c) => {
+//         let count = 0;
+//         for (let i = -1; i <= 1; i++) {
+//             for (let j = -1; j <= 1; j++) {
+//                 if (i === 0 && j === 0) continue;
+//                 let nr = r + i;
+//                 let nc = c + j;
+//                 if (nr >= 0 && nr < m && nc >= 0 && nc < n && (board[nr][nc] === 1 || board[nr][nc] === -1)) {
+//                     count++;
+//                 }
+//             }
+//         }
+//         return count;
+//     }
+
+//     for (let r = 0; r < m; r++) {
+//         for (let c = 0; c < n; c++) {
+//             let liveNeighbors = countLiveNeighbors(r, c);
+
+//             if (board[r][c] === 1) {
+//                 if (liveNeighbors < 2 || liveNeighbors > 3) {
+//                     board[r][c] = -1;
+//                 }
+//             } else {
+//                 if (liveNeighbors === 3) {
+//                     board[r][c] = 2;
+//                 }
+//             }
+//         }
+//     }
+
+//     for (let r = 0; r < m; r++) {
+//         for (let c = 0; c < n; c++) {
+//             if (board[r][c] === -1) {
+//                 board[r][c] = 0;
+//             } else if (board[r][c] === 2) {
+//                 board[r][c] = 1;
+//             }
+//         }
+//     }
+// };
+
+
+// board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]; // Expected: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
+// board2 = [[1,1],[1,0]];
+
+// gameOfLife(board);
+// console.log(board);
+
+
+
+
+
+

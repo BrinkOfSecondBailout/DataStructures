@@ -107,5 +107,58 @@
 // console.log(matrix2);
 
 
+///////////////////////////
+
+// Insert Delete Get Random
+
+// let set = new RandomizedSet();
+// set.insert(0);
+// set.insert(1);
+// set.remove(0);
+// set.insert(2);
+// set.remove(1);
+// console.log(set.getRandom());
 
 
+/////////////////////////////
+
+// Product of Array Except Self
+
+// nums = [1,2,3,4];
+// console.log(productExceptSelf(nums));
+
+
+//////////////////////////
+
+
+/// ZIG ZAG CONVERSION
+
+// let s = "PAYPALISHIRING";
+// let numRows = 3;
+// console.log(convert(s, numRows)); // Expected output: "PAHNAPLSIIGYIR"
+
+
+//////////////////////
+
+// Game Of Life
+
+// board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]];
+
+// gameOfLife(board);
+// console.log(board);
+
+
+
+/////////////////////////
+
+
+// Length of Last Word
+
+// s = "Hello World" // Expected: 5
+// s2 = "   fly me   to   the moon  " // Expected: 4
+// s3 = "luffy is still joyboy" // Expected: 6
+// console.log(lengthOfLastWord(s3)); 
+
+
+
+///////////////////////
