@@ -364,3 +364,117 @@
 
 
 
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
+
+// var deleteDuplicates = function(head) {
+//     let dummy = new ListNode(0, head);
+//     let prev = dummy;
+//     let current = head;
+
+//     while (current && current.next) {
+//         if (current.val === current.next.val) {
+//             while (current.val === current.next.val) {
+//                 current = current.next;
+//             }
+//             current = current.next;
+//             prev.next = current;
+//         } else {
+//             prev = prev.next;
+//             current = current.next;
+//         }
+//     }
+//     return dummy.next;
+// };
+
+// function arrayToList(arr) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+
+//     for (let val of arr) {
+//         current.next = new ListNode(val);
+//         current = current.next;
+//     }
+//     return dummy.next;
+// }
+
+// function listToArray(node) {
+//     let arr = [];
+//     while (node) {
+//         arr.push(node.val);
+//         node = node.next;
+//     }
+
+//     console.log(arr);
+    
+// }
+
+// let ex = [1,2,3,3,4,4,5];
+// let ex2 = [1,1,1,2,3];
+// let head = arrayToList(ex2);
+// listToArray(deleteDuplicates(head));
+
+
+
+
+
+
+
+
+// var setZeroes = function(matrix) {
+//     let m = matrix.length;
+//     let n = matrix[0].length;
+//     let firstRowHasZero = false;
+//     let firstColumnHasZero = false;
+    
+//     for (let c = 0; c < n; c++) {
+//         if (matrix[0][c] === 0) {
+//             firstRowHasZero = true;
+//             break;
+//         }
+//     }
+
+//     for (let r = 0; r < m; r++) {
+//         if (matrix[r][0] === 0) {
+//             firstColumnHasZero = true;
+//             break;
+//         }
+//     }
+
+//     for (let r = 1; r < m; r++) {
+//         for (let c = 1; c < n; c++) {
+//             if (matrix[r][c] === 0) {
+//                 matrix[r][0] = 0;
+//                 matrix[0][c] = 0;
+//             }
+//         }
+//     }
+
+//     for (let r = 1; r < m; r++) {
+//         for (let c = 1; c < n; c++) {
+//             if (matrix[r][0] === 0 || matrix[0][c] === 0) {
+//                 matrix[r][c] = 0;
+//             }
+//         }
+//     }
+
+//     if (firstRowHasZero) {
+//         for (let c = 0; c < n; c++) {
+//             matrix[0][c] = 0;
+//         }
+//     }
+
+//     if (firstColumnHasZero) {
+//         for (let r = 0; r < m; r++) {
+//             matrix[r][0] = 0;
+//         }
+//     }
+// };
+
+
+// matrix = [[1,1,1],[1,0,1],[1,1,1]]
+// matrix2 = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+// setZeroes(matrix2);
+// console.log(matrix2);

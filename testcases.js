@@ -85,3 +85,27 @@
 
 
 ////////////////////////
+
+
+// Remove Duplicates from Sorted Lists II
+
+// let ex = [1,2,3,3,4,4,5];
+// let ex2 = [1,1,1,2,3];
+// let head = arrayToList(ex);
+// listToArray(deleteDuplicates(head));
+
+
+
+////////////////////////
+
+
+// Set Matrix Zeroes
+
+// matrix = [[1,1,1],[1,0,1],[1,1,1]]
+// matrix2 = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+// setZeroes(matrix2);
+// console.log(matrix2);
+
+
+
+
