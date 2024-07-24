@@ -273,3 +273,15 @@
 
 // console.log(findMinArrowShots(points));
 
+
+///////////////////////////
+
+// Partition List
+
+// head = [1,4,3,2,5,2];
+// let headNode = arrayToList(head);
+// x = 3;
+
+// printList(partition(headNode, x));
+
+/////////////////////////////

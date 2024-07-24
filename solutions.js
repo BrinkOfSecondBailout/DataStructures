@@ -1787,10 +1787,10 @@ substring without repeating characters
 
 
 
-// function ListNode(val, next) {
-//     this.val = (val===undefined ? 0 : val)
-//     this.next = (next===undefined ? null : next)
-// }
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+}
 
 // var mergeTwoLists = function(list1, list2) {
 //     let dummy = new ListNode(0);
@@ -2029,3 +2029,47 @@ function printList(head) {
 // points2 = [[1,2],[3,4],[5,6],[7,8]] // Expected: 4
 
 // console.log(findMinArrowShots(points));
+
+
+
+
+
+// var partition = function(head, x) {
+//     let leftHead = new ListNode(0);
+//     let rightHead = new ListNode(0);
+
+//     let left = leftHead;
+//     let right = rightHead;
+
+//     let current = head;
+
+//     while(current) {
+//         if (current.val < x) {
+//             left.next = current;
+//             left = left.next;
+//         } else {
+//             right.next = current;
+//             right = right.next;
+//         }
+//         current = current.next;
+//     }
+
+//     right.next = null;
+//     left.next = rightHead.next;
+
+//     return leftHead.next;
+// };
+
+
+
+
+// head = [1,4,3,2,5,2];
+// let headNode = arrayToList(head);
+// x = 3;
+
+// printList(partition(headNode, x));
+
+
+
+
+
