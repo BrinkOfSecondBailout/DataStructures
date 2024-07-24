@@ -204,3 +204,31 @@
 // head = [3,2,0,-4]; // Expected: true
 // pos = 1;
 // console.log(hasCycle(headList));
+
+
+
+/////////////////////////////
+
+// Merge Sorted Linked Lists
+
+// list1 = [1,2,4];
+// list2 = [1,3,4]; // Expected: [1,1,2,3,4,4]
+
+// let list1real = arrayToList(list1);
+// let list2real = arrayToList(list2);
+
+// let head = mergeTwoLists(list1real, list2real);
+// printList(head);
+
+
+
+////////////////////////////
+
+// Candy
+
+// ratings = [1,0,2]; // Expected: 5
+// ratings2 = [1,2,2]; // Expected: 4
+
+// console.log(candy(ratings2));
+
+

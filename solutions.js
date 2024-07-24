@@ -1784,3 +1784,107 @@ substring without repeating characters
 // head = [3,2,0,-4]; // Expected: true
 // pos = 1;
 // console.log(hasCycle(headList));
+
+
+
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
+
+// var mergeTwoLists = function(list1, list2) {
+//     let dummy = new ListNode(0);
+//     let tail = dummy;
+
+//     while (list1 !== null && list2 !== null) {
+//         if (list1.val < list2.val) {
+//             tail.next = list1;
+//             list1 = list1.next;
+//         } else {
+//             tail.next = list2;
+//             list2 = list2.next;
+//         }
+//         tail = tail.next;
+//     }
+
+//     if (list1 !== null) {
+//         tail.next = list1;
+//     }
+
+//     if (list2 !== null) {
+//         tail.next = list2;
+//     }
+
+//     return dummy.next;
+// };
+
+function arrayToList(arr) {
+    let dummy = new ListNode(0);
+    let current = dummy;
+    for (let val of arr) {
+        current.next = new ListNode(val);
+        current = current.next;
+    }
+    return dummy.next;
+}
+
+function printList(head) {
+    let current = head;
+    let result = '';
+
+    while (current) {
+        result += `${current.val} -> `;
+        current = current.next;
+    }
+
+    console.log(result);
+}
+
+// list1 = [1,2,4];
+// list2 = [1,3,4]; // Expected: [1,1,2,3,4,4]
+
+// let list1real = arrayToList(list1);
+// let list2real = arrayToList(list2);
+
+// let head = mergeTwoLists(list1real, list2real);
+// printList(head);
+
+
+
+
+
+
+
+
+
+
+var candy = function(ratings) {
+    let n = ratings.length;
+    if (n === 0) return 0;
+
+    let candies = new Array(n).fill(1);
+
+    // Left to right
+    for (let i = 1; i < n; i++) {
+        if (ratings[i] > ratings[i - 1]) {
+            candies[i] = candies[i - 1] + 1;
+        }
+    }
+
+    // Right to left
+    for (let i = n - 2; i >= 0; i--) {{
+        if (ratings[i] > ratings[i + 1]) {
+            candies[i] = Math.max(candies[i], candies[i + 1] + 1);
+        }
+    }}
+
+    let totalCandies = candies.reduce((sum, val) => sum + val, 0);
+    return totalCandies;
+};
+
+
+ratings = [1,0,2]; // Expected: 5
+ratings2 = [1,2,2]; // Expected: 4
+
+console.log(candy(ratings2));
+
