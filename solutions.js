@@ -1643,3 +1643,109 @@ substring without repeating characters
 
 
 
+
+
+
+// var strStr = function(haystack, needle) {
+//     return haystack.indexOf(needle);
+// };
+
+// var strStr = function(haystack, needle) {
+//     let h = haystack.length;
+//     let n = needle.length;
+
+//     if (n === 0) return 0;
+
+//     for (let i = 0; i < h; i++) {
+//         if (haystack.substring(i, i + n) === needle) {
+//             return i;
+//         }
+//     }
+
+//     return -1;
+// }
+
+// haystack = "sadbutsad";
+// needle = "sad"; // Expected: 0
+// haystack2 = "leetcode";
+// needle2 = "leeto"; // Expceted: -1
+// haystack3 = "hello";
+// needle3 = "ll"; // Expceted: 2
+// console.log(strStr(haystack3, needle3));
+
+
+
+
+
+// var maxArea = function(height) {
+//     let left = 0;
+//     let right = height.length - 1;
+//     let maxArea = 0;
+
+//     while (left < right) {
+//         let width = right - left;
+//         let currentHeight = Math.min(height[left], height[right]);
+//         let currentArea = width * currentHeight;
+//         maxArea = Math.max(maxArea, currentArea);
+
+//         if (height[left] < height[right]) {
+//             left++;
+//         } else {
+//             right--;
+//         }
+//     }
+
+//     return maxArea;
+// }
+
+
+// height = [1,8,6,2,5,4,8,3,7] // Expected: 49
+// height = [1,1] // Expected 1
+
+// console.log(maxArea(height));
+
+
+
+
+
+
+var evalRPN = function(tokens) {
+    let stack = [];
+
+    for (let token of tokens) {
+        if (!isNaN(token)) {
+            stack.push(Number(token));
+        } else {
+            let b = stack.pop();
+            let a = stack.pop();
+            let result;
+
+            switch(token) {
+                case '+':
+                    result = a + b;
+                    break;
+                case '-':
+                    result = a - b;
+                    break;
+                case '*':
+                    result = a * b;
+                    break;
+                case '/':
+                    result = Math.trunc(a / b);
+                    break;
+                default:
+                    throw new Error('Invalid operator');
+            }
+            stack.push(result);
+        }
+    }
+    return stack.pop();
+};
+
+
+
+tokens = ["2","1","+","3","*"]; // Expected: 9
+tokens2 = ["4","13","5","/","+"] // Expected: 6
+tokens3 = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"] // Expected: 22
+
+console.log(evalRPN(tokens3));

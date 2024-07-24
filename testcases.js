@@ -162,3 +162,35 @@
 
 
 ///////////////////////
+
+// Find Index of First Occurence
+
+// haystack = "sadbutsad";
+// needle = "sad"; // Expected: 0
+// haystack2 = "leetcode";
+// needle2 = "leeto"; // Expceted: -1
+// haystack3 = "hello";
+// needle3 = "ll"; // Expceted: 2
+// console.log(strStr(haystack3, needle3));
+
+
+/////////////////////////
+
+// Containers with Most Water
+
+// height = [1,8,6,2,5,4,8,3,7] // Expected: 49
+// height = [1,1] // Expected 1
+
+// console.log(maxArea(height));
+
+
+
+///////////////////////
+
+// Evaluate Reverse Polish Notation 
+
+// tokens = ["2","1","+","3","*"]; // Expected: 9
+// tokens2 = ["4","13","5","/","+"] // Expected: 6
+// tokens3 = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"] // Expected: 22
+
+// console.log(evalRPN(tokens3));
