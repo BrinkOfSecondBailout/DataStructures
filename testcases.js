@@ -232,3 +232,25 @@
 // console.log(candy(ratings2));
 
 
+/////////////////////////
+
+// Summary Ranges
+
+// nums = [0,1,2,4,5,7]; // Expected: ["0->2","4->5","7"]
+
+// nums2 = [0,2,3,4,6,8,9]; // Expected: ["0","2->4","6","8->9"]
+
+// console.log(summaryRanges(nums));
+
+////////////////////////
+
+
+// Merge intervals
+
+// intervals = [[1,3],[2,6],[8,10],[15,18]]; // Expected: [[1,6],[8,10],[15,18]]
+// intervals2 = [[1,4],[4,5]]; // Expected: [[1,5]]
+// console.log(merge(intervals));
+
+///////////////////////////
+
+

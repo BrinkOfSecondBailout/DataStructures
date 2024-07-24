@@ -1858,33 +1858,113 @@ function printList(head) {
 
 
 
-var candy = function(ratings) {
-    let n = ratings.length;
-    if (n === 0) return 0;
+// var candy = function(ratings) {
+//     let n = ratings.length;
+//     if (n === 0) return 0;
 
-    let candies = new Array(n).fill(1);
+//     let candies = new Array(n).fill(1);
 
-    // Left to right
-    for (let i = 1; i < n; i++) {
-        if (ratings[i] > ratings[i - 1]) {
-            candies[i] = candies[i - 1] + 1;
-        }
-    }
+//     // Left to right
+//     for (let i = 1; i < n; i++) {
+//         if (ratings[i] > ratings[i - 1]) {
+//             candies[i] = candies[i - 1] + 1;
+//         }
+//     }
 
-    // Right to left
-    for (let i = n - 2; i >= 0; i--) {{
-        if (ratings[i] > ratings[i + 1]) {
-            candies[i] = Math.max(candies[i], candies[i + 1] + 1);
-        }
-    }}
+//     // Right to left
+//     for (let i = n - 2; i >= 0; i--) {{
+//         if (ratings[i] > ratings[i + 1]) {
+//             candies[i] = Math.max(candies[i], candies[i + 1] + 1);
+//         }
+//     }}
 
-    let totalCandies = candies.reduce((sum, val) => sum + val, 0);
-    return totalCandies;
-};
+//     let totalCandies = candies.reduce((sum, val) => sum + val, 0);
+//     return totalCandies;
+// };
 
 
-ratings = [1,0,2]; // Expected: 5
-ratings2 = [1,2,2]; // Expected: 4
+// ratings = [1,0,2]; // Expected: 5
+// ratings2 = [1,2,2]; // Expected: 4
 
-console.log(candy(ratings2));
+// console.log(candy(ratings2));
+
+
+
+
+
+
+// var summaryRanges = function(nums) {
+//     let n = nums.length;
+
+//     if (n === 0) return [];
+
+//     let result = [];
+//     let start = nums[0];
+
+//     for (let i = 1; i < n; i++) {
+//         if (nums[i] !== nums[i - 1] + 1) {
+//             if (start === nums[i - 1]) {
+//                 result.push(`${start}`);
+//             } else {
+//                 result.push(`${start}->${nums[i - 1]}`);
+//             }
+//             start = nums[i];
+//         }
+//     }
+
+//     if (start === nums[nums.length - 1]) {
+//         result.push(`${start}`);
+//     } else {
+//         result.push(`${start}->${nums[nums.length - 1]}`);
+//     }
+
+//     return result;
+// };
+
+// nums = [0,1,2,4,5,7]; // Expected: ["0->2","4->5","7"]
+
+// nums2 = [0,2,3,4,6,8,9]; // Expected: ["0","2->4","6","8->9"]
+
+// console.log(summaryRanges(nums));
+
+
+
+
+
+
+
+
+// var merge = function(intervals) {
+//     if (intervals.length === 0) return [];
+
+//     // Sort the intervals by their start time
+//     intervals.sort((a, b) => a[0] - b[0]);
+
+//     let merged = [];
+//     let currentInterval = intervals[0];
+
+//     for (let i = 1; i < intervals.length; i++) {
+//         // If the current interval overlaps with the next interval, merge them
+//         if (currentInterval[1] >= intervals[i][0]) {
+//             currentInterval[1] = Math.max(currentInterval[1], intervals[i][1]);
+//         } else {
+//             // Otherwise, push the current interval to merged and move to the next interval
+//             merged.push(currentInterval);
+//             currentInterval = intervals[i];
+//         }
+//     }
+
+//     // Push the last interval
+//     merged.push(currentInterval);
+
+//     return merged;
+// };
+
+
+// intervals = [[1,3],[2,6],[8,10],[15,18]]; // Expected: [[1,6],[8,10],[15,18]]
+// intervals2 = [[1,4],[4,5]]; // Expected: [[1,5]]
+// console.log(merge(intervals));
+
+
+
 
