@@ -1968,3 +1968,64 @@ function printList(head) {
 
 
 
+// var insert = function(intervals, newInterval) {
+//     let n = intervals.length;
+//     let result = [];
+//     let i = 0;
+//     while (i < n && intervals[i][1] < newInterval[0]) {
+//         result.push(intervals[i]);
+//         i++;
+//     }
+//     while (i < n && intervals[i][0] <= newInterval[1]) {
+//         newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+//         newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+//         i++;
+//     }
+//     result.push(newInterval);
+//     while (i < n) {
+//         result.push(intervals[i]);
+//         i++;
+//     }
+//     return result;
+// };
+
+// intervals = [[1,3],[6,9]];
+// newInterval = [2,5]; // Expected: [[1,5],[6,9]]
+
+// intervals2 = [[1,2],[3,5],[6,7],[8,10],[12,16]];
+// newInterval2 = [4,8]; // Expected: [[1,2],[3,10],[12,16]]
+
+// console.log(insert(intervals2, newInterval2));
+
+
+
+
+
+
+
+// var findMinArrowShots = function(points) {
+//     points = points.sort((a, b) => a[1] - b[1]);
+//     let n = points.length;
+
+//     console.log(points);
+    
+//     let arrows = 1;
+//     let currentEnd = points[0][1];
+
+//     for (let i = 1; i < n; i++) {
+//         if (points[i][0] > currentEnd) {
+//             arrows++;
+//             currentEnd = points[i][1];
+//         }
+//     }
+
+//     return arrows;
+// };
+
+
+
+
+// points = [[10,16],[2,8],[1,6],[7,12]] // Expected: 2
+// points2 = [[1,2],[3,4],[5,6],[7,8]] // Expected: 4
+
+// console.log(findMinArrowShots(points));

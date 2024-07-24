@@ -254,3 +254,22 @@
 ///////////////////////////
 
 
+// Insert Intervals
+
+// intervals = [[1,3],[6,9]];
+// newInterval = [2,5]; // Expected: [[1,5],[6,9]]
+
+// intervals2 = [[1,2],[3,5],[6,7],[8,10],[12,16]];
+// newInterval2 = [4,8]; // Expected: [[1,2],[3,10],[12,16]]
+
+// console.log(insert(intervals, newInterval));
+
+/////////////////////////
+
+// Minimum Arrows to Pop balloons
+
+// points = [[10,16],[2,8],[1,6],[7,12]] // Expected: 2
+// points2 = [[1,2],[3,4],[5,6],[7,8]] // Expected: 4
+
+// console.log(findMinArrowShots(points));
+
