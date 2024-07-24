@@ -194,3 +194,13 @@
 // tokens3 = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"] // Expected: 22
 
 // console.log(evalRPN(tokens3));
+
+
+////////////////////////
+
+// Linked List Cycle 
+
+
+// head = [3,2,0,-4]; // Expected: true
+// pos = 1;
+// console.log(hasCycle(headList));
