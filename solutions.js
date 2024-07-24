@@ -1709,43 +1709,49 @@ substring without repeating characters
 
 
 
-var evalRPN = function(tokens) {
-    let stack = [];
+// var evalRPN = function(tokens) {
+//     let stack = [];
 
-    for (let token of tokens) {
-        if (!isNaN(token)) {
-            stack.push(Number(token));
-        } else {
-            let b = stack.pop();
-            let a = stack.pop();
-            let result;
+//     for (let token of tokens) {
+//         if (!isNaN(token)) {
+//             stack.push(Number(token));
+//         } else {
+//             let b = stack.pop();
+//             let a = stack.pop();
+//             let result;
 
-            switch(token) {
-                case '+':
-                    result = a + b;
-                    break;
-                case '-':
-                    result = a - b;
-                    break;
-                case '*':
-                    result = a * b;
-                    break;
-                case '/':
-                    result = Math.trunc(a / b);
-                    break;
-                default:
-                    throw new Error('Invalid operator');
-            }
-            stack.push(result);
-        }
-    }
-    return stack.pop();
-};
+//             switch(token) {
+//                 case '+':
+//                     result = a + b;
+//                     break;
+//                 case '-':
+//                     result = a - b;
+//                     break;
+//                 case '*':
+//                     result = a * b;
+//                     break;
+//                 case '/':
+//                     result = Math.trunc(a / b);
+//                     break;
+//                 default:
+//                     throw new Error('Invalid operator');
+//             }
+//             stack.push(result);
+//         }
+//     }
+//     return stack.pop();
+// };
 
 
 
-tokens = ["2","1","+","3","*"]; // Expected: 9
-tokens2 = ["4","13","5","/","+"] // Expected: 6
-tokens3 = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"] // Expected: 22
+// tokens = ["2","1","+","3","*"]; // Expected: 9
+// tokens2 = ["4","13","5","/","+"] // Expected: 6
+// tokens3 = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"] // Expected: 22
 
-console.log(evalRPN(tokens3));
+// console.log(evalRPN(tokens3));
+
+
+
+
+
+
