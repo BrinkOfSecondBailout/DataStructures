@@ -2071,44 +2071,44 @@ function printList(head) {
 
 
 
-function Node(val, left, right, next) {
-    this.val = val === undefined ? null : val;
-    this.left = left === undefined ? null : left;
-    this.right = right === undefined ? null : right;
-    this.next = next === undefined ? null : next;
-};
+// function Node(val, left, right, next) {
+//     this.val = val === undefined ? null : val;
+//     this.left = left === undefined ? null : left;
+//     this.right = right === undefined ? null : right;
+//     this.next = next === undefined ? null : next;
+// };
 
-var connect = function(root) {
-    if (!root) return null;
+// var connect = function(root) {
+//     if (!root) return null;
 
-    let queue = [root];
+//     let queue = [root];
 
-    while (queue.length > 0) {
-        let size = queue.length;
-        let prev = null;
+//     while (queue.length > 0) {
+//         let size = queue.length;
+//         let prev = null;
 
-        for (let i = 0; i < size; i++) {
-            let node = queue.shift();
+//         for (let i = 0; i < size; i++) {
+//             let node = queue.shift();
 
-            if (prev) {
-                prev.next = node;
-            }
-            prev = node;
+//             if (prev) {
+//                 prev.next = node;
+//             }
+//             prev = node;
 
-            if (node.left) queue.push(node.left);
-            if (node.right) queue.push(node.right);
-        }
+//             if (node.left) queue.push(node.left);
+//             if (node.right) queue.push(node.right);
+//         }
 
-        prev.next = null;
-    }
+//         prev.next = null;
+//     }
 
-    return root;
-};
+//     return root;
+// };
 
 function createTree(arr) {
     if (arr.length === 0) return null;
 
-    let root = new Node(arr[0]);
+    let root = new TreeNode(arr[0]);
     let queue = [root];
     let i = 1;
 
@@ -2116,13 +2116,13 @@ function createTree(arr) {
         let current = queue.shift();
 
         if (arr[i] !== null) {
-            current.left = new Node(arr[i]);
+            current.left = new TreeNode(arr[i]);
             queue.push(current.left);
         }
         i++;
 
         if (i < arr.length && arr[i] !== null) {
-            current.right = new Node(arr[i]);
+            current.right = new TreeNode(arr[i]);
             queue.push(current.right);
         }
         i++;
@@ -2130,26 +2130,69 @@ function createTree(arr) {
     return root;
 }
 
-function printTreeWithNext(root) {
-    let levels = [];
-    let level = [];
-    let queue = [root];
+// function printTreeWithNext(root) {
+//     let levels = [];
+//     let level = [];
+//     let queue = [root];
 
-    while (queue.length > 0) {
-        let node = queue.shift();
-        if (node) {
-            level.push(node.val);
-            queue.push(node.left);
-            queue.push(node.right);
-        } else {
-            level.push(null);
-        }
-    }
-    console.log(level.join(" -> "));
+//     while (queue.length > 0) {
+//         let node = queue.shift();
+//         if (node) {
+//             level.push(node.val);
+//             queue.push(node.left);
+//             queue.push(node.right);
+//         } else {
+//             level.push(null);
+//         }
+//     }
+//     console.log(level.join(" -> "));
     
+// }
+
+
+// let root = createTree([1, 2, 3, 4, 5, null, 7]);
+// connect(root);
+// printTreeWithNext(root); // Output: 1 -> 2 -> 3 -> 4 -> 5 -> 7 -> null
+
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
 }
 
+// Breadth First Approach
+// var maxDepth = function(root) {
+//     if (!root) return 0;
+//     let queue = [root];
+//     let count = 0;
 
-let root = createTree([1, 2, 3, 4, 5, null, 7]);
-connect(root);
-printTreeWithNext(root); // Output: 1 -> 2 -> 3 -> 4 -> 5 -> 7 -> null
+//     while (queue.length > 0) {
+//         count++;
+//         for (let i = 0; i < queue.length; i++) {
+//             let node = queue.shift();
+//             if (node.left) queue.push(node.left);
+//             if (node.right) queue.push(node.right);
+//         }
+//     }
+//     return count;
+// };
+
+// Depth First Approach
+// var maxDepth = function(root) {
+//     if (!root) return 0;
+
+//     let left = maxDepth(root.left);
+//     let right = maxDepth(root.right);
+
+//     return Math.max(left, right) + 1;
+// }
+
+
+
+// let root = createTree([3,9,20,null,null,15,7]); // Expected: 3
+// let root2 = createTree([1,null,2]); // Expected: 2
+// console.log(maxDepth(root2));
+
+
+
+

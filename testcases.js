@@ -285,3 +285,17 @@
 // printList(partition(headNode, x));
 
 /////////////////////////////
+
+// Populating next right pointer of each node II
+
+// let root = createTree([1, 2, 3, 4, 5, null, 7]);
+// connect(root);
+// printTreeWithNext(root); // Output: 1 -> 2 -> 3 -> 4 -> 5 -> 7 -> null
+
+////////////////////////////
+
+// Maximum Tree Depth
+
+// let root = createTree([3,9,20,null,null,15,7]); // Expected: 3
+// let root2 = createTree([1,null,2]); // Expected: 2
+// console.log(maxDepth(root2));
