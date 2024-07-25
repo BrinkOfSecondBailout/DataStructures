@@ -2071,5 +2071,57 @@ function printList(head) {
 
 
 
+function Node(val, left, right, next) {
+    this.val = val === undefined ? null : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+    this.next = next === undefined ? null : next;
+};
+
+var connect = function(root) {
+    if (!root) return null;
+
+    let queue = [root];
+
+    while (queue.length > 0) {
+        let size = queue.length;
+        let prev = null;
+
+        for (let i = 0; i < size; i++) {
+            let node = queue.shift();
+
+            if (prev) {
+                prev.next = node;
+            }
+            prev = node;
+
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+
+        prev.next = null;
+    }
+
+    return root;
+};
+
+function createTree(arr) {
+    if (arr.length === 0) return null;
+
+    let root = new Node(arr[0]);
+    let queue = [root];
+    let i = 1;
+
+    while (i < arr.length) {
+        let current = queue.shift();
+
+        if (arr[i] !== null) {
+            current.left = new Node(arr[i]);
+        }
+    }
+}
 
 
+let root = createTree([1, 2, 3, 4, 5, null, 7]);
+connect(root);
+printTreeWithNext(root); // Output: 1 -> 2 -> 3 -> 4 -> 5 -> 7 -> null
