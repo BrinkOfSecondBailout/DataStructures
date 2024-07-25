@@ -2117,8 +2117,36 @@ function createTree(arr) {
 
         if (arr[i] !== null) {
             current.left = new Node(arr[i]);
+            queue.push(current.left);
+        }
+        i++;
+
+        if (i < arr.length && arr[i] !== null) {
+            current.right = new Node(arr[i]);
+            queue.push(current.right);
+        }
+        i++;
+    }
+    return root;
+}
+
+function printTreeWithNext(root) {
+    let levels = [];
+    let level = [];
+    let queue = [root];
+
+    while (queue.length > 0) {
+        let node = queue.shift();
+        if (node) {
+            level.push(node.val);
+            queue.push(node.left);
+            queue.push(node.right);
+        } else {
+            level.push(null);
         }
     }
+    console.log(level.join(" -> "));
+    
 }
 
 
