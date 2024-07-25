@@ -2195,4 +2195,123 @@ function TreeNode(val, left, right) {
 
 
 
+// BFS approach
 
+// var isSameTree = function(p, q) {
+//     let queueLeft = [p];
+//     let queueRight = [q];
+    
+//     while (queueLeft.length > 0 && queueRight.length > 0) {
+//         let leftNode = queueLeft.shift();
+//         let rightNode = queueRight.shift();
+
+//         if (!leftNode && !rightNode) {
+//             continue; // Both nodes are null, continue to next iteration
+//         }
+    
+//         if (!leftNode || !rightNode) {
+//             return false; // One of the nodes is null, the other is not
+//         }
+
+//         if (leftNode.val !== rightNode.val) return false;
+
+//         queueLeft.push(leftNode.left);
+//         queueRight.push(rightNode.left);
+//         queueLeft.push(leftNode.right);
+//         queueRight.push(rightNode.right);
+//     }
+    
+//     return queueLeft.length === queueRight.length;
+// };
+
+
+// DFS approach
+// var isSameTree = function(p, q) {
+//     if (!p && !q) return true;
+//     if (!p || !q) return false;
+//     if (p.val !== q.val) return false;
+
+//     return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+// }
+
+
+// let p = createTree([1,2,3]); 
+// let q = createTree([1,2,3]);
+
+// let p2 = createTree([1,2]);
+// let q2 = createTree([1,null,2]);
+// console.log(isSameTree(p2, q2));
+
+
+
+function printTree(root) {
+    if (root === null) return '[]';
+
+    let result = [];
+    let queue = [root];
+
+    while (queue.length > 0) {
+        let node = queue.shift();
+
+        if (node) {
+            result.push(node.val);
+            queue.push(node.left);
+            queue.push(node.right);
+        } else {
+            result.push(null);
+        }
+    }
+
+    while (result[result.length - 1] === null) {
+        result.pop();
+    }
+
+    return result;
+}
+
+
+
+
+// DFS
+// var invertTree = function(root) {
+//     if (!root) return null;
+
+//     let temp = root.left;
+//     root.left = root.right;
+//     root.right = temp;
+
+//     invertTree(root.left);
+//     invertTree(root.right);
+//     return root;
+// };
+
+// BFS
+
+// var invertTree = function(root) {
+//     if (!root) return null;
+//     let q = [root];
+
+//     while (q.length > 0) {
+//         let node = q.shift();
+
+//         let temp = node.left;
+//         node.left = node.right;
+//         node.right = temp;
+
+//         if (node.left) q.push(node.left);
+//         if (node.right) q.push(node.right);
+//     }
+//     return root;
+// }
+
+// let root = createTree([4, 2, 7, 1, 3, 6, 9]);
+// root = invertTree(root);
+// console.log(printTree(root)); // Output: [4, 7, 2, 9, 6, 3, 1]
+
+// let root2 = createTree([2, 1, 3]);
+// root2 = invertTree(root2);
+// console.log(printTree(root2)); // Output: [2, 3, 1]
+
+// let root3 = createTree([]);
+// root3 = invertTree(root3);
+// console.log(printTree(root3)); // Output: []

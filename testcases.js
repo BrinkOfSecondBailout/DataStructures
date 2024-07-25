@@ -299,3 +299,35 @@
 // let root = createTree([3,9,20,null,null,15,7]); // Expected: 3
 // let root2 = createTree([1,null,2]); // Expected: 2
 // console.log(maxDepth(root2));
+
+///////////////////////////////
+
+// Same Tree
+
+// let p = createTree([1,2,3]); 
+// let q = createTree([1,2,3]);
+
+// let p2 = createTree([1,2]);
+// let q2 = createTree([1,null,2]);
+// console.log(isSameTree(p2, q2));
+
+
+////////////////////////////////
+
+// Invert Binary Tree
+
+// let root = createTree([4, 2, 7, 1, 3, 6, 9]);
+// root = invertTree(root);
+// console.log(printTree(root)); // Output: [4, 7, 2, 9, 6, 3, 1]
+
+// let root2 = createTree([2, 1, 3]);
+// root2 = invertTree(root2);
+// console.log(printTree(root2)); // Output: [2, 3, 1]
+
+// let root3 = createTree([]);
+// root3 = invertTree(root3);
+// console.log(printTree(root3)); // Output: []
+
+
+///////////////////////////////
+
