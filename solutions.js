@@ -2154,11 +2154,6 @@ function createTree(arr) {
 // connect(root);
 // printTreeWithNext(root); // Output: 1 -> 2 -> 3 -> 4 -> 5 -> 7 -> null
 
-function TreeNode(val, left, right) {
-    this.val = (val===undefined ? 0 : val)
-    this.left = (left===undefined ? null : left)
-    this.right = (right===undefined ? null : right)
-}
 
 // Breadth First Approach
 // var maxDepth = function(root) {
@@ -2315,3 +2310,87 @@ function printTree(root) {
 // let root3 = createTree([]);
 // root3 = invertTree(root3);
 // console.log(printTree(root3)); // Output: []
+
+
+
+
+// var isSymmetric = function(root) {
+//     if (!root) return true;
+
+//     const isMirror = (left, right) => {
+//         if (!left && !right) return true;
+//         if (!left || !right) return false;
+//         if (left.val !== right.val) return false;
+
+//         return isMirror(left.left, right.right) && isMirror(left.right, right.left);
+//     }
+
+//     return isMirror(root.left, root.right);
+
+// }
+
+
+// var isSymmetric = function(root) {
+//     let q = [root.left, root.right];
+
+//     while (q.length > 0) {
+//         let left = q.shift();
+//         let right = q.shift();
+
+//         if (!left || !right) return false;
+//         if (!left && !right) continue;
+//         if (left.val !== right.val) return false;
+
+//         q.push(left.left);
+//         q.push(right.right);
+//         q.push(left.right);
+//         q.push(right.left);
+
+//     }
+// }
+
+// let root = createTree([1, 2, 2, 3, 4, 4, 3]);
+// console.log(isSymmetric(root)); // Output: true
+
+// let root2 = createTree([1, 2, 2, null, 3, null, 3]);
+// console.log(isSymmetric(root2)); // Output: false
+
+
+
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
+}
+
+
+// var flatten = function(root) {
+//     if (!root) return;
+
+//     let stack = [root];
+//     let prev = null;
+
+//     while (stack.length > 0) {
+//         let current = stack.pop();
+
+//         if (prev) {
+//             prev.left = null;
+//             prev.right = current;
+//         }
+
+//         if (current.right) stack.push(current.right);
+//         if (current.left) stack.push(current.left);
+
+//         prev = current;
+//     }
+// };
+
+
+// let root = createTree([1,2,5,3,4,null,6]);
+// console.log(flatten(root));
+
+
+
+
+
+

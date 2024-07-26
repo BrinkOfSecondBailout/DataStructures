@@ -331,3 +331,23 @@
 
 ///////////////////////////////
 
+// Symmetric Tree
+
+// let root = createTree([1, 2, 2, 3, 4, 4, 3]);
+// console.log(isSymmetric(root)); // Output: true
+
+// let root2 = createTree([1, 2, 2, null, 3, null, 3]);
+// console.log(isSymmetric(root2)); // Output: false
+
+
+/////////////////////////////
+
+// Flatten Tree
+
+// let root = createTree([1,2,5,3,4,null,6]);
+// console.log(flatten(root));
+
+
+////////////////////////////
+
+
