@@ -738,3 +738,148 @@ function arrayToList(arr) {
 
 
 
+// var rotate = function(nums, k) {
+//     const reverse = (nums, left, right) => {
+//         while (left < right) {
+//             let temp = nums[left];
+//             nums[left] = nums[right];
+//             nums[right] = temp;
+//             left++;
+//             right--;
+//         }
+//         return nums;
+//     }
+
+//     nums = reverse(nums, 0, nums.length - 1);
+//     nums = reverse(nums, 0, k - 1);
+//     nums = reverse(nums, k, nums.length - 1);
+
+//     return nums;
+// };
+
+// let nums = [1,2,3,4,5,6,7];
+// let k = 3; // Expected: [5,6,7,1,2,3,4]
+// console.log(rotate(nums, k));
+
+
+
+
+
+
+// var twoSum = function(numbers, target) {
+//     let left = 0;
+//     let right = numbers.length - 1;
+
+//     while (left < right) {
+//         if (numbers[left] + numbers[right] === target) {
+//             return [left + 1, right + 1];
+//         } else if (numbers[left] + numbers[right] > target) {
+//             right--;
+//         } else {
+//             left++;
+//         }
+//     }
+//     return false;
+// };
+
+// numbers = [2,7,11,15];
+// target = 9; // Expected: [1,2]
+
+// numbers2 = [2,3,4];
+// target2 = 6; // Expected: [1, 3]
+
+// console.log(twoSum(numbers, target));
+
+
+
+
+// var longestConsecutive = function(nums) {
+//     if (nums.length < 1) return 0;
+//     let set = new Set(nums);
+//     let maxCount = 1;
+
+//     for (let val of nums) {
+//         if (!set.has(val - 1)) {
+//             let currentVal = val;
+//             let count = 1;
+
+//             while (set.has(currentVal + 1)) {
+//                 currentVal += 1;
+//                 count += 1;
+//             }
+
+//             maxCount = Math.max(maxCount, count);
+//         }
+        
+//     }
+
+//     return maxCount;
+// };
+
+// let nums = [100,4,200,1,3,2] // Expected: 4
+// let nums2 = [0,3,7,2,5,8,4,6,0,1] // Expected: 9
+// console.log(longestConsecutive(nums));
+
+
+
+
+
+// var simplifyPath = function(path) {
+//     let stack = [];
+
+//     let words = path.split("/");
+
+//     for (let val of words) {
+//         if (val === "" || val === ".") {
+//             continue;
+//         } else if (val === "..") {
+//             if (stack.length > 0) stack.pop();
+//         } else {
+//             stack.push(val);
+//         }
+//     }
+    
+//     return '/' + stack.join('/');
+// }
+
+// path = "/home/"; // Expected: "/home"
+// path2 = "/home//foo/" // Expected: "/home/foo"
+// console.log(simplifyPath(path2));
+
+
+
+
+
+
+var isValidSudoku = function(board) {
+    let rows = new Array(9).fill(new Set());
+    let columns = new Array(9).fill(new Set());
+    let boxes = new Array(9).fill(new Set());
+
+    let m = board.length;
+    let n = board[0].length;
+
+    for (let r = 0; r < m; r++) {
+        for (let c = 0; c < n; c++) {
+            
+        }
+    }
+};
+
+
+board = 
+[["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]; 
+
+// Expected: true;
+
+console.log(isValidSudoku(board));
+
+

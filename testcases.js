@@ -27,6 +27,46 @@
 // let s3 = "pwwkew" // Expected: 3
 // console.log(lengthOfLongestSubstring(s));
 
+/////////////////////////
+
+// Rotate Array
+// let nums = [1,2,3,4,5,6,7];
+// let k = 3; // Expected: [5,6,7,1,2,3,4]
+// console.log(rotate(nums, k));
+
+/////////////////////////
+
+// Two Sum II
+
+
+// numbers = [2,7,11,15];
+// target = 9; // Expected: [1,2]
+
+// numbers2 = [2,3,4];
+// target2 = 6; // Expected: [1, 3]
+
+// console.log(twoSum(numbers2, target2));
+
+/////////////////////////
+
+// Longest Consecutive Sequence
+
+// let nums = [100,4,200,1,3,2] // Expected: 4
+// let nums2 = [0,3,7,2,5,8,4,6,0,1] // Expected: 9
+// console.log(longestConsecutive(nums2));
+
+
+/////////////////////////////
+
+// Simplify Path
+
+// path = "/home/"; // Expected: "/home"
+// path2 = "/home//foo/" // Expected: "/home/foo"
+// console.log(simplifyPath(path2));
+
+
+
+
 
 
 
