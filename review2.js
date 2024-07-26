@@ -103,19 +103,19 @@
 //     return count;
 // }
 
-// function arrayToLinkedList(arr) {
-//     let dummy = new ListNode(0);
-//     let current = dummy.next;
+function arrayToLinkedList(arr) {
+    let dummy = new ListNode(0);
+    let current = dummy.next;
 
-//     while (current !== null) {
-//         for (let val of arr) {
-//             current.val = val;
-//             current = current.next;
-//         }
-//     }
+    while (current !== null) {
+        for (let val of arr) {
+            current.val = val;
+            current = current.next;
+        }
+    }
 
-//     return dummy.next;
-// }
+    return dummy.next;
+}
 
 // function showResult(node) {
 //     let result = '';
@@ -338,19 +338,19 @@
 // }
 
 
-// function printList(head) {
-//     let current = head;
-//     let result = '';
-//     while (current) {
-//         const randomVal = current.random ? current.random.val : 'null';
-//         result += `[${current.val}, ${randomVal}]`;
-//         current = current.next;
-//         if (current) {
-//             result += ' -> ';
-//         }
-//     }
-//     console.log(result);
-// }
+function printList(head) {
+    let current = head;
+    let result = '';
+    while (current) {
+        const randomVal = current.random ? current.random.val : 'null';
+        result += `[${current.val}, ${randomVal}]`;
+        current = current.next;
+        if (current) {
+            result += ' -> ';
+        }
+    }
+    console.log(result);
+}
 
 
 // let head = createList([[7, null], [13, 0], [11, 4], [10, 2], [1, 0]]);
@@ -389,16 +389,16 @@
 //     return dummy.next;
 // };
 
-// function arrayToList(arr) {
-//     let dummy = new ListNode(0);
-//     let current = dummy;
+function arrayToList(arr) {
+    let dummy = new ListNode(0);
+    let current = dummy;
 
-//     for (let val of arr) {
-//         current.next = new ListNode(val);
-//         current = current.next;
-//     }
-//     return dummy.next;
-// }
+    for (let val of arr) {
+        current.next = new ListNode(val);
+        current = current.next;
+    }
+    return dummy.next;
+}
 
 // function listToArray(node) {
 //     let arr = [];
@@ -645,6 +645,94 @@
 // gameOfLife(board);
 // console.log(board);
 
+
+
+
+
+// var twoSum = function(nums, target) {
+//     let map = new Map();
+//     for (let i = 0; i < nums.length; i++) {
+//         let difference = target - nums[i];
+//         if (map.has(difference)) {
+//             return [map.get(difference), i];
+//         } else {
+//             map.set(nums[i], i);
+//         }
+//     }
+//     return false;
+// };
+
+// nums = [2,7,11,15]; 
+// target = 9; // Expected: [0,1]
+// nums2 = [3,2,4]; 
+// target2 = 6; // Expected: [1,2]
+// console.log(twoSum(nums, target));
+
+
+
+
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
+
+// var addTwoNumbers = function(l1, l2) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     let p = l1;
+//     let q = l2;
+//     let carry = 0;
+
+//     while (p || q) {
+//         let x = (p.val) ? p.val : 0;
+//         let y = (q.val) ? q.val : 0;
+//         let sum = carry + x + y;
+
+//         let next = new ListNode(Math.floor(sum % 10));
+//         carry = Math.floor(sum / 10);
+//         current.next = next;
+
+//         current = current.next;
+//         p = p.next;
+//         q = q.next;
+//     }
+
+//     return dummy.next;
+// };
+
+// let l1 = arrayToList([2,4,3]); 
+// let l2 = arrayToList([5,6,4]);
+
+// let l3 = addTwoNumbers(l1, l2);
+// printList(l3);
+
+
+
+
+
+// var lengthOfLongestSubstring = function(s) {
+//     let left = 0;
+//     let right = 0;
+//     let currentMax = 0;
+//     let set = new Set();
+
+//     while (right < s.length) {
+//         if (!set.has(s[right])) {
+//             set.add(s[right]);
+//             currentMax = Math.max(currentMax, right - left + 1);
+//             right++;
+//         } else {
+//             set.delete(s[left]);
+//             left++;
+//         }
+//     }
+//     return currentMax;
+// };
+
+// let s = "abcabcbb"; // Expected: 3
+// let s2 = "bbbbb"; // Expected: 1
+// let s3 = "pwwkew" // Expected: 3
+// console.log(lengthOfLongestSubstring(s));
 
 
 

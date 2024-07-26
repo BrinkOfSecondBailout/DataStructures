@@ -1,3 +1,42 @@
+// Two Sum
+
+// nums = [2,7,11,15]; 
+// target = 9; // Expected: [0,1]
+// nums2 = [3,2,4]; 
+// target2 = 6; // Expected: [1,2]
+// console.log(twoSum(nums, target));
+
+
+////////////////////////////////
+
+// Add Two Numbers
+
+// let l1 = arrayToList([2,4,3]); 
+// let l2 = arrayToList([5,6,4]);
+
+// let l3 = addTwoNumbers(l1, l2);
+// printList(l3);
+
+
+/////////////////////////////
+
+// Longest SubString without Repeating Characters
+
+// let s = "abcabcbb"; // Expected: 3
+// let s2 = "bbbbb"; // Expected: 1
+// let s3 = "pwwkew" // Expected: 3
+// console.log(lengthOfLongestSubstring(s));
+
+
+
+
+
+
+
+
+
+
+
 // Gas Station
 
 // gas = [1,2,3,4,5]; 
@@ -350,4 +389,43 @@
 
 ////////////////////////////
 
+// Path Sum
+
+// let root = createTree([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1]);
+// let targetSum = 22;
+// console.log(hasPathSum(root, targetSum)); // Output: true
+
+// let root2 = createTree([1, 2, 3]);
+// let targetSum2 = 5;
+// console.log(hasPathSum(root2, targetSum2)); // Output: false
+
+
+/////////////////////////////
+
+// Sum Root to Leaf Numbers
+
+// let root1 = createTree([1, 2, 3]);
+// console.log(sumNumbers(root1)); // Output: 25
+
+// let root2 = createTree([4, 9, 0, 5, 1]);
+// console.log(sumNumbers(root2)); // Output: 1026
+
+///////////////////////////
+
+// Binary Search Tree Iterator
+
+// let root = createTree([7, 3, 15, null, null, 9, 20]);
+// let bSTIterator = new BSTIterator(root);
+// console.log(bSTIterator.next());    // return 3
+// console.log(bSTIterator.next());    // return 7
+// console.log(bSTIterator.hasNext()); // return true
+// console.log(bSTIterator.next());    // return 9
+// console.log(bSTIterator.hasNext()); // return true
+// console.log(bSTIterator.next());    // return 15
+// console.log(bSTIterator.hasNext()); // return true
+// console.log(bSTIterator.next());    // return 20
+// console.log(bSTIterator.hasNext()); // return false
+
+
+////////////////////////////
 

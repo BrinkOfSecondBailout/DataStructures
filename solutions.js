@@ -2394,3 +2394,118 @@ function TreeNode(val, left, right) {
 
 
 
+// var hasPathSum = function(root, targetSum) {
+//     if (!root) return false;
+//     let stack = [{node: root, currentSum: targetSum}];
+
+//     while (stack.length > 0) {
+//         let {node, currentSum} = stack.pop();
+
+//         if (!node.left && !node.right && node.val === currentSum) return true;
+
+//         if (node.right) stack.push({node: node.right, currentSum: currentSum - node.val});
+//         if (node.left) stack.push({node: node.left, currentSum: currentSum - node.val});
+//     }
+
+//     return false;
+// };
+
+// let root = createTree([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1]);
+// let targetSum = 22;
+// console.log(hasPathSum(root, targetSum)); // Output: true
+
+// let root2 = createTree([1, 2, 3]);
+// let targetSum2 = 5;
+// console.log(hasPathSum(root2, targetSum2)); // Output: false
+
+
+
+
+
+
+// var sumNumbers = function(root) {
+    // if (!root) return 0;
+//     let stack = [{node: root, currentVal: 0}];
+//     let sum = 0;
+
+//     while (stack.length > 0) {
+//         let {node, currentVal} = stack.pop();
+
+//         currentVal = currentVal * 10 + node.val;
+
+//         if (!node.left && !node.right) sum += currentVal;
+
+//         if (node.right) stack.push({node: node.right, currentVal});
+//         if (node.left) stack.push({node: node.left, currentVal});
+//     }
+
+//     return sum;
+// };
+
+
+// var sumNumbers = function(root) {
+//     const dfs = (node, currentNumber) => {
+//         if (!node) return 0;
+//         currentNumber = currentNumber * 10 + node.val;
+
+//         if (!node.left && !node.right) {
+//             return currentNumber;
+//         }
+
+//         return dfs(node.left, currentNumber) + dfs(node.right, currentNumber);
+//     }
+
+//     return dfs(root, 0);
+// }
+
+// let root1 = createTree([1, 2, 3]);
+// console.log(sumNumbers(root1)); // Output: 25
+
+// let root2 = createTree([4, 9, 0, 5, 1]);
+// console.log(sumNumbers(root2)); // Output: 1026
+
+
+// function TreeNode(val, left, right) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.left = (left===undefined ? null : left)
+//     this.right = (right===undefined ? null : right)
+// }
+
+
+// var BSTIterator = function(root) {
+//     this.stack = [];
+//     this._leftmostInorder(root);
+// };
+
+// BSTIterator.prototype._leftmostInorder = function(root) {
+//     while (root) {
+//         this.stack.push(root);
+//         root = root.left;
+//     }
+// }
+
+// BSTIterator.prototype.next = function() {
+//     let topMostNode = this.stack.pop();
+
+//     if (topMostNode.right) {
+//         this._leftmostInorder(topMostNode.right);
+//     }
+//     return topMostNode.val;
+// };
+
+// BSTIterator.prototype.hasNext = function() {
+//     return this.stack.length > 0;
+// };
+
+
+// let root = createTree([7, 3, 15, null, null, 9, 20]);
+// let bSTIterator = new BSTIterator(root);
+// console.log(bSTIterator.next());    // return 3
+// console.log(bSTIterator.next());    // return 7
+// console.log(bSTIterator.hasNext()); // return true
+// console.log(bSTIterator.next());    // return 9
+// console.log(bSTIterator.hasNext()); // return true
+// console.log(bSTIterator.next());    // return 15
+// console.log(bSTIterator.hasNext()); // return true
+// console.log(bSTIterator.next());    // return 20
+// console.log(bSTIterator.hasNext()); // return false
