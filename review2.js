@@ -852,34 +852,347 @@ function arrayToList(arr) {
 
 
 var isValidSudoku = function(board) {
-    let rows = new Array(9).fill(new Set());
-    let columns = new Array(9).fill(new Set());
-    let boxes = new Array(9).fill(new Set());
+    let rows = Array.from({ length: 9 }, () => new Set());
+    let columns = Array.from({ length: 9 }, () => new Set());
+    let boxes = Array.from({ length: 9 }, () => new Set());
 
-    let m = board.length;
-    let n = board[0].length;
+    for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+            let cellValue = board[r][c];
+            if (cellValue === ".") continue;
 
-    for (let r = 0; r < m; r++) {
-        for (let c = 0; c < n; c++) {
-            
+            let boxIndex = Math.floor(r / 3) * 3 + Math.floor(c / 3);
+
+            if (rows[r].has(cellValue)) return false;
+            if (columns[c].has(cellValue)) return false;
+            if (boxes[boxIndex].has(cellValue)) return false;
+
+            rows[r].add(cellValue);
+            columns[c].add(cellValue);
+            boxes[boxIndex].add(cellValue);
         }
     }
+
+    return true;
 };
 
 
-board = 
-[["5","3",".",".","7",".",".",".","."]
-,["6",".",".","1","9","5",".",".","."]
-,[".","9","8",".",".",".",".","6","."]
-,["8",".",".",".","6",".",".",".","3"]
-,["4",".",".","8",".","3",".",".","1"]
-,["7",".",".",".","2",".",".",".","6"]
-,[".","6",".",".",".",".","2","8","."]
-,[".",".",".","4","1","9",".",".","5"]
-,[".",".",".",".","8",".",".","7","9"]]; 
+// board = 
+// [["5","3",".",".","7",".",".",".","."]
+// ,["6",".",".","1","9","5",".",".","."]
+// ,[".","9","8",".",".",".",".","6","."]
+// ,["8",".",".",".","6",".",".",".","3"]
+// ,["4",".",".","8",".","3",".",".","1"]
+// ,["7",".",".",".","2",".",".",".","6"]
+// ,[".","6",".",".",".",".","2","8","."]
+// ,[".",".",".","4","1","9",".",".","5"]
+// ,[".",".",".",".","8",".",".","7","9"]]; 
 
-// Expected: true;
+// // Expected: true;
 
-console.log(isValidSudoku(board));
+// board2 = 
+// [["8","3",".",".","7",".",".",".","."]
+// ,["6",".",".","1","9","5",".",".","."]
+// ,[".","9","8",".",".",".",".","6","."]
+// ,["8",".",".",".","6",".",".",".","3"]
+// ,["4",".",".","8",".","3",".",".","1"]
+// ,["7",".",".",".","2",".",".",".","6"]
+// ,[".","6",".",".",".",".","2","8","."]
+// ,[".",".",".","4","1","9",".",".","5"]
+// ,[".",".",".",".","8",".",".","7","9"]]
+
+// // Expected: false;
+
+// console.log(isValidSudoku(board2));
 
 
+
+
+
+
+
+// var maxProfit = function(prices) {
+//     let profit = 0;
+//     for (let i = 0; i < prices.length; i++) {
+//         if (prices[i] < prices[i + 1]) {
+//             profit += prices[i + 1] - prices[i];
+//         }
+//     }
+
+//     return profit;
+// };
+
+// prices = [7,1,5,3,6,4] // Expected: 7
+// prices2 = [1,2,3,4,5] // Expected: 4
+// console.log(maxProfit(prices2));
+
+
+
+
+
+// const maxProfit = (prices) => {
+//     let min = Infinity;
+//     let maxProfit = 0;
+
+//     for (let i = 0; i < prices.length; i++) {
+//         if (prices[i] < min) {
+//             min = prices[i];
+//         } else if (prices[i] - min > maxProfit) {
+//             maxProfit = prices[i] - min;
+//         }
+//     }
+
+//     return maxProfit;
+// };
+
+
+// prices = [7,1,5,3,6,4] // Expected: 5
+// prices2 = [7,6,4,3,1] // Expected: 0
+
+// console.log(maxProfit(prices));
+
+
+
+
+
+// var groupAnagrams = function(strs) {
+//     let map = new Map();
+
+//     for (let str of strs) {
+//         sortedString = str.split('').sort().join('');
+//         if (!map.has(sortedString)) {
+//             map.set(sortedString, [])
+//         }
+//         map.get(sortedString).push(str);
+//     }
+
+//     return Array.from(map.values());
+    
+// };
+
+// strs = ["eat","tea","tan","ate","nat","bat"]; // Expected: [["bat"],["nat","tan"],["ate","eat","tea"]]
+// strs2 = ["a"]; // Expected: [["a"]]
+// console.log(groupAnagrams(strs));
+
+
+
+
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+}
+
+
+// var reverseBetween = function(head, left, right) {
+//     let count = 1;
+
+//     let dummy = new ListNode(0, head);
+
+//     let prev = dummy;
+//     let current = head;
+
+//     while (count < left) {
+//         prev = prev.next;
+//         current = current.next;
+//         count++;
+//     }
+
+//     let leftNode = prev;
+//     let lastNode = current;
+//     prev = null;
+
+//     while (count <= right) {
+//         let nextNode = current.next;
+//         current.next = prev;
+        
+//         prev = current;
+//         current = nextNode;
+//         count++;
+//     }
+
+//     leftNode.next = prev;
+//     lastNode.next = current;
+
+//     return dummy.next;
+// };
+
+function arrayToList(arr) {
+    let dummy = new ListNode(0);
+    let current = dummy;
+    for (let val of arr) {
+        current.next = new ListNode(val);
+        current = current.next;
+    }
+    return dummy.next;
+}
+
+function listToArray(head) {
+    let array = [];
+    let current = head;
+    while (current) {
+        array.push(current.val);
+        current = current.next;
+    }
+    return array;
+}
+
+
+// let head = arrayToList([1,2,3,4,5]);
+// let left = 2;
+// let right = 4; // Expected: [1,4,3,2,5]
+
+// console.log(listToArray(reverseBetween(head, left, right)));
+
+
+
+
+
+
+
+// var rotateRight = function(head, k) {
+//     if (!head || k == 0) return head;
+
+//     let length = 1;
+//     let tail = head;
+//     while (tail.next) {
+//         tail = tail.next;
+//         length++;
+//     }
+
+//     tail.next = head;
+
+//     k = k % length;
+//     let stepsToNewTail = length - k - 1;
+//     let newTail = head;
+//     for (let i = 0; i < stepsToNewTail; i++) {
+//         newTail = newTail.next;
+//     }
+
+//     let newHead = newTail.next;
+
+//     newTail.next = null;
+
+//     return newHead;
+// };
+
+// head = arrayToList([1,2,3,4,5]);
+// k = 2; // Expected: [4,5,1,2,3]
+// head2 =arrayToList([0,1,2]);
+// k2 = 4 // Expected: [2, 0, 1]
+// printList(rotateRight(head2, k2));
+
+
+
+
+// var canJump = function(nums) {
+//     let maxReach = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (i > maxReach) {
+//             return false;
+//         }
+//         maxReach = Math.max(maxReach, nums[i] + i);
+//     }
+
+//     return maxReach >= nums.length;
+// };
+
+// nums = [2,3,1,1,4]; // Expected: true
+// nums2 = [3, 2, 1, 0, 4]; // Expected: false
+// console.log(canJump(nums));
+
+
+
+
+
+
+
+
+// var jump = function(nums) {
+//     let n = nums.length;
+//     if (n <= 1) return 0;
+
+//     let jumps = 0;
+//     let currentEnd = 0;
+//     let maxReach = 0;
+
+//     for (let i = 0; i < n - 1; i++) {
+//         maxReach = Math.max(nums[i] + i, maxReach);
+
+//         if (i === currentEnd) {
+//             jumps++;
+//             currentEnd = maxReach;
+//             if (currentEnd >= n - 1) break;
+//         }
+//     }
+
+//     return jumps;
+// };
+
+// nums = [2,3,1,1,4]; // 2
+// nums2 = [2,3,0,1,4] // 2
+// console.log(jump(nums2));
+
+
+
+
+
+
+
+// var spiralOrder = function(matrix) {
+//     let top = 0;
+//     let right = matrix[0].length - 1;
+//     let left = 0;
+//     let bottom = matrix.length - 1;
+//     let result = [];
+
+//     while (top <= bottom && left <= right) {
+//         for (let i = left; i <= right; i++) {
+//             result.push(matrix[top][i]);
+//         }
+//         top++;
+//         for (let i = top; i <= bottom; i++) {
+//             result.push(matrix[i][right]);
+//         }
+//         right--;
+
+//         if (top <= bottom) {
+//             for (let i = right; i >= left; i--) {
+//                 result.push(matrix[bottom][i]);
+//             }
+//             bottom--;
+//         }
+        
+//         if (left <= right) {
+//             for (let i = bottom; i >= top; i--) {
+//                 result.push(matrix[i][left]);
+//             }
+//             left++;
+//         }
+//     }
+
+//     return result;
+    
+// };
+
+// matrix = [[1,2,3],[4,5,6],[7,8,9]]; // [1,2,3,6,9,8,7,4,5]
+
+// matrix2 = [[1,2,3,4],[5,6,7,8],[9,10,11,12]] // [1,2,3,4,8,12,11,10,9,5,6,7]
+
+// console.log(spiralOrder(matrix2));
+
+
+
+
+
+
+
+var hIndex = function(citations) {
+    citations = citations.sort((a, b) => a - b);
+    console.log(citations);
+    
+};
+
+citations = [3,0,6,1,5]; // 3
+citations2 = [1,3,1] // 1
+console.log(hIndex(citations));

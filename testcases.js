@@ -64,7 +64,136 @@
 // path2 = "/home//foo/" // Expected: "/home/foo"
 // console.log(simplifyPath(path2));
 
+///////////////////////////////
 
+// Valid Sudoku
+
+
+// board = 
+// [["5","3",".",".","7",".",".",".","."]
+// ,["6",".",".","1","9","5",".",".","."]
+// ,[".","9","8",".",".",".",".","6","."]
+// ,["8",".",".",".","6",".",".",".","3"]
+// ,["4",".",".","8",".","3",".",".","1"]
+// ,["7",".",".",".","2",".",".",".","6"]
+// ,[".","6",".",".",".",".","2","8","."]
+// ,[".",".",".","4","1","9",".",".","5"]
+// ,[".",".",".",".","8",".",".","7","9"]]; 
+
+// // Expected: true;
+
+// board2 = 
+// [["8","3",".",".","7",".",".",".","."]
+// ,["6",".",".","1","9","5",".",".","."]
+// ,[".","9","8",".",".",".",".","6","."]
+// ,["8",".",".",".","6",".",".",".","3"]
+// ,["4",".",".","8",".","3",".",".","1"]
+// ,["7",".",".",".","2",".",".",".","6"]
+// ,[".","6",".",".",".",".","2","8","."]
+// ,[".",".",".","4","1","9",".",".","5"]
+// ,[".",".",".",".","8",".",".","7","9"]]
+
+// // Expected: false;
+
+// console.log(isValidSudoku(board2));
+
+
+/////////////////////////////////////
+
+// Best Time to Buy and Sell Stock II
+
+// prices = [7,1,5,3,6,4] // Expected: 7
+// prices2 = [1,2,3,4,5] // Expected: 4
+// console.log(maxProfit(prices2));
+
+
+///////////////////////////////////////
+
+// Best Time to Buy Sell Stock
+
+// prices = [7,1,5,3,6,4] // Expected: 5
+// prices2 = [7,6,4,3,1] // Expected: 0
+
+// console.log(maxProfit(prices));
+
+/////////////////////////////////////
+
+// Group Anagrams
+
+// strs = ["eat","tea","tan","ate","nat","bat"]; // Expected: [["bat"],["nat","tan"],["ate","eat","tea"]]
+// strs2 = ["a"]; // Expected: [["a"]]
+// console.log(groupAnagrams(strs));
+
+
+///////////////////////////////
+
+// Reverse Linked List II
+
+// function arrayToList(arr) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     for (let val of arr) {
+//         current.next = new ListNode(val);
+//         current = current.next;
+//     }
+//     return dummy.next;
+// }
+
+// function listToArray(head) {
+//     let array = [];
+//     let current = head;
+//     while (current) {
+//         array.push(current.val);
+//         current = current.next;
+//     }
+//     return array;
+// }
+
+
+// let head = arrayToList([1,2,3,4,5]);
+// let left = 2;
+// let right = 4; // Expected: [1,4,3,2,5]
+
+// console.log(listToArray(reverseBetween(head, left, right)));
+
+
+////////////////////////////
+
+// Rotate List
+
+// head = arrayToList([1,2,3,4,5]);
+// k = 2; // Expected: [4,5,1,2,3]
+// head2 =arrayToList([0,1,2]);
+// k2 = 4 // Expected: [2, 0, 1]
+// printList(rotateRight(head2, k2));
+
+
+///////////////////////////
+
+// Jump Game
+
+// nums = [2,3,1,1,4]; // Expected: true
+// nums2 = [3, 2, 1, 0, 4]; // Expected: false
+// console.log(canJump(nums));
+
+//////////////////////////
+
+// Jump Game II
+
+// nums = [2,3,1,1,4]; // 2
+// nums2 = [2,3,0,1,4] // 2
+// console.log(jump(nums2));
+
+
+///////////////////////
+
+// Spiral Matrix
+
+// matrix = [[1,2,3],[4,5,6],[7,8,9]]; // [1,2,3,6,9,8,7,4,5]
+
+// matrix2 = [[1,2,3,4],[5,6,7,8],[9,10,11,12]] // [1,2,3,4,8,12,11,10,9,5,6,7]
+
+// console.log(spiralOrder(matrix2));
 
 
 
