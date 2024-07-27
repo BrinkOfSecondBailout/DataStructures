@@ -195,6 +195,27 @@
 
 // console.log(spiralOrder(matrix2));
 
+////////////////////////
+
+// H Index
+
+// citations = [3,0,6,1,5]; // 3
+// citations2 = [1,3,1] // 1
+// console.log(hIndex(citations2));
+
+////////////////////////
+// Is Happy
+
+// n = 19; // True
+// n2 = 2; // False
+// console.log(isHappy(n2));
+
+
+
+
+
+
+
 
 
 
@@ -506,6 +527,7 @@
 
 // let root = createTree([3,9,20,null,null,15,7]); // Expected: 3
 // let root2 = createTree([1,null,2]); // Expected: 2
+// let root3 = createTree([0,2,4,1,null,3,-1,5,1,null,6,null,8]) // Expected: 5
 // console.log(maxDepth(root2));
 
 ///////////////////////////////

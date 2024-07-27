@@ -1187,12 +1187,206 @@ function listToArray(head) {
 
 
 
-var hIndex = function(citations) {
-    citations = citations.sort((a, b) => a - b);
-    console.log(citations);
+// var hIndex = function(citations) {
+//     citations = citations.sort((a, b) => a - b);
     
-};
+//     let n = citations.length;
 
-citations = [3,0,6,1,5]; // 3
-citations2 = [1,3,1] // 1
-console.log(hIndex(citations));
+//     for (let i = 0; i < n; i++) {
+//         let numberOfPapersWithThisRatingMinimum = n - i;
+//         let ratings = citations[i];
+//         if (ratings >= numberOfPapersWithThisRatingMinimum) {
+//             return numberOfPapersWithThisRatingMinimum;
+//         }
+//     }
+
+//     return 0;
+// };
+
+// citations = [3,0,6,1,5]; // 3
+// citations2 = [1,3,1] // 1
+// console.log(hIndex(citations2));
+
+
+
+
+
+
+
+// var isHappy = function(n) {
+//     const sumOfSquares = (num) => {
+//         let sum = 0;
+//         while (num > 0) {
+//             let digit = num % 10;
+//             sum += digit * digit;
+//             num = Math.floor(num / 10);
+//         }
+//         return sum;
+//     }
+
+//     let set = new Set();
+//     while (n !== 1) {
+//         n = sumOfSquares(n);
+//         if (!set.has(n)) {
+//             set.add(n);
+//         } else {
+//             return false;
+//         }
+//     }
+
+//     return true;
+// };
+
+// n = 19; // True
+// n2 = 2; // False
+// console.log(isHappy(n2));
+
+
+
+
+
+function createTree(arr) {
+    if (arr.length === 0) return null;
+
+    let root = new TreeNode(arr[0]);
+    let queue = [root];
+    let i = 1;
+
+    while (i < arr.length) {
+        let current = queue.shift();
+
+        if (arr[i] !== null) {
+            current.left = new TreeNode(arr[i]);
+            queue.push(current.left);
+        }
+        i++;
+
+        if (i < arr.length && arr[i] !== null) {
+            current.right = new TreeNode(arr[i]);
+            queue.push(current.right);
+        }
+        i++;
+    }
+    return root;
+}
+
+
+
+
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
+}
+
+// var hasPathSum = function(root, targetSum) {
+//     if (!root) return false;
+//     let stack = [{node: root, currentVal: root.val}];
+
+//     while (stack.length > 0) {
+//         let {node, currentVal} = stack.pop();
+
+//         if (node.right) stack.push({node: node.right, currentVal: node.right.val + currentVal});
+//         if (node.left) stack.push({node: node.left, currentVal: node.left.val + currentVal});
+        
+//         if (!node.left && !node.right && targetSum === currentVal) {
+//             return true;
+//         }
+//     }
+//     return false;
+// };
+
+
+// let root = createTree([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1]);
+// let targetSum = 22;
+// console.log(hasPathSum(root, targetSum)); // Output: true
+
+// let root2 = createTree([1, 2, 3]);
+// let targetSum2 = 5;
+// console.log(hasPathSum(root2, targetSum2)); // Output: false
+
+
+
+
+
+// var maxDepth = function(root) {
+//     if (!root) return 0;
+//     let count = 0;
+//     let q = [root];
+
+//     while (q.length > 0) {
+//         count++;
+//         for (let i = 0; i < q.length; i++) {
+//             let node = q.shift();
+//             if (node.left) q.push(node.left);
+//             if (node.right) q.push(node.right);
+//         }
+//     }
+
+//     return count;
+// };
+
+// var maxDepth = function(root) {
+//     if (!root) return 0;
+
+//     let left = maxDepth(root.left);
+//     let right = maxDepth(root.right);
+
+//     return Math.max(left, right) + 1;
+// }
+
+// let root = createTree([3,9,20,null,null,15,7]); // Expected: 3
+// let root2 = createTree([1,null,2]); // Expected: 2
+// let root3 = createTree([0,2,4,1,null,3,-1,5,1,null,6,null,8]) // Expected: 4
+// console.log(maxDepth(root3));
+
+
+
+
+
+// var isSameTree = function(p, q) {
+//     if (!p && !q) return true;
+//     if (!p || !q) return false;
+//     if (p.val != q.val) return false;
+
+//     return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+
+// };
+
+// var isSameTree = function(p, q) {
+//     let queueLeft = [p];
+//     let queueRight = [q];
+
+//     while (queueLeft.length > 0 && queueRight.length > 0) {
+//         let nodeLeft = queueLeft.shift();
+//         let nodeRight = queueRight.shift();
+
+//         if (!nodeLeft && !nodeRight) continue;
+
+//         if (!leftNode || !rightNode) return false;
+
+//         if (leftNode.val !== rightNode.val) return false;
+
+//         queueLeft.push(nodeLeft.left);
+//         queueRight.push(nodeRight.left);
+
+//         queueLeft.push(nodeLeft.right);
+//         queueRight.push(nodeRight.right);
+//     }
+
+//     return queueLeft.length === queueRight.length;
+// }
+
+
+
+// let p = createTree([1,2,3]); 
+// let q = createTree([1,2,3]);
+
+// let p2 = createTree([1,2]);
+// let q2 = createTree([1,null,2]);
+// console.log(isSameTree(p2, q2));
+
+
+
+
+

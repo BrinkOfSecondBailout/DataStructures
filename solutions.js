@@ -2186,6 +2186,7 @@ function createTree(arr) {
 
 // let root = createTree([3,9,20,null,null,15,7]); // Expected: 3
 // let root2 = createTree([1,null,2]); // Expected: 2
+// let root3 = createTree([0,2,4,1,null,3,-1,5,1,null,6,null,8]) // Expected: 5
 // console.log(maxDepth(root2));
 
 
