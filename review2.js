@@ -1390,3 +1390,167 @@ function TreeNode(val, left, right) {
 
 
 
+function printTree(root) {
+    if (root === null) return '[]';
+
+    let result = [];
+    let queue = [root];
+
+    while (queue.length > 0) {
+        let node = queue.shift();
+
+        if (node) {
+            result.push(node.val);
+            queue.push(node.left);
+            queue.push(node.right);
+        } else {
+            result.push(null);
+        }
+    }
+
+    while (result[result.length - 1] === null) {
+        result.pop();
+    }
+
+    return result;
+}
+
+// var invertTree = function(root) {
+//     if (!root) return null;
+
+//     let temp = root.left;
+//     root.left = root.right;
+//     root.right = temp;
+
+//     invertTree(root.left);
+//     invertTree(root.right);
+
+//     return root;
+// };
+
+// var invertTree = function(root) {
+//     if (!root) return null;
+
+//     let queue = [root];
+
+//     while (queue.length > 0) {
+//         let node = queue.shift();
+
+//         let temp = node.left;
+//         node.left = node.right;
+//         node.right = temp;
+
+//         if (node.left) queue.push(node.left);
+//         if (node.right) queue.push(node.right);
+//     }
+//     return root;
+// }
+
+
+// let root = createTree([4, 2, 7, 1, 3, 6, 9]);
+// root = invertTree(root);
+// console.log(printTree(root)); // Output: [4, 7, 2, 9, 6, 3, 1]
+
+// let root2 = createTree([2, 1, 3]);
+// root2 = invertTree(root2);
+// console.log(printTree(root2)); // Output: [2, 3, 1]
+
+// let root3 = createTree([]);
+// root3 = invertTree(root3);
+// console.log(printTree(root3)); // Output: []
+
+
+
+
+
+// var isSymmetric = function(root) {
+//     if (!root) return true;
+
+//     const isMirror = (left, right) => {
+//         if (!left && !right) return true;
+//         if (!left || !right) return false;
+//         if (left.val !== right.val) return false;
+
+//         return isMirror(left.left, right.right) && isMirror(left.right, right.left);
+//     }
+
+//     return isMirror(root.left, root.right);
+// };
+
+
+
+
+
+// var isSymmetric = function(root) {
+//     if (!root) return true;
+
+//     let queue = [root.left, root.right];
+
+//     while (queue.length > 0) {
+//         let left = queue.shift();
+//         let right = queue.shift();
+
+//         if (!left && !right) continue;
+//         if (!left || !right) return false;
+//         if (left.val !== right.val) return false;
+
+//         queue.push(left.left);
+//         queue.push(right.right);
+//         queue.push(left.right);
+//         queue.push(right.left);
+//     }
+    
+//     return true;
+// };
+
+
+// let root = createTree([1, 2, 2, 3, 4, 4, 3]);
+// console.log(isSymmetric(root)); // Output: true
+
+// let root2 = createTree([1, 2, 2, null, 3, null, 3]);
+// console.log(isSymmetric(root2)); // Output: false
+
+
+
+function _Node(val, left, right, next) {
+    this.val = val === undefined ? null : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+    this.next = next === undefined ? null : next;
+};
+
+
+
+
+// var connect = function(root) {
+//     let queue = [root];
+    
+//     while (queue.length > 0) {
+//         let n = queue.length;
+//         let prev = null;
+
+//         for (let i = 0; i < n; i++) {
+//             let node = queue.shift();
+            
+//             if (prev) {
+//                 prev.next = node;
+//             }
+
+//             prev = node;
+
+//             if (node.left) queue.push(node.left);
+//             if (node.right) queue.push(node.right);
+//         }
+
+//         prev.next = null;
+//     }
+//     return root;
+// };
+
+
+
+
+
+
+
+
