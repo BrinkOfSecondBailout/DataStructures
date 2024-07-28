@@ -2504,3 +2504,38 @@ function TreeNode(val, left, right) {
 // console.log(bSTIterator.hasNext()); // return true
 // console.log(bSTIterator.next());    // return 20
 // console.log(bSTIterator.hasNext()); // return false
+
+
+
+
+
+var lowestCommonAncestor = function(root, p, q) {
+    
+};
+
+
+
+
+
+var getMinimumDifference = function(root) {
+    let prev = null;
+    let min = Infinity;
+
+    const inorder = (node) => {
+        if (!node) return;
+
+        inorder(node.left);
+
+        if (prev !== null) {
+            min = Math.min(min, Math.abs(node.val - prev));
+        }
+
+        prev = node.val;
+
+        inorder(node.right);
+    }
+
+    inorder(root);
+    return min;
+};
+

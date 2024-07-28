@@ -156,17 +156,195 @@
 
 
 
-var connect = function(root) {
-    if (!root) return null;
+// var connect = function(root) {
+//     if (!root) return null;
 
-    let queue = [root];
+//     let queue = [root];
+//     let prev = null;
 
-    while (queue.length > 0) {
-        for (let i = 0; i < queue.length; i++) {
-            let node = queue.shift();
+//     while (queue.length > 0) {
+//         for (let i = 0; i < queue.length; i++) {
+//             let node = queue.shift();
 
-            if (node.left) queue.push(node.left);
-            if (node.right) queue.push(node.right);
-        }
-    }
-};
+//             if (prev) {
+//                 prev.next = node;
+//             }
+//             prev = node;
+
+//             if (node.left) queue.push(node.left);
+//             if (node.right) queue.push(node.right);
+//         }
+//         prev.next = null;
+//     }
+// };
+
+
+// var connect = function(root) {
+//     if (!root) return;
+
+//     const connectNodes = (node) => {
+//         if (!node) return;
+//         if (node.left) {
+//             node.left.next = node.right;
+//         }
+//         if (node.right && node.next) {
+//             node.right.next = node.next.left;
+//         }
+
+//         connectNodes(node.right);
+//         connectNodes(node.left);
+//     }
+
+//     connectNodes(root);
+//     return root;
+// }
+
+
+
+
+
+// var flatten = function(root) {
+//     if (!root) return null;
+
+//     let stack = [root];
+//     let prev = null;
+//     while (stack.length > 0) {
+//         let node = stack.pop();
+//         if (prev) {
+//             prev.left = null;
+//             prev.right = node;
+//         }
+//         prev = node;
+
+//         if (node.right) stack.push(node.right);
+//         if (node.left) stack.push(node.left);
+//     }
+// };
+
+
+
+// var flatten = function(root) {
+//     if (!root) return;
+
+//     flatten(root.left);
+//     flatten(root.right);
+
+//     let rightSubtree = root.right;
+//     root.right = root.left;
+//     root.left = null;
+
+//     let current = root;
+//     while (current.right) {
+//         current = current.right;
+//     }
+
+//     current.right = rightSubtree;
+// }
+
+
+
+
+
+// var sumNumbers = function(root) {
+//     if (!root) return null;
+
+//     let stack = [{node: root, val: 0}];
+
+//     let sum = 0;
+
+//     while (stack.length > 0) {
+//         let {node, val} = stack.pop();
+
+//         let currentVal = val * 10 + node.val;
+
+//         if (!node.left && !node.right) sum += currentVal;
+
+//         if (node.left) stack.push({node: node.left, val: currentVal});
+//         if (node.right) stack.push({node: node.right, val: currentVal});
+//     }
+
+//     return sum;
+
+// };
+
+
+
+// var sumNumbers = function(root) {
+//     if (!root) return null;
+
+//     const dfs = (node, currentVal) => {
+//         if (!node) return 0;
+
+//         currentVal = currentVal * 10 + node.val;
+
+//         if (!node.left && !node.right) {
+//             return currentVal;
+//         }
+
+//         return dfs(root.left, currentVal) + dfs(root.right, currentVal);
+//     }
+
+//     return dfs(root, 0);
+
+// };
+
+
+
+
+
+// var BSTIterator = function(root) {
+//     this.stack = [];
+//     this._leftinorder(root);
+// };
+
+// BSTIterator.prototype._leftinorder = function(node) {
+//     while (node) {
+//         this.stack.push(node);
+//         node = node.left;
+//     }
+// };
+
+// BSTIterator.prototype.next = function() {
+//     let topMostNode = this.stack.pop();
+//     if (topMostNode.right) {
+//         this._leftinorder(topMostNode.right);
+//     }
+//     return topMostNode.val;
+// };
+
+// BSTIterator.prototype.hasNext = function() {
+//     return this.stack.length > 0;
+// };
+
+
+
+
+
+// var kthSmallest = function(root, k) {
+//     if (!root) return null;
+//     let count = 0;
+//     let result = null;
+
+//     const inorder = (node) => {
+//         if (!node || result !== null) return;
+
+//         inorder(node.left);
+
+//         count++;
+//         if (count === k) {
+//             result = node.val;
+//             return;
+//         } 
+
+//         inorder(node.right);
+//     }
+
+//     inorder(root);
+
+//     return result;
+// };
+
+
+
+
+
