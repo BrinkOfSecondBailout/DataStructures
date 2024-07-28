@@ -1550,7 +1550,149 @@ function _Node(val, left, right, next) {
 
 
 
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
+}
+
+
+// var flatten = function(root) {
+//     let stack = [root];
+
+//     let prev = null;
+
+//     while (stack.length > 0) {
+//         let current = stack.pop();
+
+//         if (prev) {
+//             prev.left = null;
+//             prev.right = current;
+//         }
+//         if (current.right) stack.push(current.right);
+//         if (current.left) stack.push(current.left);
+
+//         prev = current;
+//     }
+// };
 
 
 
 
+
+// var sumNumbers = function(root) {
+//     let stack = [{node: root, currentVal: 0}];
+//     let sum = 0;
+
+//     while (stack.length > 0) {
+//         let {node, currentVal} = stack.pop();
+
+//         currentVal = currentVal * 10 + node.val;
+
+//         if (!node.left && !node.right) sum += currentVal;
+
+//         if (node.right) stack.push({node: node.right, currentVal: currentVal});
+//         if (node.left) stack.push({node: node.left, currentVal: currentVal});
+//     }
+
+//     return sum;
+// };
+
+
+
+
+
+// var BSTIterator = function(root) {
+//     this.stack = [];
+//     this._leftmostInorder(root);
+// };
+
+// BSTIterator.prototype._leftmostInorder = function(root) {
+//     while (root) {
+//         this.stack.push(root);
+//         root = root.left;
+//     }
+// };
+
+// BSTIterator.prototype.next = function() {
+//     let topMostNode = this.stack.pop();
+//     if (topMostNode.right) {
+//         this._leftmostInorder(topMostNode.right);
+//     }
+//     return topMostNode.val;
+// };
+
+// BSTIterator.prototype.hasNext = function() {
+//     return this.stack.length > 0; 
+// };
+
+
+
+
+// var kthSmallest = function(root, k) {
+//     let count = 0;
+//     let result = null;
+
+//     const inorder = (node) => {
+//         if (!node || result !== null) return;
+        
+//         inorder(node.left);
+        
+//         count++;
+
+//         if (count === k) {
+//             result = node.val;
+//             return;
+//         }
+
+//         inorder(node.right);
+//     }
+
+//     inorder(root);
+//     return result;
+// };
+
+
+
+
+
+
+// var buildTree = function(preorder, inorder) {
+//     if (!preorder.length || !inorder.length) return null;
+//     let rootVal = preorder[0];
+//     let root = new TreeNode(root);
+//     let rootIndex = inorder.indexOf(rootVal);
+
+//     let leftInorder = inorder.slice(0, rootIndex);
+//     let leftPreorder = preorder.slice(1, leftInorder.length + 1);
+
+//     let rightInorder = inorder.slice(rootIndex + 1);
+//     let rightPreorder = preorder.slice(1 + leftInorder.length);
+
+//     root.left = buildTree(leftPreorder, leftInorder);
+//     root.right = buildTree(rightPreorder, rightInorder);
+
+//     return root;
+// };
+
+
+
+
+// var buildTree = function(inorder, postorder) {
+//     if (!preorder.length || !inorder.length) return null;
+
+//     let rootVal = postorder[postorder.length - 1];
+//     let root = new TreeNode(root);
+//     let rootIndex = inorder.indexOf(rootVal);
+
+//     let leftInorder = inorder.slice(0, rootIndex);
+//     let leftPostOrder = postorder.slice(0, leftInorder.length);
+    
+//     let rightInorder = inorder.slice(rootIndex + 1)
+//     let rightPostorder = postorder.slice(leftPostOrder.length);
+
+//     root.left = buildTree(leftInorder, leftPostOrder);
+//     root.right = buildTree(rightInorder, rightPostorder);
+
+//     return root;
+// };

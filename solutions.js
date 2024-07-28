@@ -406,20 +406,14 @@ substring without repeating characters
 //     const rootVal = preorder[0];
 //     const root = new TreeNode(rootVal);
 
-//     // Find the index of the root in inorder array
 //     const rootIndex = inorder.indexOf(rootVal);
 
-//     // Elements to the left of rootIndex in inorder are in the left subtree
 //     const leftInorder = inorder.slice(0, rootIndex);
-//     // Elements to the right of rootIndex in inorder are in the right subtree
 //     const rightInorder = inorder.slice(rootIndex + 1);
 
-//     // Elements in preorder corresponding to the leftInorder
 //     const leftPreorder = preorder.slice(1, 1 + leftInorder.length);
-//     // Elements in preorder corresponding to the rightInorder
 //     const rightPreorder = preorder.slice(1 + leftInorder.length);
 
-//     // Recursively build the left and right subtrees
 //     root.left = buildTree(leftPreorder, leftInorder);
 //     root.right = buildTree(rightPreorder, rightInorder);
 
