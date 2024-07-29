@@ -703,3 +703,157 @@
 
 
 
+// var maxArea = function(height) {
+//     let left = 0;
+//     let right = height.length - 1;
+//     let maxArea = 0;
+
+//     while (left < right) {
+//         let width = right - left;
+//         let area = Math.min(height[left], height[right]) * width;
+//         maxArea = Math.max(area, maxArea);
+
+//         if (height[left] < height[right]) {
+//             left++;
+//         } else {
+//             right--;
+//         }
+//     }
+
+//     return maxArea;
+// };
+
+// height = [1,8,6,2,5,4,8,3,7] // Expected: 49
+// height2 = [1,1] // Expected 1
+
+// console.log(maxArea(height));
+
+
+
+
+
+// var evalRPN = function(tokens) {
+//     let stack = [];
+//     for (let token of tokens) {
+//         if (!isNaN(token)) {
+//             stack.push(Number(token));
+//         } else {
+//             let b = stack.pop();
+//             let a = stack.pop();
+//             let result;
+//             switch (token) {
+//                 case "+":
+//                     result = a + b;
+//                     stack.push(result);
+//                     break;
+//                 case "-":
+//                     result = a - b;
+//                     stack.push(result);
+//                     break;
+//                 case "*":
+//                     result = a * b;
+//                     stack.push(result);
+//                     break;
+//                 case "/":
+//                     result = a / b;
+//                     stack.push(result);
+//                     break;
+//                 default:
+//                     throw new Error('Invalid operator');
+//             }
+//         }
+//     }
+//     return stack.pop();
+// };
+
+// tokens = ["2","1","+","3","*"]; // Expected: 9
+// tokens2 = ["4","13","5","/","+"] // Expected: 6
+// tokens3 = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"] // Expected: 22
+
+// console.log(evalRPN(tokens3));
+
+
+
+
+
+
+// var hasCycle = function(head) {
+//     if (head === null || head.next === null) {
+//         return false;
+//     }
+
+//     let slow = head;
+//     let fast = head;
+
+//     while (fast !== null && fast.next !== null) {
+//         slow = slow.next;
+//         fast = fast.next.next;
+//         if (slow.val === fast.val) return true;
+//     }
+
+//     return false;
+
+// };
+
+
+
+
+
+// var mergeTwoLists = function(list1, list2) {
+//     let dummy = new ListNode(0);
+//     let tail = dummy;
+
+//     while (list1 !== null && list2 !== null) {
+//         if (list1.val < list2.val) {
+//             tail.next = list1;
+//             list1 = list1.next;
+//         } else {
+//             tail.next = list2;
+//             list2 = list2.next;
+//         }
+//         tail = tail.next;
+//     }
+
+//     if (list1 !== null) {
+//         tail.next = list1;
+//     }
+
+//     if (list2 !== null) {
+//         tail.next = list2;
+//     }
+
+//     return dummy.next;
+// };
+
+
+
+// var candy = function(ratings) {
+//     let shares = new Array(ratings.length).fill(1);
+//     for (let i = 1; i < ratings.length; i++) {
+//         if (ratings[i] > ratings[i - 1]) {
+//             shares[i] = shares[i - 1] + 1;
+//         }
+//     }
+
+//     for (let j = ratings.length - 2; j >= 0; j--) {
+//         if (ratings[j] > ratings[j + 1]) {
+//             shares[j] = Math.max(shares[j], shares[j + 1] + 1);
+//         }
+//     }
+
+//     let total = shares.reduce((sum, val) => sum + val, 0);
+
+//     return total;
+// };
+
+
+
+
+
+
+
+
+
+var summaryRanges = function(nums) {
+    
+};
