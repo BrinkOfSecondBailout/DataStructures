@@ -2517,25 +2517,58 @@ var lowestCommonAncestor = function(root, p, q) {
 
 
 
-var getMinimumDifference = function(root) {
-    let prev = null;
-    let min = Infinity;
+// var getMinimumDifference = function(root) {
+//     let prev = null;
+//     let min = Infinity;
 
-    const inorder = (node) => {
-        if (!node) return;
+//     const inorder = (node) => {
+//         if (!node) return;
 
-        inorder(node.left);
+//         inorder(node.left);
 
-        if (prev !== null) {
-            min = Math.min(min, Math.abs(node.val - prev));
-        }
+//         if (prev !== null) {
+//             min = Math.min(min, Math.abs(node.val - prev));
+//         }
 
-        prev = node.val;
+//         prev = node.val;
 
-        inorder(node.right);
-    }
+//         inorder(node.right);
+//     }
 
-    inorder(root);
-    return min;
-};
+//     inorder(root);
+//     return min;
+// };
 
+
+
+
+// var isValidBST = function(root) {
+//     const validate = (node, min, max) => {
+//         if (!node) return true;
+
+//         if (node.val <= min || node.val >= max) return false;
+
+//         return validate(node.left, min, node.val) && validate(node.right, node.val, max);
+//     };
+
+//     return validate(root, -Infinity, Infinity);
+// };
+
+
+
+// var countNodes = function(root) {
+//     let count = 0;
+
+//     const dfs = (node) => {
+//         if (!node) return;
+
+//         count++;
+
+//         dfs(node.left);
+//         dfs(node.right);
+//     }
+
+//     dfs(root);
+
+//     return count;
+// }

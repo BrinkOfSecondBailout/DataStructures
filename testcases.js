@@ -270,10 +270,10 @@
 
 // Three Sum
 
-// nums = [-1,0,1,2,-1,-4];
-// nums2 = [0,1,1]
-// nums3 = [0,0,0]
-// console.log(threeSum(nums3));
+// nums = [-1,0,1,2,-1,-4]; // [[-1,-1,2],[-1,0,1]]
+// nums2 = [0,1,1] // [0,1,1]
+// nums3 = [0,0,0] // [[0,0,0]]
+// console.log(threeSum(nums));
 
 
 
@@ -294,7 +294,7 @@
 
 // Rotate Image
 
-// let matrix = [[1,2,3],[4,5,6],[7,8,9]];
+// let matrix = [[1,2,3],[4,5,6],[7,8,9]]; // [[7,4,1],[8,5,2],[9,6,3]]
 // rotate(matrix);
 // console.log(matrix);
 
