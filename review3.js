@@ -854,6 +854,108 @@
 
 
 
-var summaryRanges = function(nums) {
-    
+// var summaryRanges = function(nums) {
+//     let n = nums.length;
+//     if (n === 0) return [];
+
+//     let result = [];
+//     let start = nums[0];
+
+//     for(let i = 1; i < n; i++) {
+//         if (nums[i] !== nums[i - 1] + 1) {
+//             if (start === nums[i - 1]) {
+//                 result.push(`${start}`)
+//             } else {
+//                 result.push(`${start} -> ${nums[i - 1]}`);
+//             }
+//             start = nums[i];
+//         }
+//     }
+
+//     if (start === nums[n - 1]) {
+//         result.push(`${start}`);
+//     } else {
+//         result.push(`${start} -> ${nums[n - 1]}`);
+//     }
+
+//     return result;
+// };
+
+
+
+
+// var deleteDuplicates = function(head) {
+//     let dummy = new ListNode(0, head);
+//     let prev = dummy;
+//     let node = head;
+
+//     while (node !== null) {
+//         if (node.next !== null && node.val === node.next.val) {
+//             while (node.next !== null && node.val === node.next.val) {
+//                 node = node.next;
+//             }
+//             prev.next = node.next;
+//         } else {
+//             prev = prev.next;
+//         }
+//         node = node.next;
+//     }
+
+//     return dummy.next;
+
+// };
+
+
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
+
+// function arrayToList(arr) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     for (let val of arr) {
+//         current.next = new ListNode(val);
+//         current = current.next;
+//     }
+//     return dummy.next;
+// }
+
+// function listToArray(node) {
+//     let arr = [];
+//     while (node !== null) {
+//         arr.push(node.val);
+//         node = node.next;
+//     }
+//     console.log(arr);
+// }
+
+// let ex = [1,2,3,3,4,4,5]; // [1,2,5]
+// let ex2 = [1,1,1,2,3]; // [2,3]
+// let head = arrayToList(ex2); 
+// listToArray(deleteDuplicates(head));
+
+
+
+
+var merge = function(intervals) {
+    intervals = intervals.sort((a, b) => a[1] - b[1]);
+    let result = [];
+    let rangeStart = intervals[0];
+
+    for (let i = 1; i < intervals.length; i++) {
+        if (rangeStart[1] >= intervals[i][0]) {
+            rangeStart[1] = Math.max(rangeStart[1], intervals[i][1]);
+        } else {
+            result.push(rangeStart);
+            rangeStart = intervals[i];
+        }
+    }
+    result.push(rangeStart);
+    return result;
 };
+
+
+intervals = [[1,3],[2,6],[8,10],[15,18]]; // Expected: [[1,6],[8,10],[15,18]]
+intervals2 = [[1,4],[4,5]]; // Expected: [[1,5]]
+console.log(merge(intervals2));

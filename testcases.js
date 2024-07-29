@@ -318,9 +318,9 @@
 
 // Remove Duplicates from Sorted Lists II
 
-// let ex = [1,2,3,3,4,4,5];
-// let ex2 = [1,1,1,2,3];
-// let head = arrayToList(ex);
+// let ex = [1,2,3,3,4,4,5]; // [1,2,5]
+// let ex2 = [1,1,1,2,3]; // [2,3]
+// let head = arrayToList(ex); 
 // listToArray(deleteDuplicates(head));
 
 
