@@ -938,24 +938,112 @@
 
 
 
-var merge = function(intervals) {
-    intervals = intervals.sort((a, b) => a[1] - b[1]);
-    let result = [];
-    let rangeStart = intervals[0];
+// var merge = function(intervals) {
+//     intervals = intervals.sort((a, b) => a[1] - b[1]);
+//     let result = [];
+//     let rangeStart = intervals[0];
 
-    for (let i = 1; i < intervals.length; i++) {
-        if (rangeStart[1] >= intervals[i][0]) {
-            rangeStart[1] = Math.max(rangeStart[1], intervals[i][1]);
-        } else {
-            result.push(rangeStart);
-            rangeStart = intervals[i];
-        }
-    }
-    result.push(rangeStart);
-    return result;
-};
+//     for (let i = 1; i < intervals.length; i++) {
+//         if (rangeStart[1] >= intervals[i][0]) {
+//             rangeStart[1] = Math.max(rangeStart[1], intervals[i][1]);
+//         } else {
+//             result.push(rangeStart);
+//             rangeStart = intervals[i];
+//         }
+//     }
+//     result.push(rangeStart);
+//     return result;
+// };
 
 
-intervals = [[1,3],[2,6],[8,10],[15,18]]; // Expected: [[1,6],[8,10],[15,18]]
-intervals2 = [[1,4],[4,5]]; // Expected: [[1,5]]
-console.log(merge(intervals2));
+// intervals = [[1,3],[2,6],[8,10],[15,18]]; // Expected: [[1,6],[8,10],[15,18]]
+// intervals2 = [[1,4],[4,5]]; // Expected: [[1,5]]
+// console.log(merge(intervals2));
+
+
+
+
+
+// var insert = function(intervals, newInterval) {
+//     let result = [];
+//     let n = intervals.length;
+//     let inserted = false;
+//     for (let i = 0; i < n; i++) {   
+//         if (intervals[i][1] < newInterval[0]) {
+//             result.push(intervals[i]);
+//         } else if (intervals[i][0] > newInterval[1]) {
+//             if (!inserted) {
+//                 result.push(newInterval);
+//                 inserted = true;
+//             }
+//             result.push(intervals[i]);
+//         } else {
+//             newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+//             newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+//         }
+//     }
+//     if (!inserted) {
+//         result.push(newInterval);
+//     }
+//     return result;
+// };
+
+
+
+// intervals = [[1,3],[6,9]];
+// newInterval = [2,5]; // Expected: [[1,5],[6,9]]
+
+// intervals2 = [[1,2],[3,5],[6,7],[8,10],[12,16]];
+// newInterval2 = [4,8]; // Expected: [[1,2],[3,10],[12,16]]
+
+// console.log(insert(intervals2, newInterval2))
+
+
+
+
+
+// var findMinArrowShots = function(points) {
+//     points = points.sort((a, b) => a[1] - b[1]);
+//     let count = 1;
+
+//     let currentEnd = points[0][1];
+
+//     for (let i = 1; i < points.length; i++) {
+//         if (currentEnd < points[i][0]) {
+//             count++;
+//             currentEnd = points[i][1];
+//         }
+//     }
+
+//     return count;
+// };
+
+// points = [[10,16],[2,8],[1,6],[7,12]] // Expected: 2
+// points2 = [[1,2],[3,4],[5,6],[7,8]] // Expected: 4
+
+// console.log(findMinArrowShots(points2));
+
+
+
+
+// var partition = function(head, x) {
+//     let current = head;
+//     let leftDummy = new ListNode(0);
+//     let currentLeft = leftDummy;
+//     let rightDummy = new ListNode(0);
+//     let currentRight = rightDummy;
+
+//     while (current) {
+//         if (current.val < x) {
+//             currentLeft.next = current;
+//             currentLeft = currentLeft.next;
+//         } else {
+//             currentRight.next = current;
+//             currentRight = currentRight.next;
+//         }
+//         current = current.next;
+//     }
+//     currentRight.next = null;
+//     currentLeft.next = rightDummy.next;
+//     return leftDummy.next;
+// };
