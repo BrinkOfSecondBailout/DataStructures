@@ -644,3 +644,13 @@
 
 // root = createTree([3,9,20,null,null,15,7]); // [[3],[9,20],[15,7]]
 // console.log(levelOrder(root));
+
+///////////////////////////
+
+// Binary Tree Zigzag Level Order Traversal
+
+// root = createTree([3,9,20,null,null,15,7]);
+// root2 = createTree([1,2,3,4,null,null,5]);
+// console.log(zigzagLevelOrder(root2));
+
+/////////////////////////////

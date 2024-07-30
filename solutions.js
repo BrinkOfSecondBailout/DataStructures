@@ -2672,3 +2672,38 @@ var lowestCommonAncestor = function(root, p, q) {
 
 
 
+
+
+// var zigzagLevelOrder = function(root) {
+//     let result = [];
+//     if (!root) return result;
+
+//     let leftToRight = true;
+
+//     let queue = [root];
+
+//     while (queue.length > 0) {
+//         let levelLength = queue.length;
+//         let valuesInLevel = [];
+
+//         for (let i = 0; i < levelLength; i++) {
+//             let node = queue.shift();
+
+//             if (leftToRight) {
+//                 valuesInLevel.push(node.val);
+//             } else {
+//                 valuesInLevel.unshift(node.val);
+//             }
+
+//             if (node.left) queue.push(node.left);
+//             if (node.right) queue.push(node.right);
+//         }
+//         leftToRight = !leftToRight;
+//         result.push(valuesInLevel);
+//     }
+//     return result;
+// };
+
+// root = createTree([3,9,20,null,null,15,7]);
+// root2 = createTree([1,2,3,4,null,null,5]);
+// console.log(zigzagLevelOrder(root2));
