@@ -620,3 +620,27 @@
 
 ////////////////////////////
 
+// Average Of Levels In Trees
+
+// root = createTree([3,9,20,null,null,15,7]); // [3.00000,14.50000,11.00000]
+// root2 = createTree([3,9,20,15,7]); // [3.00000,14.50000,11.00000]
+// console.log(averageOfLevels(root2));
+
+
+////////////////////////////
+
+// Binary Tree Right Side View 
+
+// root = createTree([1,2,3,null,5,null,4]); // [1,3,4]
+// root2 = createTree([1,null,3]); // [1,3]
+// root3 = createTree([1,2]); // [1,2]
+
+// console.log(rightSideView(root3));
+
+
+////////////////////////////
+
+// Binary Tree Level Order Traversal
+
+// root = createTree([3,9,20,null,null,15,7]); // [[3],[9,20],[15,7]]
+// console.log(levelOrder(root));

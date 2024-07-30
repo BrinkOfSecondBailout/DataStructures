@@ -357,11 +357,11 @@ substring without repeating characters
 
 // Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed) of all the values of the nodes in the tree.
 
-// function TreeNode(val, left, right) {
-//     this.val = (val===undefined ? 0 : val);
-//     this.left = (left===undefined ? 0 : left);
-//     this.right = (right===undefined ? 0 : right);
-// }
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val);
+    this.left = (left===undefined ? 0 : left);
+    this.right = (right===undefined ? 0 : right);
+}
 
 
 // var kthSmallest = function(root, k) {
@@ -2571,3 +2571,104 @@ var lowestCommonAncestor = function(root, p, q) {
 
 //     return count;
 // }
+
+
+
+// var averageOfLevels = function(root) {
+//     let result = [];
+//     if (!root) return result;
+
+//     let queue = [root];
+
+//     while (queue.length > 0) {
+//         let sum = 0;
+//         let count = 0;
+//         let n = queue.length;
+//         for (let i = 0; i < n; i++) {
+//             let node = queue.shift();
+//             sum += node.val;
+//             count++;
+
+//             if (node.left) queue.push(node.left);
+//             if (node.right) queue.push(node.right);
+//         }
+//         result.push(sum / count);
+//     }
+
+//     return result;
+// };
+
+// root = createTree([3,9,20,null,null,15,7]); // [3.00000,14.50000,11.00000]
+// root2 = createTree([3,9,20,15,7]); // [3.00000,14.50000,11.00000]
+// console.log(averageOfLevels(root2));
+
+
+
+
+
+
+
+
+
+
+
+// var rightSideView = function(root) {
+//     let result = [];
+
+//     if (!root) return result;
+
+//     let queue = [root];
+
+//     while (queue.length > 0) {
+//         let levelLength = queue.length;
+//         let rightMostValue = null;
+
+//         for (let i = 0; i < levelLength; i++) {
+//             let node = queue.shift();
+//             rightMostValue = node.val;
+//             if (node.left) queue.push(node.left);
+//             if (node.right) queue.push(node.right);
+//         }
+//         result.push(rightMostValue);
+//     }
+//     return result;
+// };
+
+// root = createTree([1,2,3,null,5,null,4]); // [1,3,4]
+// root2 = createTree([1,null,3]); // [1,3]
+// root3 = createTree([1,2]); // [1,2]
+
+// console.log(rightSideView(root3));
+
+
+
+
+
+// var levelOrder = function(root) {
+//     let result = []
+//     if (!root) return result;
+//     let queue = [root];
+
+//     while (queue.length > 0) {
+//         let levelLength = queue.length;
+//         let valuesInLevel = [];
+//         for (let i = 0; i < levelLength; i++) {
+//             let node = queue.shift();
+//             valuesInLevel.push(node.val);
+
+//             if (node.left) queue.push(node.left);
+//             if (node.right) queue.push(node.right);
+//         }
+//         result.push(valuesInLevel);
+//     }
+//     return result;
+// };
+
+// root = createTree([3,9,20,null,null,15,7]); // [[3],[9,20],[15,7]]
+
+
+// console.log(levelOrder(root));
+
+
+
+
