@@ -2847,46 +2847,99 @@ var lowestCommonAncestor = function(root, p, q) {
 
 
 
-var search = function(nums, target) {
-    let left = 0;
-    let right = nums.length - 1;
+// var search = function(nums, target) {
+//     let left = 0;
+//     let right = nums.length - 1;
 
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2);
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2);
 
-        // If the target is found
-        if (nums[mid] === target) {
-            return mid;
-        }
+//         // If the target is found
+//         if (nums[mid] === target) {
+//             return mid;
+//         }
 
-        // Determine which part is sorted
-        if (nums[left] <= nums[mid]) {
-            // Left part is sorted
-            if (nums[left] <= target && target < nums[mid]) {
-                // Target is in the left part
+//         // Determine which part is sorted
+//         if (nums[left] <= nums[mid]) {
+//             // Left part is sorted
+//             if (nums[left] <= target && target < nums[mid]) {
+//                 // Target is in the left part
+//                 right = mid - 1;
+//             } else {
+//                 // Target is in the right part
+//                 left = mid + 1;
+//             }
+//         } else {
+//             // Right part is sorted
+//             if (nums[mid] < target && target <= nums[right]) {
+//                 // Target is in the right part
+//                 left = mid + 1;
+//             } else {
+//                 // Target is in the left part
+//                 right = mid - 1;
+//             }
+//         }
+//     }
+//     return -1;
+// };
+
+// nums = [4,5,6,7,0,1,2];
+// target = 0; // 4
+
+// nums = [4,5,6,7,0,1,2]; 
+// target = 3; // -1
+
+// console.log(search(nums));
+
+
+
+
+
+
+
+var searchRange = function(nums, target) {
+    const findFirst = () => {
+        let left = 0;
+        let right = nums.length - 1;
+        let first = -1;
+
+        while (left <= right) {
+            let mid = Math.floor((left + right) / 2);
+            if (nums[mid] >= target) {
+                if (nums[mid] === target) first = mid;
                 right = mid - 1;
             } else {
-                // Target is in the right part
                 left = mid + 1;
-            }
-        } else {
-            // Right part is sorted
-            if (nums[mid] < target && target <= nums[right]) {
-                // Target is in the right part
-                left = mid + 1;
-            } else {
-                // Target is in the left part
-                right = mid - 1;
             }
         }
+        return first;
     }
-    return -1;
+
+    const findLast = () => {
+        let left = 0;
+        let right = nums.length - 1;
+        let last = -1;
+
+        while (left <= right) {
+            let mid = Math.floor((left + right) / 2);
+            if (nums[mid] <= target) {
+                if (nums[mid] === target) last = mid;
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return last;
+    }
+
+    if (nums.length === 0) return [-1, -1];
+
+    let firstPos = findFirst();
+    if (firstPos === -1) return [-1, -1];
+
+    let lastPos = findLast();
+
+    return [firstPos, lastPos];
 };
 
-nums = [4,5,6,7,0,1,2];
-target = 0; // 4
 
-nums = [4,5,6,7,0,1,2]; 
-target = 3; // -1
-
-console.log(search(nums));
