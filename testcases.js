@@ -685,4 +685,22 @@
 
 ////////////////////////////
 
+// Find Peak Element
 
+// nums = [1,2,3,1]; // 2
+// nums2 = [1,2,1,3,5,6,4]; // 5
+
+// console.log(findPeakElement(nums));
+
+
+///////////////////////////
+
+// Search in Rotated Sorted Array
+
+// nums = [4,5,6,7,0,1,2];
+// target = 0; // 4
+
+// nums = [4,5,6,7,0,1,2]; 
+// target = 3; // -1
+
+// console.log(search(nums));
