@@ -2707,3 +2707,112 @@ var lowestCommonAncestor = function(root, p, q) {
 // root = createTree([3,9,20,null,null,15,7]);
 // root2 = createTree([1,2,3,4,null,null,5]);
 // console.log(zigzagLevelOrder(root2));
+
+
+// DFS approach
+// var averageOfLevels = function(root) {
+//     let levelSum = [];
+//     let levelCount = [];
+
+//     const dfs = (node, level) => {
+//         if (!node) return;
+
+//         if (levelSum.length === level) {
+//             levelSum.push(0);
+//             levelCount.push(0);
+//         }
+
+//         levelSum[level] += node.val;
+//         levelCount[level] += 1;
+
+//         dfs(node.left, level + 1);
+//         dfs(node.right, level + 1);
+//     };
+
+//     dfs(root, 0);
+
+//     let averages = [];
+//     for (let i = 0; i < levelSum.length; i++) {
+//         averages.push(levelSum[i] / levelCount[i]);
+//     }
+
+//     return averages;
+// };
+
+
+
+
+
+
+
+// var searchInsert = function(nums, target) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] === target) {
+//             return mid;
+//         } else if (nums[mid] < target) {
+//             left = mid + 1;
+//         } else {
+//             right = mid - 1;
+//         }
+//     }
+
+//     return left;
+// };
+
+// nums = [1,3,5,6];
+// target = 5; // 2
+
+// nums2 = [1,3,5,6];
+// target2 = 2; // 1 
+
+// nums3 = [1,3,5,6];
+// target3 = 7; // 4
+// console.log(searchInsert(nums, target));
+
+
+
+
+
+
+
+// var searchMatrix = function(matrix, target) {
+//     if (matrix.length === 0 || matrix[0].length === 0) return false;
+
+//     let m = matrix.length;
+//     let n = matrix[0].length;
+//     let left = 0;
+//     let right = m * n - 1;
+
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2);
+//         let row = Math.floor(mid / n);
+//         let col = mid % n;
+//         let midElement = matrix[row][col];
+
+//         if (midElement === target) {
+//             return true;
+//         } else if (midElement < target) {
+//             left = mid + 1;
+//         } else {
+//             right = mid - 1;
+//         }
+//     }
+
+//     return false;
+// };
+
+
+
+
+// matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]];
+// target = 3; // True
+// console.log(searchMatrix(matrix, target));
+
+// matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]];
+// target = 13; // False
+// console.log(searchMatrix(matrix, target));

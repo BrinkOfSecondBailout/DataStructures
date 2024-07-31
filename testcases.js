@@ -654,3 +654,31 @@
 // console.log(zigzagLevelOrder(root2));
 
 /////////////////////////////
+
+
+// Search Insert Position 
+
+
+// nums = [1,3,5,6];
+// target = 5; // 2
+
+// nums2 = [1,3,5,6];
+// target2 = 2; // 1 
+
+// nums3 = [1,3,5,6];
+// target3 = 7; // 4
+// console.log(searchInsert(nums, target));
+
+
+
+/////////////////////////////
+
+// Search 2D Matrix
+
+// matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]];
+// target = 3; // True
+// console.log(searchMatrix(matrix, target));
+
+// matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]];
+// target = 13; // False
+// console.log(searchMatrix(matrix, target));
