@@ -2897,49 +2897,206 @@ var lowestCommonAncestor = function(root, p, q) {
 
 
 
-var searchRange = function(nums, target) {
-    const findFirst = () => {
-        let left = 0;
-        let right = nums.length - 1;
-        let first = -1;
+// var searchRange = function(nums, target) {
+//     const findFirst = () => {
+//         let left = 0;
+//         let right = nums.length - 1;
+//         let first = -1;
 
-        while (left <= right) {
-            let mid = Math.floor((left + right) / 2);
-            if (nums[mid] >= target) {
-                if (nums[mid] === target) first = mid;
-                right = mid - 1;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return first;
+//         while (left <= right) {
+//             let mid = Math.floor((left + right) / 2);
+//             if (nums[mid] >= target) {
+//                 if (nums[mid] === target) first = mid;
+//                 right = mid - 1;
+//             } else {
+//                 left = mid + 1;
+//             }
+//         }
+//         return first;
+//     }
+
+//     const findLast = () => {
+//         let left = 0;
+//         let right = nums.length - 1;
+//         let last = -1;
+
+//         while (left <= right) {
+//             let mid = Math.floor((left + right) / 2);
+//             if (nums[mid] <= target) {
+//                 if (nums[mid] === target) last = mid;
+//                 left = mid + 1;
+//             } else {
+//                 right = mid - 1;
+//             }
+//         }
+//         return last;
+//     }
+
+//     if (nums.length === 0) return [-1, -1];
+
+//     let firstPos = findFirst();
+//     if (firstPos === -1) return [-1, -1];
+
+//     let lastPos = findLast();
+
+//     return [firstPos, lastPos];
+// };
+
+
+// nums = [5,7,7,8,8,10]; target = 8; // [3,4]
+// nums2 = [5,7,7,8,8,10]; target2 = 6; // [-1,-1] 
+
+// console.log(searchRange(nums, target));
+
+
+
+
+
+// var findMin = function(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] > nums[right]) {
+//             left = mid + 1;
+//         } else {
+//             right = mid;
+//         }
+//     }
+
+//     return nums[left];
+// };
+
+// nums = [3,4,5,1,2]; // 1
+// nums = [4,5,6,7,0,1,2]; // 0
+// nums = [11,13,15,17]; // 11
+
+// console.log(findMin(nums));
+
+
+
+
+// class MinHeap {
+//     constructor() {
+//         this.heap = [];
+//     }
+
+//     insert(val) {
+//         this.heap.push(val);
+//         this.heapifyUp();
+//     }
+
+//     remove() {
+//         if (this.heap.length === 1) return this.heap.pop();
+//         const min = this.heap[0];
+//         this.heap[0] = this.heap.pop();
+//         this.heapifyDown();
+//         return min;
+//     }
+
+//     heapifyUp() {
+//         let index = this.heap.length - 1;
+//         while (index > 0) {
+//             let parentIndex = Math.floor((index - 1) / 2);
+//             if (this.heap[parentIndex] > this.heap[index]) {
+//                 [this.heap[parentIndex], this.heap[index]] = [this.heap[index], this.heap[parentIndex]];
+//                 index = parentIndex;
+//             } else {
+//                 break;
+//             }
+//         }
+//     }
+
+//     heapifyDown() {
+//         let index = 0;
+//         let length = this.heap.length;
+//         while (index < length) {
+//             let left = 2 * index + 1;
+//             let right = 2 * index + 2;
+//             let smallest = index;
+
+//             if (left < length && this.heap[left] < this.heap[smallest]) {
+//                 smallest = left;
+//             }
+//             if (right < length && this.heap[right] < this.heap[smallest]) {
+//                 smallest = right;
+//             }
+
+//             if (smallest !== index) {
+//                 [this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]];
+//                 index = smallest;
+//             } else {
+//                 break;
+//             }
+//         }
+//     }
+
+//     peek() {
+//         return this.heap[0];
+//     }
+
+//     size() {
+//         return this.heap.length;
+//     }
+// }
+
+// var findKthLargest = function(nums, k) {
+//     const minHeap = new MinHeap();
+
+//     for (let num of nums) {
+//         minHeap.insert(num);
+//         if (minHeap.size() > k) {
+//             minHeap.remove();
+//         }
+//     }
+
+//     return minHeap.peek();
+// };
+
+
+
+var kSmallestPairs = function(nums1, nums2, k) {
+    let minHeap = [];
+    let result = [];
+    let m = nums1.length;
+    let n = nums2.length;
+
+    if (m === 0 || n === 0 || k === 0) return result;
+
+    // Initialize the heap with the first element in nums1 with every element in nums2
+    for (let j = 0; j < Math.min(n, k); j++) {
+        minHeap.push([nums1[0] + nums2[j], 0, j]);
     }
 
-    const findLast = () => {
-        let left = 0;
-        let right = nums.length - 1;
-        let last = -1;
+    while (k > 0 && minHeap.length > 0) {
+        let [sum, i, j] = minHeap.shift();
+        result.push([nums1[i], nums2[j]]);
+        k--;
 
-        while (left <= right) {
-            let mid = Math.floor((left + right) / 2);
-            if (nums[mid] <= target) {
-                if (nums[mid] === target) last = mid;
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
+        if (i + 1 < m) {
+            minHeap.push([nums1[i + 1] + nums2[j], i + 1, j]);
         }
-        return last;
+
+        // Re-heapify the heap
+        minHeap.sort((a, b) => a[0] - b[0]);
     }
 
-    if (nums.length === 0) return [-1, -1];
-
-    let firstPos = findFirst();
-    if (firstPos === -1) return [-1, -1];
-
-    let lastPos = findLast();
-
-    return [firstPos, lastPos];
+    return result;
 };
+
+
+// let nums1 = [1, 7, 11];
+// let nums2 = [2, 4, 6];
+// let k = 3;
+// console.log(kSmallestPairs(nums1, nums2, k)); // Output: [[1,2],[1,4],[1,6]]
+
+// nums1 = [1,1,2];
+// nums2 = [1,2,3];
+// k = 2;
+// console.log(kSmallestPairs(nums1, nums2, k)); // Output: [[1,1],[1,1]]
+
+
 
 

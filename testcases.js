@@ -704,3 +704,42 @@
 // target = 3; // -1
 
 // console.log(search(nums));
+
+
+///////////////////////////////
+
+//  Find First and Last Position of Element in Sorted Array
+
+// nums = [5,7,7,8,8,10]; target = 8; // [3,4]
+// nums2 = [5,7,7,8,8,10]; target2 = 6; // [-1,-1] 
+
+// console.log(searchRange(nums, target));
+
+//////////////////////////////
+
+// Find Minimum in Rotated Sorted Array
+
+// nums = [3,4,5,1,2]; // 1
+// nums = [4,5,6,7,0,1,2]; // 0
+// nums = [11,13,15,17]; // 11
+
+// console.log(findMin(nums));
+
+
+//////////////////////////////
+
+
+// Kth Largest Element in an Array
+
+// nums = [3,2,1,5,6,4]; 
+// k = 2; // 5
+
+// nums2 = [3,2,3,1,2,4,5,5,6];
+// k2 = 4; // 4
+
+// console.log(findKthLargest(nums, k));
+
+
+//////////////////////////////////
+
+
