@@ -3101,76 +3101,118 @@ var lowestCommonAncestor = function(root, p, q) {
 
 
 
-var findKthLargest = function(nums, k) {
-    let minHeap = [];
+// var findKthLargest = function(nums, k) {
+//     let minHeap = [];
 
-    const insert = (num) => {
-        minHeap.push(num);
-        heapifyUp();
-    }
+//     const insert = (num) => {
+//         minHeap.push(num);
+//         heapifyUp();
+//     }
 
-    const removeSmallest = () => {
-        if (minHeap.length === 1) return minHeap.pop();
-        let min = minHeap[0];
-        minHeap[0] = minHeap.pop();
-        heapifyDown();
-        return min;
-    }
+//     const removeSmallest = () => {
+//         if (minHeap.length === 1) return minHeap.pop();
+//         let min = minHeap[0];
+//         minHeap[0] = minHeap.pop();
+//         heapifyDown();
+//         return min;
+//     }
 
-    const firstElement = () => {
-        return minHeap[0];
-    }
+//     const firstElement = () => {
+//         return minHeap[0];
+//     }
 
-    const heapifyUp = () => {
-        let index = minHeap.length - 1;
-        while (index > 0) {
-            let parent = Math.floor((index - 1) / 2);
-            if (minHeap[parent] > minHeap[index]) {
-                [minHeap[parent], minHeap[index]] = [minHeap[index], minHeap[parent]];
-                index = parent;
-            } else {
-                break;
-            }
-        }
-    }
+//     const heapifyUp = () => {
+//         let index = minHeap.length - 1;
+//         while (index > 0) {
+//             let parent = Math.floor((index - 1) / 2);
+//             if (minHeap[parent] > minHeap[index]) {
+//                 [minHeap[parent], minHeap[index]] = [minHeap[index], minHeap[parent]];
+//                 index = parent;
+//             } else {
+//                 break;
+//             }
+//         }
+//     }
 
-    const heapifyDown = () => {
-        let index = 0;
-        let length = minHeap.length;
+//     const heapifyDown = () => {
+//         let index = 0;
+//         let length = minHeap.length;
 
-        while (index < length) {
-            let left = 2 * index + 1;
-            let right = 2 * index + 2;
-            let smallest = index;
-            if (left < length && minHeap[left] < minHeap[smallest]) {
-                smallest = left;
-            }
-            if (right < length && minHeap[right] < minHeap[smallest]) {
-                smallest = right;
-            }
+//         while (index < length) {
+//             let left = 2 * index + 1;
+//             let right = 2 * index + 2;
+//             let smallest = index;
+//             if (left < length && minHeap[left] < minHeap[smallest]) {
+//                 smallest = left;
+//             }
+//             if (right < length && minHeap[right] < minHeap[smallest]) {
+//                 smallest = right;
+//             }
 
-            if (smallest !== index) {
-                [minHeap[index], minHeap[smallest]] = [minHeap[smallest], minHeap[index]];
-                index = smallest;
-            } else {
-                break;
-            }
-        }
-    }
+//             if (smallest !== index) {
+//                 [minHeap[index], minHeap[smallest]] = [minHeap[smallest], minHeap[index]];
+//                 index = smallest;
+//             } else {
+//                 break;
+//             }
+//         }
+//     }
 
-    for (let num of nums) {
-        insert(num);
-        if (minHeap.length > k) {
-            removeSmallest();
-        }
-    }
-    return firstElement();
+//     for (let num of nums) {
+//         insert(num);
+//         if (minHeap.length > k) {
+//             removeSmallest();
+//         }
+//     }
+//     return firstElement();
+// };
+
+// nums = [3,2,1,5,6,4];
+// k = 2;
+
+// nums2 = [3,2,3,1,2,4,5,5,6];
+// k2 = 4;
+
+// console.log(findKthLargest(nums, k));
+
+
+
+
+
+// var kSmallestPairs = function(nums1, nums2, k) {
+//     let minHeap = [];
+//     let result = [];
+//     let m = nums1.length;
+//     let n = nums2.length;
+
+//     for (let j = 0; j < n; j++) {
+//         minHeap.push([nums1[0] + nums2[j], 0, j]);
+//     }
+
+//     while (k > 0 && minHeap.length > 0) {
+//         let [sum, i, j] = minHeap.shift();
+//         result.push([nums1[i], nums2[j]]);
+//         k--;
+
+//         if (i + 1 < m) {
+//             minHeap.push([nums1[i + 1] + nums2[j], i + 1, j]);
+//         }
+
+//         minHeap.sort((a, b) => a[0] - b[0]);
+//     }
+
+//     return result;
+
+// };
+
+// nums1 = [1,7,11];
+// nums2 = [2,4,6];
+// k = 3;
+
+// console.log(kSmallestPairs(nums1, nums2, k));
+
+
+
+var numIslands = function(grid) {
+    
 };
-
-nums = [3,2,1,5,6,4];
-k = 2;
-
-nums2 = [3,2,3,1,2,4,5,5,6];
-k2 = 4;
-
-console.log(findKthLargest(nums, k));
