@@ -3212,7 +3212,131 @@ var lowestCommonAncestor = function(root, p, q) {
 // console.log(kSmallestPairs(nums1, nums2, k));
 
 
+// DFS
+// var numIslands = function(grid) {
+//     if (!grid || grid.length === 0) return 0;
 
-var numIslands = function(grid) {
-    
-};
+//     let numIslands = 0;
+//     let m = grid.length;
+//     let n = grid[0].length;
+
+//     const dfs = (r, c) => {
+//         if (r < 0 || c < 0 || r >= m || c >= n || grid[r][c] === '0') {
+//             return;
+//         }
+
+//         grid[r][c] = '0';
+
+//         dfs(r + 1, c);
+//         dfs(r - 1, c);
+//         dfs(r, c + 1);
+//         dfs(r, c - 1);
+//     }
+
+//     for (let r = 0; r < m; r++) {
+//         for (let c = 0; c < n; c++) {
+//             if (grid[r][c] === '1') {
+//                 numIslands++;
+//                 dfs(r, c);
+//             }
+//         }
+//     }
+
+//     return numIslands;
+// };
+
+
+
+
+// // BFS
+// var numIslands = function(grid) {
+//     if (!grid || grid.length === 0) return 0;
+
+//     let numIslands = 0;
+//     let m = grid.length;
+//     let n = grid[0].length;
+//     let directions = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+
+//     const bfs = (r, c) => {
+//         let queue = [[r, c]];
+//         grid[r][c] = '0';
+//         while (queue.length > 0) {
+//             let [r, c] = queue.shift();
+
+//             for (let [dr, dc] of directions) {
+//                 let newRow = r + dr;
+//                 let newCol = c + dc;
+
+//                 if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n && grid[newRow][newCol] === '1') {
+//                     grid[newRow][newCol] = '0';
+//                     queue.push([newRow, newCol]);
+//                 }
+//             }
+//         }
+//     }
+
+//     for (let r = 0; r < m; r++) {
+//         for (let c = 0; c < n; c++) {
+//             if (grid[r][c] === '1') {
+//                 numIslands++;
+//                 bfs(r, c);
+//             }
+//         }
+//     }
+//     return numIslands;
+// }
+
+
+
+
+
+// var solve = function(board) {
+//     let m = board.length;
+//     let n = board[0].length;
+
+//     if (m === 0 || n === 0) return;
+
+//     const dfs = (r, c) => {
+//         if (r < 0 || c < 0 || r >= m || c >= n || board[r][c] !== 'O') {
+//             return;
+//         }
+
+//         board[r][c] = 'T';
+//         dfs(r - 1, c); // Up
+//         dfs(r + 1, c); // Down
+//         dfs(r, c - 1); // Left
+//         dfs(r, c + 1); // Right
+//     }
+
+//     for (let r = 0; r < m; r++) {
+//         if (board[r][0] === 'O') dfs(r, 0);
+//         if (board[r][n - 1] === 'O') dfs(r, n - 1);
+//     }
+
+//     for (let c = 0; c < n; c++) {
+//         if (board[0][c] === 'O') dfs(0, c);
+//         if (board[m - 1][c] === 'O') dfs(m - 1, c);
+//     }
+
+//     for (let r = 0; r < m; r++) {
+//         for (let c = 0; c < n; c++) {
+//             if (board[r][c] === 'O') {
+//                 board[r][c] = 'X';
+//             } else if (board[r][c] === 'T') {
+//                 board[r][c] = 'O';
+//             }
+//         }
+//     }
+// };
+
+// let board = [
+//     ["X","X","X","X"],
+//     ["X","O","O","X"],
+//     ["X","X","O","X"],
+//     ["X","O","X","X"]
+// ];
+// solve(board);
+// // Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+// console.log(board);
+
+
