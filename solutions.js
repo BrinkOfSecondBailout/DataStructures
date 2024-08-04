@@ -3340,3 +3340,156 @@ var lowestCommonAncestor = function(root, p, q) {
 // console.log(board);
 
 
+
+function _Node(val, neighbors) {
+    this.val = val === undefined ? 0 : val;
+    this.neighbors = neighbors === undefined ? [] : neighbors;
+};
+
+// function convertToGraph(matrix) {
+//     let m = matrix.length;
+//     let n = matrix[0].length;
+
+//     if (m === 0 || n === 0) return null;
+
+//     let nodesMap = new Map();
+
+//     for (let i = 0; i < m; i++) {
+//         let val = i + 1;
+//         nodesMap.set(val, new _Node(val));
+//     }
+
+//     for (let i = 0; i < m; i++) {
+//         let node = nodesMap.get(i + 1);
+//         for (let neighborVal of matrix[i]) {
+//             node.neighbors.push(nodesMap.get(neighborVal));
+//         }
+//     }
+
+//     return nodesMap.get(1);
+// }
+
+// function printGraph(node) {
+//     if (!node) return;
+//     let visited = new Set();
+//     let queue = [node];
+
+//     while (queue.length > 0) {
+//         let current = queue.shift();
+//         if (visited.has(current.val)) continue;
+//         visited.add(current.val);
+
+//         let neighbors = current.neighbors.map(n => n.val);
+//         console.log(`Node ${current.val}: Neighbors ${neighbors.join(", ")}`);
+        
+//         for (let neighbor of current.neighbors) {
+//             if (!visited.has(neighbor.val)) {
+//                 queue.push(neighbor);
+//             }
+//         }
+//     }
+// }
+
+// var cloneGraph = function(node) {
+//     if (!node) return null;
+
+//     let visited = new Map();
+
+//     const dfs = (currentNode) => {
+//         if (visited.has(currentNode)) {
+//             return visited.get(currentNode);
+//         }
+
+//         let cloneNode = new _Node(currentNode.val);
+//         visited.set(currentNode, cloneNode);
+
+//         for (let neighbor of currentNode.neighbors) {
+//             cloneNode.neighbors.push(dfs(neighbor));
+//         }
+//         return cloneNode;
+//     }
+
+//     return dfs(node);
+// };
+
+
+
+
+
+// function convertToGraph(list) {
+//     let m = list.length;
+//     let n = list[0].length;
+
+//     if (m === 0 || n === 0) return null;
+
+//     let nodeMap = new Map();
+
+//     for (let i = 0; i < m; i++) {
+//         let val = i + 1;
+//         nodeMap.set(val, new _Node(val));
+//     }
+
+//     for (let i = 0; i < m; i++) {
+//         let val = i + 1;
+//         let node = nodeMap.get(val);
+//         for (let neighbor of list[i]) {
+//             node.neighbors.push(nodeMap.get(neighbor));
+//         }
+//     }
+//     return nodeMap.get(1);
+// }
+
+// function printGraph(node) {
+//     let visted = new Set();
+
+//     const dfs = (node) => {
+//         let current = node;
+
+//         if (visted.has(current)) {
+//             return;
+//         }
+//         visted.add(current);
+
+//         let neighbors = current.neighbors.map(n => n.val);
+
+//         console.log(`Node ${current.val}: Neighbors ${neighbors.join(", ")}`);
+
+//         for (let neighbor of current.neighbors) {
+//             dfs(neighbor);
+//         }
+//     }
+//     dfs(node);
+// }
+
+// function cloneGraph(node) {
+//     if (!node) return null;
+
+//     let visited = new Map();
+
+//     const dfs = (currentNode) => {
+//         if (visited.has(currentNode)) {
+//             return visited.get(currentNode);
+//         }
+//         let cloneNode = new _Node(currentNode.val);
+//         visited.set(currentNode, cloneNode);
+
+//         for (let neighbor of currentNode.neighbors) {
+//             cloneNode.neighbors.push(dfs(neighbor));
+//         }
+//         return cloneNode;
+//     }
+//     return dfs(node);
+// }
+
+
+
+
+
+// let graph = convertToGraph(adjList = [[2,4],[1,3],[2,4],[1,3]]);
+// printGraph(cloneGraph(graph));
+
+
+
+
+
+
