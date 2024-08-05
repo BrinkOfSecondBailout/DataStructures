@@ -3493,3 +3493,6 @@ function _Node(val, neighbors) {
 
 
 
+var calcEquation = function(equations, values, queries) {
+    let result = [];
+};
