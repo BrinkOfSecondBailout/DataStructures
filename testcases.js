@@ -742,4 +742,9 @@
 
 //////////////////////////////////
 
+// Evaluate Division
 
+// let equations = [["a","b"],["b","c"]];
+// let values = [2.0, 3.0];
+// let queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]];
+// console.log(calcEquation(equations, values, queries)); // Output: [6.0, 0.5, -1.0, 1.0, -1.0]

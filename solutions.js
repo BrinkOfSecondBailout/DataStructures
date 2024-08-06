@@ -3493,34 +3493,39 @@ function _Node(val, neighbors) {
 
 
 
-var calcEquation = function(equations, values, queries) {
-    let graph = {};
+// var calcEquation = function(equations, values, queries) {
+//     let graph = {};
 
-    equations.forEach(([A, B], i) => {
-        if (!graph[A]) graph[A] = {};
-        if (!graph[B]) graph[B] = {};
-        graph[A][B] = values[i];
-        graph[B][A] = 1 / values[i];
-    })
+//     equations.forEach(([A, B], i) => {
+//         if (!graph[A]) graph[A] = {};
+//         if (!graph[B]) graph[B] = {};
+//         graph[A][B] = values[i];
+//         graph[B][A] = 1 / values[i];
+//     })
 
-    const dfs = (start, end, visited) => {
-        if (!(start in graph) || !(end in graph)) return -1.0;
-        if (start === end) return 1.0;
+//     const dfs = (start, end, visited) => {
+//         if (!(start in graph) || !(end in graph)) return -1.0;
+//         if (start === end) return 1.0;
 
-        visited.add(start);
+//         visited.add(start);
 
-        for (let neighbor in graph[start]) {
-            if (visited.has(neighbor)) continue;
-            let result = dfs(neighbor, end, visited);
-            if (result !== -1.0) return result * graph[start][neighbor];
-        }
+//         for (let neighbor in graph[start]) {
+//             if (visited.has(neighbor)) continue;
+//             let result = dfs(neighbor, end, visited);
+//             if (result !== -1.0) return result * graph[start][neighbor];
+//         }
 
-        return -1.0;
-    }
+//         return -1.0;
+//     }
 
-    let results = [];
-    for (let [C, D] of queries) {
-        results.push(dfs(C, D, new Set()));
-    }
-    return results;
-};
+//     let results = [];
+//     for (let [C, D] of queries) {
+//         results.push(dfs(C, D, new Set()));
+//     }
+//     return results;
+// };
+
+// let equations = [["a","b"],["b","c"]];
+// let values = [2.0, 3.0];
+// let queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]];
+// console.log(calcEquation(equations, values, queries)); // Output: [6.0, 0.5, -1.0, 1.0, -1.0]
